@@ -1,0 +1,110 @@
+import Link from 'next/link';
+import type { Plan } from '@/lib/pricing-data';
+
+interface PricingCardProps {
+  plan: Plan;
+}
+
+export default function PricingCard({ plan }: PricingCardProps) {
+  const isPopular = plan.popular;
+
+  return (
+    <div
+      className={`relative rounded-2xl p-6 ${
+        isPopular
+          ? 'bg-primary text-white border-2 border-primary shadow-xl scale-105'
+          : 'bg-white border border-gray-200'
+      }`}
+    >
+      {/* Popular Badge */}
+      {isPopular && (
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+          <span className="bg-yellow-400 text-gray-900 text-sm font-bold px-4 py-1 rounded-full">
+            추천
+          </span>
+        </div>
+      )}
+
+      {/* Plan Name */}
+      <h3
+        className={`text-xl font-bold mb-2 ${
+          isPopular ? 'text-white' : 'text-gray-900'
+        }`}
+      >
+        {plan.name}
+      </h3>
+
+      {/* Price */}
+      <div className="mb-4">
+        <span
+          className={`text-3xl font-bold ${
+            isPopular ? 'text-white' : 'text-primary'
+          }`}
+        >
+          {plan.price}
+        </span>
+        {plan.priceNote && (
+          <span
+            className={`text-sm ${
+              isPopular ? 'text-white/80' : 'text-gray-500'
+            }`}
+          >
+            {plan.priceNote}
+          </span>
+        )}
+      </div>
+
+      {/* Description */}
+      <p
+        className={`text-sm mb-6 ${
+          isPopular ? 'text-white/80' : 'text-gray-600'
+        }`}
+      >
+        {plan.description}
+      </p>
+
+      {/* Features */}
+      <ul className="space-y-3 mb-6">
+        {plan.features.map((feature, index) => (
+          <li
+            key={index}
+            className={`flex items-center gap-2 text-sm ${
+              feature.included
+                ? isPopular
+                  ? 'text-white'
+                  : 'text-gray-700'
+                : isPopular
+                ? 'text-white/50'
+                : 'text-gray-400'
+            }`}
+          >
+            <span
+              className={
+                feature.included
+                  ? isPopular
+                    ? 'text-yellow-300'
+                    : 'text-primary'
+                  : ''
+              }
+            >
+              {feature.included ? '✓' : '−'}
+            </span>
+            {feature.text}
+          </li>
+        ))}
+      </ul>
+
+      {/* CTA Button */}
+      <Link
+        href={plan.ctaLink}
+        className={`block w-full text-center py-3 rounded-lg font-medium transition-colors ${
+          isPopular
+            ? 'bg-white text-primary hover:bg-gray-100'
+            : 'bg-primary text-white hover:bg-primary-dark'
+        }`}
+      >
+        {plan.cta}
+      </Link>
+    </div>
+  );
+}

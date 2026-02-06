@@ -37,11 +37,10 @@ export default function HeroSection() {
                 <span className="ml-2 text-sm opacity-80">(무료)</span>
               </button>
               <Link
-                href="/contact"
+                href="/pricing"
                 className="btn-secondary text-base px-8 py-4 text-center"
               >
-                Lite 플랜 시작하기
-                <span className="ml-2 text-sm opacity-80">(월 9,900원)</span>
+                플랜 보기
               </Link>
             </div>
           </div>
