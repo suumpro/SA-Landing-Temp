@@ -1,17 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function MockupImage() {
-  const [today, setToday] = useState('');
-
-  useEffect(() => {
+  const [today] = useState(() => {
     const now = new Date();
     const month = now.getMonth() + 1;
     const date = now.getDate();
     const day = ['일', '월', '화', '수', '목', '금', '토'][now.getDay()];
-    setToday(`${month}월 ${date}일 (${day})`);
-  }, []);
+    return `${month}월 ${date}일 (${day})`;
+  });
 
   return (
     <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-gray-200 max-w-sm mx-auto">
@@ -34,7 +32,7 @@ export default function MockupImage() {
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-white font-bold text-lg">SA 모닝 브리핑</h3>
-            <p className="text-white/80 text-sm">{today || '2월 11일 (화)'} 오전 6:00</p>
+            <p className="text-white/80 text-sm">{today} 오전 6:00</p>
           </div>
           <span className="text-3xl" role="img" aria-label="맑음">☀️</span>
         </div>

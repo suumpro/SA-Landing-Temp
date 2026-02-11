@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 interface AccordionItemProps {
   question: string;
@@ -16,15 +16,6 @@ function AccordionItem({
   onToggle,
   index,
 }: AccordionItemProps & { index: number }) {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    if (contentRef.current) {
-      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
-    }
-  }, [isOpen]);
-
   return (
     <div className="border-b border-gray-200 last:border-b-0">
       <button
@@ -49,14 +40,15 @@ function AccordionItem({
         </span>
       </button>
       <div
-        ref={contentRef}
         id={`accordion-panel-${index}`}
         role="region"
         aria-labelledby={`accordion-btn-${index}`}
-        className="overflow-hidden transition-all duration-300 ease-in-out"
-        style={{ height }}
+        className="grid transition-all duration-300 ease-in-out"
+        style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
       >
-        <p className="text-gray-600 leading-relaxed pb-5">{answer}</p>
+        <div className="overflow-hidden">
+          <p className="text-gray-600 leading-relaxed pb-5">{answer}</p>
+        </div>
       </div>
     </div>
   );

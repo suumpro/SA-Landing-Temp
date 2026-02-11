@@ -75,19 +75,16 @@ export async function POST(request: NextRequest) {
             text: `📧 새 뉴스레터 구독 신청!\n\n*이메일:* ${escapeSlackText(trimmedEmail)}\n*시간:* ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
           }),
         });
-      } catch (slackError) {
-        console.error('Slack 알림 전송 실패:', slackError);
+      } catch {
+        // Slack 알림 실패는 무시 — 사용자 요청은 정상 처리
       }
-    } else {
-      console.log('📧 뉴스레터 구독:', trimmedEmail);
     }
 
     return NextResponse.json(
       { message: '구독이 완료되었습니다' },
       { status: 200 }
     );
-  } catch (error) {
-    console.error('Newsletter API Error:', error);
+  } catch {
     return NextResponse.json(
       { error: '서버 오류가 발생했습니다' },
       { status: 500 }

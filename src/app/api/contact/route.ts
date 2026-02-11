@@ -76,19 +76,16 @@ export async function POST(request: NextRequest) {
             text: `🎯 새 상담 신청!\n\n*이름:* ${escapeSlackText(trimmedName)}\n*연락처:* ${escapeSlackText(trimmedContact)}\n*매장 수:* ${escapeSlackText(trimmedStoreCount)}\n*시간:* ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
           }),
         });
-      } catch (slackError) {
-        console.error('Slack 알림 전송 실패:', slackError);
+      } catch {
+        // Slack 알림 실패는 무시 — 사용자 요청은 정상 처리
       }
-    } else {
-      console.log('🎯 상담 신청:', { name: trimmedName, contact: trimmedContact, storeCount: trimmedStoreCount });
     }
 
     return NextResponse.json(
       { message: '상담 신청이 완료되었습니다' },
       { status: 200 }
     );
-  } catch (error) {
-    console.error('Contact API Error:', error);
+  } catch {
     return NextResponse.json(
       { error: '서버 오류가 발생했습니다' },
       { status: 500 }

@@ -2,6 +2,9 @@
   "name": "storeagent-b2c-landing",
   "version": "0.1.0",
   "private": true,
+  "description": "STOREAGENT - AI 모닝 브리핑 서비스 B2C 랜딩페이지",
+  "author": "STOREAGENT Team",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
