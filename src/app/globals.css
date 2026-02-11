@@ -8,8 +8,14 @@
   --primary: #1E88E5;
   --primary-dark: #1565C0;
   --primary-light: #42A5F5;
+  --primary-lighter: #E3F2FD;
   --secondary: #26A69A;
   --secondary-dark: #00897B;
+
+  /* Semantic Colors */
+  --success: #4CAF50;
+  --warning: #FF9800;
+  --error: #F44336;
 
   /* Neutral Colors */
   --gray-50: #FAFAFA;
@@ -27,15 +33,21 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   --font-mono: var(--font-geist-mono);
 
   /* Custom Colors */
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-primary-light: var(--primary-light);
+  --color-primary-lighter: var(--primary-lighter);
   --color-secondary: var(--secondary);
   --color-secondary-dark: var(--secondary-dark);
+
+  /* Semantic Colors */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
 
   /* Gray Scale */
   --color-gray-50: var(--gray-50);
@@ -49,7 +61,7 @@
   --color-gray-800: var(--gray-800);
   --color-gray-900: var(--gray-900);
 
-  /* Border Radius - 토스 스타일 8px */
+  /* Border Radius */
   --radius-sm: 4px;
   --radius-DEFAULT: 8px;
   --radius-md: 8px;
@@ -60,47 +72,102 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Utility Classes */
+/* ========================================
+   BUTTON STYLES (디자인 스펙 정합)
+   ======================================== */
+
 .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--primary);
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+}
+
+.btn-primary:active {
+  background-color: #0D47A1;
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  background-color: var(--gray-300);
+  color: var(--gray-500);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   color: var(--primary);
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
   border: 2px solid var(--primary);
-  transition: all 0.2s;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .btn-secondary:hover {
-  background-color: var(--primary);
-  color: white;
+  background-color: var(--primary-lighter);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.15);
 }
 
-/* Card Style */
+.btn-secondary:active {
+  background-color: #BBDEFB;
+  transform: translateY(0);
+}
+
+.btn-secondary:disabled {
+  border-color: var(--gray-300);
+  color: var(--gray-400);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ========================================
+   CARD STYLE
+   ======================================== */
+
 .card {
   background: white;
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
 }
 
-/* Section Spacing */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ========================================
+   SECTION SPACING
+   ======================================== */
+
 .section {
   padding: 80px 0;
 }
@@ -112,14 +179,23 @@ body {
 }
 
 /* ========================================
+   FOCUS STYLES (접근성)
+   ======================================== */
+
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ========================================
    ANIMATIONS
    ======================================== */
 
-/* Fade In Up Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -127,7 +203,6 @@ body {
   }
 }
 
-/* Fade In Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -137,13 +212,37 @@ body {
   }
 }
 
-/* Float Animation (for mockup) */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
@@ -158,6 +257,15 @@ body {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-checkmark {
+  animation: checkmark 0.5s ease-out forwards;
 }
 
 /* Stagger delay classes */
@@ -166,34 +274,27 @@ body {
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
 
 /* Initial state for animated elements */
 .animate-on-scroll {
   opacity: 0;
 }
 
-/* Button hover effects */
-.btn-primary,
-.btn-secondary {
-  transition: all 0.2s ease;
-}
+/* ========================================
+   REDUCED MOTION (접근성)
+   ======================================== */
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
-}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 
-.btn-secondary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.2);
-}
-
-/* Card hover effects */
-.card {
-  transition: all 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  .animate-float {
+    animation: none;
+  }
 }

@@ -27,7 +27,7 @@ export default function FAQPage() {
         {faqData.map((category) => (
           <div key={category.category} className="mb-12">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <span className="w-1 h-6 bg-primary rounded-full"></span>
+              <span className="w-1 h-6 bg-primary rounded-full" aria-hidden="true"></span>
               {category.category}
             </h2>
             <div className="bg-white rounded-2xl border border-gray-200 px-6">
@@ -69,21 +69,21 @@ export default function FAQPage() {
             href="/pricing"
             className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-all"
           >
-            <span className="text-2xl mb-2 block">💰</span>
+            <span className="text-2xl mb-2 block" aria-hidden="true">💰</span>
             <span className="font-medium text-gray-900">플랜 비교하기</span>
           </Link>
           <Link
             href="/how-it-works"
             className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-all"
           >
-            <span className="text-2xl mb-2 block">❓</span>
+            <span className="text-2xl mb-2 block" aria-hidden="true">❓</span>
             <span className="font-medium text-gray-900">서비스 소개</span>
           </Link>
           <Link
             href="/#cta-section"
             className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-all"
           >
-            <span className="text-2xl mb-2 block">🚀</span>
+            <span className="text-2xl mb-2 block" aria-hidden="true">🚀</span>
             <span className="font-medium text-gray-900">무료 시작하기</span>
           </Link>
         </div>

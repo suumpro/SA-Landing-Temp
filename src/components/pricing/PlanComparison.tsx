@@ -1,25 +1,25 @@
-'use client';
-
+import { Fragment } from 'react';
 import { comparisonFeatures } from '@/lib/pricing-data';
 
-export default function PlanComparison() {
-  const renderValue = (value: boolean | string) => {
-    if (typeof value === 'boolean') {
-      return value ? (
-        <span className="text-primary">✓</span>
-      ) : (
-        <span className="text-gray-300">−</span>
-      );
-    }
-    return <span className="text-sm text-gray-700">{value}</span>;
-  };
+function RenderValue({ value }: { value: boolean | string }) {
+  if (typeof value === 'boolean') {
+    return value ? (
+      <span className="text-primary" aria-label="포함">✓</span>
+    ) : (
+      <span className="text-gray-300" aria-label="미포함">−</span>
+    );
+  }
+  return <span className="text-sm text-gray-700">{value}</span>;
+}
 
+export default function PlanComparison() {
   return (
     <div className="overflow-x-auto">
       <table className="w-full min-w-[600px]">
+        <caption className="sr-only">플랜별 기능 비교표</caption>
         <thead>
           <tr className="border-b border-gray-200">
-            <th className="text-left py-4 px-4 font-medium text-gray-500">
+            <th className="text-left py-4 px-4 font-medium text-gray-600">
               기능
             </th>
             <th className="text-center py-4 px-4 font-medium text-gray-900">
@@ -38,9 +38,9 @@ export default function PlanComparison() {
         </thead>
         <tbody>
           {comparisonFeatures.map((category, categoryIndex) => (
-            <>
+            <Fragment key={category.category}>
               {/* Category Header */}
-              <tr key={`category-${categoryIndex}`} className="bg-gray-50">
+              <tr className="bg-gray-50">
                 <td
                   colSpan={5}
                   className="py-3 px-4 font-semibold text-gray-900"
@@ -58,20 +58,20 @@ export default function PlanComparison() {
                     {feature.name}
                   </td>
                   <td className="text-center py-3 px-4">
-                    {renderValue(feature.free)}
+                    <RenderValue value={feature.free} />
                   </td>
-                  <td className="text-center py-3 px-4 bg-blue-50/50">
-                    {renderValue(feature.premium)}
-                  </td>
-                  <td className="text-center py-3 px-4">
-                    {renderValue(feature.analysis)}
+                  <td className="text-center py-3 px-4 bg-primary-lighter/50">
+                    <RenderValue value={feature.premium} />
                   </td>
                   <td className="text-center py-3 px-4">
-                    {renderValue(feature.enterprise)}
+                    <RenderValue value={feature.analysis} />
+                  </td>
+                  <td className="text-center py-3 px-4">
+                    <RenderValue value={feature.enterprise} />
                   </td>
                 </tr>
               ))}
-            </>
+            </Fragment>
           ))}
         </tbody>
       </table>

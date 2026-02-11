@@ -15,6 +15,7 @@ const steps = [
     description: '이메일과 매장 위치만 입력하면 끝!',
     detail: '본사 연동 없이 바로 시작할 수 있습니다.',
     icon: '📧',
+    color: 'from-blue-50 to-blue-100',
   },
   {
     number: '02',
@@ -22,6 +23,7 @@ const steps = [
     description: '오전 6시, 오늘 확인할 것들을 정리해서 보내드립니다.',
     detail: '날씨, 주변 이벤트, 체크리스트까지 한눈에.',
     icon: '☀️',
+    color: 'from-amber-50 to-orange-100',
   },
   {
     number: '03',
@@ -29,6 +31,7 @@ const steps = [
     description: '날씨 변화 대비, 이벤트 수요 예측으로',
     detail: '더 효율적인 매장 운영이 가능합니다.',
     icon: '📈',
+    color: 'from-green-50 to-emerald-100',
   },
 ];
 
@@ -70,43 +73,53 @@ export default function HowItWorksPage() {
 
       {/* Steps Section */}
       <section className="max-w-5xl mx-auto px-4 mb-24">
-        <div className="space-y-16">
-          {steps.map((step, index) => (
-            <div
-              key={step.number}
-              className={`flex flex-col ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              } items-center gap-12`}
-            >
-              {/* Content */}
-              <div className="flex-1 text-center lg:text-left">
-                <div className="inline-flex items-center gap-3 mb-4">
-                  <span className="text-4xl">{step.icon}</span>
-                  <span className="text-sm font-bold text-primary bg-blue-50 px-3 py-1 rounded-full">
-                    STEP {step.number}
-                  </span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                  {step.title}
-                </h2>
-                <p className="text-lg text-gray-700 mb-2">{step.description}</p>
-                <p className="text-gray-500">{step.detail}</p>
-              </div>
+        <div className="relative">
+          {/* Vertical Connection Line (desktop) */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20" aria-hidden="true" />
 
-              {/* Visual */}
-              <div className="flex-1 w-full max-w-sm">
-                {index === 1 ? (
-                  <div className="scale-90">
-                    <MockupImage />
+          <div className="space-y-16 lg:space-y-24">
+            {steps.map((step, index) => (
+              <div
+                key={step.number}
+                className={`relative flex flex-col ${
+                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                } items-center gap-12`}
+              >
+                {/* Step Number Badge (center on desktop) */}
+                <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-primary text-white rounded-full items-center justify-center font-bold text-sm shadow-md z-10" aria-hidden="true">
+                  {step.number}
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 text-center lg:text-left">
+                  <div className="inline-flex items-center gap-3 mb-4">
+                    <span className="text-4xl" role="img" aria-hidden="true">{step.icon}</span>
+                    <span className="text-sm font-bold text-primary bg-primary-lighter px-3 py-1 rounded-full">
+                      STEP {step.number}
+                    </span>
                   </div>
-                ) : (
-                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl aspect-square flex items-center justify-center">
-                    <span className="text-8xl">{step.icon}</span>
-                  </div>
-                )}
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                    {step.title}
+                  </h2>
+                  <p className="text-lg text-gray-700 mb-2">{step.description}</p>
+                  <p className="text-gray-600">{step.detail}</p>
+                </div>
+
+                {/* Visual */}
+                <div className="flex-1 w-full max-w-sm">
+                  {index === 1 ? (
+                    <div className="scale-90">
+                      <MockupImage />
+                    </div>
+                  ) : (
+                    <div className={`bg-gradient-to-br ${step.color} rounded-2xl aspect-square flex items-center justify-center shadow-sm`}>
+                      <span className="text-8xl" role="img" aria-hidden="true">{step.icon}</span>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -124,9 +137,9 @@ export default function HowItWorksPage() {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <span className="text-4xl mb-4 block">{feature.icon}</span>
+                <span className="text-4xl mb-4 block" role="img" aria-hidden="true">{feature.icon}</span>
                 <h3 className="font-bold text-gray-900 mb-2">{feature.title}</h3>
                 <p className="text-sm text-gray-600">{feature.description}</p>
               </div>
@@ -142,37 +155,19 @@ export default function HowItWorksPage() {
             왜 STOREAGENT인가요?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🔒</span>
+            {[
+              { icon: '🔒', title: '본사 연동 불필요', desc: '개인 이메일로 구독하며, 본사 시스템과 연동되지 않습니다.' },
+              { icon: '⏰', title: '매일 아침 6시', desc: '출근 전에 확인하고, 준비된 상태로 영업을 시작하세요.' },
+              { icon: '🏪', title: '모든 브랜드 OK', desc: 'CU, GS25, 세븐일레븐, 이마트24 등 모든 편의점에서 사용 가능합니다.' },
+            ].map((item) => (
+              <div key={item.title} className="text-center">
+                <div className="w-16 h-16 bg-primary-lighter rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl" role="img" aria-hidden="true">{item.icon}</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.desc}</p>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">
-                본사 연동 불필요
-              </h3>
-              <p className="text-sm text-gray-600">
-                개인 이메일로 구독하며, 본사 시스템과 연동되지 않습니다.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">⏰</span>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">
-                매일 아침 6시
-              </h3>
-              <p className="text-sm text-gray-600">
-                출근 전에 확인하고, 준비된 상태로 영업을 시작하세요.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏪</span>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">모든 브랜드 OK</h3>
-              <p className="text-sm text-gray-600">
-                CU, GS25, 세븐일레븐, 이마트24 등 모든 편의점에서 사용 가능합니다.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>

@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 const schema = z.object({
   name: z.string().min(1, '이름을 입력해주세요'),
@@ -21,7 +22,29 @@ const storeCountOptions = [
   { value: '6+', label: '6개 이상' },
 ];
 
+const planLabels: Record<string, string> = {
+  premium: '고급형 플랜',
+  analysis: '상세 분석 플랜',
+  enterprise: '엔터프라이즈',
+};
+
 export default function ContactPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-[80vh] flex items-center justify-center">
+        <div className="text-gray-400">로딩 중...</div>
+      </div>
+    }>
+      <ContactForm />
+    </Suspense>
+  );
+}
+
+function ContactForm() {
+  const searchParams = useSearchParams();
+  const planParam = searchParams.get('plan');
+  const planLabel = planParam ? planLabels[planParam] : null;
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -39,13 +62,19 @@ export default function ContactPage() {
     setError(null);
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, plan: planParam }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         throw new Error('상담 신청에 실패했습니다. 다시 시도해주세요.');
@@ -53,7 +82,11 @@ export default function ContactPage() {
 
       setIsSubmitted(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : '오류가 발생했습니다');
+      if (err instanceof DOMException && err.name === 'AbortError') {
+        setError('요청 시간이 초과되었습니다. 다시 시도해주세요.');
+      } else {
+        setError(err instanceof Error ? err.message : '오류가 발생했습니다');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -64,16 +97,16 @@ export default function ContactPage() {
     return (
       <div className="min-h-[80vh] flex items-center justify-center px-4">
         <div className="max-w-md w-full text-center">
-          <div className="text-6xl mb-6">✅</div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-6xl mb-6 animate-checkmark">✅</div>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 animate-fade-in-up delay-100">
             상담 신청이 완료되었습니다!
           </h1>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-600 mb-8 animate-fade-in-up delay-200">
             영업일 기준 1-2일 내로 연락드리겠습니다.
           </p>
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-6 py-3 text-primary font-medium hover:text-primary-dark transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 text-primary font-medium hover:text-primary-dark transition-colors animate-fade-in-up delay-300"
           >
             ← 메인으로 돌아가기
           </Link>
@@ -89,7 +122,7 @@ export default function ContactPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-            Lite 플랜 상담 신청
+            {planLabel ? `${planLabel} 상담 신청` : '상담 신청'}
           </h1>
           <p className="text-gray-600">
             담당자가 연락드려 자세히 안내해 드립니다.
@@ -97,53 +130,63 @@ export default function ContactPage() {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
           {/* Name */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-              이름 <span className="text-red-500">*</span>
+              이름 <span className="text-error">*</span>
             </label>
             <input
               id="name"
               type="text"
               placeholder="이름"
               {...register('name')}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-400 transition-shadow"
               disabled={isSubmitting}
+              aria-describedby={errors.name ? 'name-error' : undefined}
+              aria-invalid={errors.name ? 'true' : undefined}
             />
             {errors.name && (
-              <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
+              <p id="name-error" className="mt-1 text-sm text-error" role="alert">
+                {errors.name.message}
+              </p>
             )}
           </div>
 
           {/* Contact */}
           <div>
             <label htmlFor="contact" className="block text-sm font-medium text-gray-700 mb-1">
-              연락처 <span className="text-red-500">*</span>
+              연락처 <span className="text-error">*</span>
             </label>
             <input
               id="contact"
               type="text"
               placeholder="전화번호 또는 이메일"
               {...register('contact')}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-400 transition-shadow"
               disabled={isSubmitting}
+              aria-describedby={errors.contact ? 'contact-error' : undefined}
+              aria-invalid={errors.contact ? 'true' : undefined}
             />
             {errors.contact && (
-              <p className="mt-1 text-sm text-red-500">{errors.contact.message}</p>
+              <p id="contact-error" className="mt-1 text-sm text-error" role="alert">
+                {errors.contact.message}
+              </p>
             )}
           </div>
 
           {/* Store Count */}
           <div>
             <label htmlFor="storeCount" className="block text-sm font-medium text-gray-700 mb-1">
-              운영 중인 매장 수 <span className="text-red-500">*</span>
+              운영 중인 매장 수 <span className="text-error">*</span>
             </label>
             <select
               id="storeCount"
               {...register('storeCount')}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 bg-white"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 bg-white transition-shadow"
               disabled={isSubmitting}
+              aria-describedby={errors.storeCount ? 'store-error' : undefined}
+              aria-invalid={errors.storeCount ? 'true' : undefined}
             >
               <option value="">선택해주세요</option>
               {storeCountOptions.map((option) => (
@@ -153,13 +196,15 @@ export default function ContactPage() {
               ))}
             </select>
             {errors.storeCount && (
-              <p className="mt-1 text-sm text-red-500">{errors.storeCount.message}</p>
+              <p id="store-error" className="mt-1 text-sm text-error" role="alert">
+                {errors.storeCount.message}
+              </p>
             )}
           </div>
 
           {/* Error Message */}
           {error && (
-            <p className="text-sm text-red-500 text-center">{error}</p>
+            <p className="text-sm text-error text-center" role="alert">{error}</p>
           )}
 
           {/* Submit Button */}
@@ -172,8 +217,8 @@ export default function ContactPage() {
           </button>
 
           {/* Notice */}
-          <p className="text-center text-sm text-gray-500 flex items-center justify-center gap-2">
-            <span className="text-green-500">✓</span>
+          <p className="text-center text-sm text-gray-600 flex items-center justify-center gap-2">
+            <span className="text-success" aria-hidden="true">✓</span>
             영업일 기준 1-2일 내 연락드립니다
           </p>
         </form>

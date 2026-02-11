@@ -1,11 +1,42 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// Simple in-memory rate limiter
+const rateLimit = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimit.get(ip);
+
+  if (!entry || now > entry.resetTime) {
+    rateLimit.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return false;
+  }
+
+  entry.count++;
+  return entry.count > RATE_LIMIT_MAX;
+}
+
+function escapeSlackText(text: string): string {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 export async function POST(request: NextRequest) {
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await request.json();
     const { name, contact, storeCount } = body;
 
-    // Validation
+    // Validation with trim and length limits
     if (!name || typeof name !== 'string' || name.trim().length === 0) {
       return NextResponse.json(
         { error: '이름을 입력해주세요' },
@@ -27,6 +58,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const trimmedName = name.trim().slice(0, 50);
+    const trimmedContact = contact.trim().slice(0, 50);
+    const trimmedStoreCount = storeCount.trim().slice(0, 10);
+
     // Send to Slack webhook
     const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
 
@@ -38,16 +73,14 @@ export async function POST(request: NextRequest) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            text: `🎯 새 상담 신청!\n\n*이름:* ${name}\n*연락처:* ${contact}\n*매장 수:* ${storeCount}\n*시간:* ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
+            text: `🎯 새 상담 신청!\n\n*이름:* ${escapeSlackText(trimmedName)}\n*연락처:* ${escapeSlackText(trimmedContact)}\n*매장 수:* ${escapeSlackText(trimmedStoreCount)}\n*시간:* ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
           }),
         });
       } catch (slackError) {
         console.error('Slack 알림 전송 실패:', slackError);
-        // Slack 실패해도 신청은 성공으로 처리
       }
     } else {
-      // Development mode - just log
-      console.log('🎯 상담 신청:', { name, contact, storeCount });
+      console.log('🎯 상담 신청:', { name: trimmedName, contact: trimmedContact, storeCount: trimmedStoreCount });
     }
 
     return NextResponse.json(

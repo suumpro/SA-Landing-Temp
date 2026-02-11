@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import NewsletterForm from '@/components/ui/NewsletterForm';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const planPreviews = [
   {
@@ -9,6 +10,7 @@ const planPreviews = [
     price: '1,000원',
     priceNote: '/월',
     description: '매일 아침 브리핑',
+    valueAnchor: '하루 33원',
     features: ['매일 모닝 브리핑', '날씨/이벤트 알림', '운영 체크리스트'],
     popular: true,
   },
@@ -17,17 +19,20 @@ const planPreviews = [
     price: '9,900원',
     priceNote: '/월',
     description: 'POS 연동 분석',
+    valueAnchor: '커피 3잔 값',
     features: ['고급형 모든 기능', 'POS 매출 연동', '위치 심화 분석'],
     popular: false,
   },
 ];
 
 export default function CTASection() {
+  const { ref, isVisible } = useScrollAnimation<HTMLElement>();
+
   return (
-    <section id="cta-section" className="section bg-white">
+    <section id="cta-section" ref={ref} className="section bg-white">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
             무료로 시작해 보세요
           </h2>
@@ -39,9 +44,13 @@ export default function CTASection() {
         {/* Three Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {/* Newsletter Card */}
-          <div className="bg-white border-2 border-primary rounded-2xl p-6 lg:p-8">
+          <div
+            className={`bg-white border-2 border-primary rounded-2xl p-6 lg:p-8 ${
+              isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'
+            }`}
+          >
             <div className="text-center mb-6">
-              <span className="text-3xl mb-3 block">📧</span>
+              <span className="text-3xl mb-3 block" role="img" aria-label="이메일">📧</span>
               <h3 className="text-lg font-bold text-gray-900 mb-1">
                 무료 뉴스레터
               </h3>
@@ -55,23 +64,24 @@ export default function CTASection() {
             {/* Trust Badges */}
             <div className="flex flex-wrap justify-center gap-3 mt-4 text-xs text-gray-500">
               <span className="flex items-center gap-1">
-                <span className="text-green-500">✓</span> 주 1-2회
+                <span className="text-success">✓</span> 주 1-2회
               </span>
               <span className="flex items-center gap-1">
-                <span className="text-green-500">✓</span> 언제든 해지
+                <span className="text-success">✓</span> 언제든 해지
               </span>
             </div>
           </div>
 
           {/* Plan Preview Cards */}
-          {planPreviews.map((plan) => (
+          {planPreviews.map((plan, index) => (
             <div
               key={plan.name}
               className={`rounded-2xl p-6 lg:p-8 ${
                 plan.popular
-                  ? 'bg-primary text-white'
+                  ? 'bg-primary text-white ring-2 ring-primary ring-offset-2'
                   : 'bg-gray-50 border border-gray-200'
-              }`}
+              } ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+              style={{ animationDelay: isVisible ? `${(index + 2) * 100}ms` : '0ms' }}
             >
               {plan.popular && (
                 <div className="text-center mb-2">
@@ -105,11 +115,11 @@ export default function CTASection() {
                   </span>
                 </div>
                 <p
-                  className={`text-sm mt-1 ${
-                    plan.popular ? 'text-white/80' : 'text-gray-500'
+                  className={`text-xs mt-1 ${
+                    plan.popular ? 'text-white/70' : 'text-gray-400'
                   }`}
                 >
-                  {plan.description}
+                  ({plan.valueAnchor})
                 </p>
               </div>
 
@@ -124,6 +134,7 @@ export default function CTASection() {
                   >
                     <span
                       className={plan.popular ? 'text-yellow-300' : 'text-primary'}
+                      aria-hidden="true"
                     >
                       ✓
                     </span>
@@ -135,26 +146,33 @@ export default function CTASection() {
               {/* CTA Button */}
               <Link
                 href={`/contact?plan=${plan.name === '고급형' ? 'premium' : 'analysis'}`}
-                className={`block w-full text-center py-3 rounded-lg font-medium transition-colors ${
+                className={`block w-full text-center py-3 rounded-lg font-medium transition-all ${
                   plan.popular
-                    ? 'bg-white text-primary hover:bg-gray-100'
-                    : 'bg-primary text-white hover:bg-primary-dark'
+                    ? 'bg-white text-primary hover:bg-gray-100 hover:shadow-md'
+                    : 'bg-primary text-white hover:bg-primary-dark hover:shadow-md'
                 }`}
               >
                 시작하기
               </Link>
+              <p
+                className={`text-xs text-center mt-2 ${
+                  plan.popular ? 'text-white/60' : 'text-gray-400'
+                }`}
+              >
+                7일 무료 체험 · 언제든 해지
+              </p>
             </div>
           ))}
         </div>
 
         {/* View All Plans Link */}
-        <div className="text-center mt-8">
+        <div className={`text-center mt-8 ${isVisible ? 'animate-fade-in-up delay-500' : 'opacity-0'}`}>
           <Link
             href="/pricing"
-            className="text-primary hover:text-primary-dark font-medium inline-flex items-center gap-1"
+            className="text-primary hover:text-primary-dark font-medium inline-flex items-center gap-1 transition-colors"
           >
             전체 플랜 비교하기
-            <span>→</span>
+            <span aria-hidden="true">→</span>
           </Link>
         </div>
       </div>

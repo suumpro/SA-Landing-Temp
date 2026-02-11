@@ -1,6 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// Simple in-memory rate limiter
+const rateLimit = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimit.get(ip);
+
+  if (!entry || now > entry.resetTime) {
+    rateLimit.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return false;
+  }
+
+  entry.count++;
+  return entry.count > RATE_LIMIT_MAX;
+}
+
+function escapeSlackText(text: string): string {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 export async function POST(request: NextRequest) {
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await request.json();
     const { email } = body;
@@ -12,9 +43,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const trimmedEmail = email.trim();
+
+    if (trimmedEmail.length > 100) {
+      return NextResponse.json(
+        { error: '이메일 주소가 너무 깁니다' },
+        { status: 400 }
+      );
+    }
+
     // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailRegex.test(trimmedEmail)) {
       return NextResponse.json(
         { error: '올바른 이메일 주소를 입력해주세요' },
         { status: 400 }
@@ -32,16 +72,14 @@ export async function POST(request: NextRequest) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            text: `📧 새 뉴스레터 구독 신청!\n\n*이메일:* ${email}\n*시간:* ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
+            text: `📧 새 뉴스레터 구독 신청!\n\n*이메일:* ${escapeSlackText(trimmedEmail)}\n*시간:* ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
           }),
         });
       } catch (slackError) {
         console.error('Slack 알림 전송 실패:', slackError);
-        // Slack 실패해도 구독은 성공으로 처리
       }
     } else {
-      // Development mode - just log
-      console.log('📧 뉴스레터 구독:', email);
+      console.log('📧 뉴스레터 구독:', trimmedEmail);
     }
 
     return NextResponse.json(
