@@ -63,7 +63,7 @@ export default function UseCaseSection() {
     <section ref={ref} className="section bg-white">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
-        <div className={`text-center mb-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`text-center mb-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
             이런 날, 미리 알려드립니다
           </h2>
@@ -82,7 +82,7 @@ export default function UseCaseSection() {
             <button
               key={scenario.id}
               onClick={() => setActiveIndex(index)}
-              className={`flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-full text-sm font-medium transition-all ${
                 activeIndex === index
                   ? 'bg-primary text-white shadow-md'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'

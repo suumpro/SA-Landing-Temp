@@ -42,10 +42,10 @@ export default function CTASection() {
         </div>
 
         {/* Three Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {/* Newsletter Card */}
           <div
-            className={`bg-white border-2 border-primary rounded-2xl p-6 lg:p-8 ${
+            className={`bg-white border-2 border-primary rounded-2xl p-6 lg:p-8 md:col-span-2 lg:col-span-1 ${
               isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'
             }`}
           >
@@ -81,7 +81,7 @@ export default function CTASection() {
                   ? 'bg-primary text-white ring-2 ring-primary ring-offset-2'
                   : 'bg-gray-50 border border-gray-200'
               } ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-              style={{ animationDelay: isVisible ? `${(index + 2) * 100}ms` : '0ms' }}
+              style={{ animationDelay: isVisible ? `${(index + 1) * 100}ms` : '0ms' }}
             >
               {plan.popular && (
                 <div className="text-center mb-2">

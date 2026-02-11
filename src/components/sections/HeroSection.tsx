@@ -14,7 +14,7 @@ export default function HeroSection() {
   return (
     <section className="section bg-gradient-to-b from-primary-lighter via-blue-50 to-white">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6 animate-fade-in-up">

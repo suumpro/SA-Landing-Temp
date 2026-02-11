@@ -101,7 +101,7 @@ body {
 }
 
 .btn-primary:active {
-  background-color: #0D47A1;
+  background-color: color-mix(in srgb, var(--primary) 80%, black);
   transform: translateY(0);
 }
 
@@ -135,7 +135,7 @@ body {
 }
 
 .btn-secondary:active {
-  background-color: #BBDEFB;
+  background-color: var(--primary-lighter);
   transform: translateY(0);
 }
 
@@ -185,7 +185,6 @@ body {
 *:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
 /* ========================================

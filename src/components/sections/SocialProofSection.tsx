@@ -33,10 +33,10 @@ export default function SocialProofSection() {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.author}
-              className={`bg-white rounded-xl p-6 shadow-sm border border-gray-100 ${
+              className={`bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 ${
                 isVisible ? 'animate-fade-in-up' : 'opacity-0'
               }`}
-              style={{ animationDelay: isVisible ? `${(index + 1) * 150}ms` : '0ms' }}
+              style={{ animationDelay: isVisible ? `${(index + 1) * 100}ms` : '0ms' }}
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex gap-1" role="img" aria-label="5점 만점">

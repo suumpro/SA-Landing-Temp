@@ -29,7 +29,7 @@ export default function FeatureSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
 
   return (
-    <section ref={ref} className="section bg-white">
+    <section ref={ref} className="section bg-gray-50">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
         <div className={`text-center mb-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
