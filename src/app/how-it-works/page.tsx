@@ -5,33 +5,33 @@ import MockupImage from '@/components/MockupImage';
 export const metadata: Metadata = {
   title: '서비스 소개 | STOREAGENT',
   description:
-    '이메일과 매장 위치만 입력하면 끝. 본사 연동 없이 바로 시작하세요.',
+    '이메일과 매장 위치만 입력하면 끝. AI 에이전트가 매일 새벽 당신의 매장을 위해 일합니다.',
 };
 
-const steps = [
+const aiTimeline = [
   {
-    number: '01',
-    title: '간단한 가입',
-    description: '이메일과 매장 위치만 입력하면 끝!',
-    detail: '본사 연동 없이 바로 시작할 수 있습니다.',
+    time: '05:00',
+    icon: '📡',
+    title: '데이터 수집',
+    description: '날씨 API, 이벤트 DB, 캘린더에서 최신 정보 수집',
+  },
+  {
+    time: '05:30',
+    icon: '🤖',
+    title: 'AI 분석·개인화',
+    description: '매장 반경 1km 필터링, 우선순위 정렬, 브리핑 문장 생성',
+  },
+  {
+    time: '05:55',
+    icon: '🔍',
+    title: '최종 검수',
+    description: '실시간 날씨 데이터 반영, 최종 품질 확인',
+  },
+  {
+    time: '06:00',
     icon: '📧',
-    color: 'from-blue-50 to-blue-100',
-  },
-  {
-    number: '02',
-    title: '매일 아침 브리핑',
-    description: '오전 6시, 오늘 확인할 것들을 정리해서 보내드립니다.',
-    detail: '날씨, 주변 이벤트, 체크리스트까지 한눈에.',
-    icon: '☀️',
-    color: 'from-amber-50 to-orange-100',
-  },
-  {
-    number: '03',
-    title: '스마트한 영업',
-    description: '날씨 변화 대비, 이벤트 수요 예측으로',
-    detail: '더 효율적인 매장 운영이 가능합니다.',
-    icon: '📈',
-    color: 'from-green-50 to-emerald-100',
+    title: '브리핑 발송',
+    description: '개인화된 모닝 브리핑이 이메일로 도착',
   },
 ];
 
@@ -67,59 +67,193 @@ export default function HowItWorksPage() {
           어떻게 작동하나요?
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          가입부터 매일 브리핑까지, 딱 3단계면 됩니다.
+          가입 30초, 나머지는 AI 에이전트가 알아서 합니다.
         </p>
       </section>
 
       {/* Steps Section */}
       <section className="max-w-5xl mx-auto px-4 mb-24">
-        <div className="relative">
-          {/* Vertical Connection Line (desktop) */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20" aria-hidden="true" />
-
-          <div className="space-y-16 lg:space-y-24">
-            {steps.map((step, index) => (
-              <div
-                key={step.number}
-                className={`relative flex flex-col ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                } items-center gap-12`}
-              >
-                {/* Step Number Badge (center on desktop) */}
-                <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-primary text-white rounded-full items-center justify-center font-bold text-sm shadow-md z-10" aria-hidden="true">
-                  {step.number}
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 text-center lg:text-left">
-                  <div className="inline-flex items-center gap-3 mb-4">
-                    <span className="text-4xl" role="img" aria-hidden="true">{step.icon}</span>
-                    <span className="text-sm font-bold text-primary bg-primary-lighter px-3 py-1 rounded-full">
-                      STEP {step.number}
-                    </span>
+        <div className="space-y-20">
+          {/* Step 01 */}
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <span className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">01</span>
+                <span className="text-sm font-bold text-primary bg-primary-lighter px-3 py-1 rounded-full">STEP 01</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                30초 가입
+              </h2>
+              <p className="text-lg text-gray-700 mb-2">이메일과 매장 위치, 그게 끝입니다.</p>
+              <p className="text-gray-600 mb-4">
+                본사 연동 없이, 개인 이메일만으로 시작하세요.<br />
+                가입하는 순간 AI 에이전트가 활성화됩니다.
+              </p>
+              <div className="flex flex-wrap gap-3 text-sm text-gray-500">
+                <span className="flex items-center gap-1"><span className="text-success">✓</span> 설치 불필요</span>
+                <span className="flex items-center gap-1"><span className="text-success">✓</span> 본사 연동 없음</span>
+                <span className="flex items-center gap-1"><span className="text-success">✓</span> 30초 완료</span>
+              </div>
+            </div>
+            <div className="flex-1 w-full max-w-sm">
+              {/* Mini Signup Card */}
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
+                <h3 className="font-bold text-gray-900 mb-4 text-center">무료로 시작하기</h3>
+                <div className="space-y-3">
+                  <div>
+                    <label className="text-xs text-gray-500 mb-1 block">📧 이메일</label>
+                    <div className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-400">
+                      store@example.com
+                    </div>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                    {step.title}
-                  </h2>
-                  <p className="text-lg text-gray-700 mb-2">{step.description}</p>
-                  <p className="text-gray-600">{step.detail}</p>
+                  <div>
+                    <label className="text-xs text-gray-500 mb-1 block">📍 매장 위치</label>
+                    <div className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 flex items-center justify-between">
+                      서울 강남구 역삼동
+                      <span className="text-primary text-xs">변경</span>
+                    </div>
+                  </div>
+                  <div className="bg-primary text-white text-center py-3 rounded-lg font-medium text-sm mt-2">
+                    AI 에이전트 활성화
+                  </div>
                 </div>
+                <p className="text-xs text-gray-400 text-center mt-3">가입 즉시 내일 아침 첫 브리핑 발송</p>
+              </div>
+            </div>
+          </div>
 
-                {/* Visual */}
-                <div className="flex-1 w-full max-w-sm">
-                  {index === 1 ? (
-                    <div className="scale-90">
-                      <MockupImage />
+          {/* Step Connector */}
+          <div className="flex justify-center" aria-hidden="true">
+            <div className="flex flex-col items-center gap-1 text-gray-300">
+              <div className="w-px h-8 bg-gray-200" />
+              <span className="text-lg">↓</span>
+              <div className="w-px h-8 bg-gray-200" />
+            </div>
+          </div>
+
+          {/* Step 02 */}
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+            <div className="flex-1 lg:text-right">
+              <div className="inline-flex items-center gap-3 mb-4 lg:flex-row-reverse">
+                <span className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">02</span>
+                <span className="text-sm font-bold text-primary bg-primary-lighter px-3 py-1 rounded-full">STEP 02</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                AI 에이전트가 밤새 일합니다
+              </h2>
+              <p className="text-lg text-gray-700 mb-2">새벽 5시, 당신의 매장을 위해.</p>
+              <p className="text-gray-600 mb-4">
+                기상청 날씨, 주변 행사, 시즌 캘린더를 자동으로 수집하고<br className="hidden sm:block" />
+                매장 반경 1km에 맞게 필터링·분석·개인화합니다.
+              </p>
+              <div className="flex flex-wrap gap-2 lg:justify-end">
+                {['날씨 API', '이벤트 DB', '캘린더', '뉴스'].map((source) => (
+                  <span key={source} className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
+                    {source}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex-1 w-full max-w-sm">
+              <div className="scale-90">
+                <MockupImage />
+              </div>
+            </div>
+          </div>
+
+          {/* Step Connector */}
+          <div className="flex justify-center" aria-hidden="true">
+            <div className="flex flex-col items-center gap-1 text-gray-300">
+              <div className="w-px h-8 bg-gray-200" />
+              <span className="text-lg">↓</span>
+              <div className="w-px h-8 bg-gray-200" />
+            </div>
+          </div>
+
+          {/* Step 03 */}
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <span className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">03</span>
+                <span className="text-sm font-bold text-primary bg-primary-lighter px-3 py-1 rounded-full">STEP 03</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                아침 6시, 브리핑 도착
+              </h2>
+              <p className="text-lg text-gray-700 mb-2">발주 전 3분이면 오늘 할 일 파악.</p>
+              <p className="text-gray-600">
+                날씨 대비 팁, 주변 이벤트 알림, 오늘의 체크리스트까지<br className="hidden sm:block" />
+                한 화면에서 확인하고 바로 행동으로 옮기세요.
+              </p>
+            </div>
+            <div className="flex-1 w-full max-w-sm">
+              {/* Result Summary Card */}
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="text-2xl" aria-hidden="true">🌅</span>
+                  <h3 className="font-bold text-gray-900">오늘의 준비 완료</h3>
+                </div>
+                <div className="space-y-3 mb-5">
+                  {[
+                    { label: '날씨 대비 팁 확인', done: true },
+                    { label: '주변 이벤트 2건 파악', done: true },
+                    { label: '체크리스트 4항목 준비', done: true },
+                    { label: '시즌 캘린더 확인', done: true },
+                  ].map((item) => (
+                    <div key={item.label} className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-success text-xs">✓</span>
+                      </div>
+                      <span className="text-sm text-gray-700">{item.label}</span>
                     </div>
-                  ) : (
-                    <div className={`bg-gradient-to-br ${step.color} rounded-2xl aspect-square flex items-center justify-center shadow-sm`}>
-                      <span className="text-8xl" role="img" aria-hidden="true">{step.icon}</span>
-                    </div>
-                  )}
+                  ))}
+                </div>
+                <div className="bg-primary-lighter rounded-xl p-3 text-center">
+                  <p className="text-sm text-primary font-medium">
+                    ⏱️ 예상 확인 시간: <span className="font-bold">3분</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Agent Timeline Section */}
+      <section className="bg-gray-900 py-20 px-4 mb-20">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-primary-light text-sm font-medium mb-2 tracking-wider uppercase">Behind the scenes</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              당신이 자는 동안
+            </h2>
+            <p className="text-gray-400">
+              AI 에이전트의 새벽 루틴을 소개합니다
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {aiTimeline.map((step, index) => (
+              <div key={step.time} className="relative">
+                {/* Connector (desktop) */}
+                {index < aiTimeline.length - 1 && (
+                  <div className="hidden lg:block absolute top-6 left-[60%] w-[80%] border-t border-dashed border-gray-600" aria-hidden="true" />
+                )}
+                <div className="bg-gray-800 rounded-xl p-5 relative">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl" aria-hidden="true">{step.icon}</span>
+                    <span className="text-primary-light font-mono font-bold text-lg">{step.time}</span>
+                  </div>
+                  <h3 className="font-semibold text-white mb-1">{step.title}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}
           </div>
+
+          <p className="text-center text-gray-500 text-sm mt-8">
+            이 모든 과정이 자동으로, 매일 반복됩니다.
+          </p>
         </div>
       </section>
 
