@@ -3,6 +3,7 @@ import LiveDemoSection from '@/components/sections/LiveDemoSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import FeatureSection from '@/components/sections/FeatureSection';
+import POSAnalysisSection from '@/components/sections/POSAnalysisSection';
 import PricingSection from '@/components/sections/PricingSection';
 import FAQSection from '@/components/sections/FAQSection';
 
@@ -14,6 +15,7 @@ export default function Home() {
       <SocialProofSection />
       <HowItWorksSection />
       <FeatureSection />
+      <POSAnalysisSection />
       <PricingSection />
       <FAQSection />
     </>
