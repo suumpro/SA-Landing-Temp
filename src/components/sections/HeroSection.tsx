@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import MockupImage from '@/components/MockupImage';
 
 export default function HeroSection() {
@@ -23,32 +22,33 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed animate-fade-in-up delay-100">
-              날씨, 이벤트, 오늘 체크할 것들을<br className="hidden sm:block" />
+              날씨·행사·체크리스트부터 <strong className="text-primary">POS 매출 데이터 분석</strong>까지,<br className="hidden sm:block" />
               매일 아침 정리해 드립니다
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up delay-200">
               <button
-                onClick={() => scrollToSection('cta-section')}
+                onClick={() => scrollToSection('faq')}
                 className="btn-primary text-base px-8 py-4"
                 aria-label="무료 뉴스레터 구독하기"
               >
                 뉴스레터 구독하기
                 <span className="ml-2 text-sm opacity-80">(무료)</span>
               </button>
-              <Link
-                href="/pricing"
+              <button
+                onClick={() => scrollToSection('pricing')}
                 className="btn-secondary text-base px-8 py-4 text-center"
               >
                 플랜 보기
-              </Link>
+              </button>
             </div>
 
             {/* Trust Badge */}
             <p className="mt-6 text-sm text-gray-500 animate-fade-in-up delay-300">
               <span className="text-success">✓</span> 본사 연동 없이 바로 시작 &nbsp;
-              <span className="text-success">✓</span> 언제든 해지 가능
+              <span className="text-success">✓</span> 언제든 해지 가능 &nbsp;
+              <span className="text-success">✓</span> POS 연동 지원
             </p>
           </div>
 

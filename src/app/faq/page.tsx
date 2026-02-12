@@ -99,7 +99,7 @@ export default function FAQPage() {
             <span className="font-medium text-gray-900">서비스 소개</span>
           </Link>
           <Link
-            href="/#cta-section"
+            href="/#faq"
             className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-all"
           >
             <span className="text-2xl mb-2 block" aria-hidden="true">🚀</span>

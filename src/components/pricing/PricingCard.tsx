@@ -2,8 +2,8 @@ import Link from 'next/link';
 import type { Plan } from '@/lib/pricing-data';
 
 const valueAnchors: Record<string, string> = {
-  premium: '하루 33원',
-  analysis: '커피 3잔 값',
+  standard: '하루 33원',
+  premium: '커피 3잔 값',
 };
 
 interface PricingCardProps {

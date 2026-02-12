@@ -6,7 +6,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const planPreviews = [
   {
-    name: '고급형',
+    name: '스탠다드',
     price: '1,000원',
     priceNote: '/월',
     description: '매일 아침 브리핑',
@@ -15,12 +15,12 @@ const planPreviews = [
     popular: true,
   },
   {
-    name: '상세 분석',
+    name: '고급형',
     price: '9,900원',
     priceNote: '/월',
     description: 'POS 연동 분석',
     valueAnchor: '커피 3잔 값',
-    features: ['고급형 모든 기능', 'POS 매출 연동', '위치 심화 분석'],
+    features: ['스탠다드 모든 기능', 'POS 매출 연동', '위치 심화 분석'],
     popular: false,
   },
 ];
@@ -145,7 +145,7 @@ export default function CTASection() {
 
               {/* CTA Button */}
               <Link
-                href={`/contact?plan=${plan.name === '고급형' ? 'premium' : 'analysis'}`}
+                href={`/contact?plan=${plan.name === '스탠다드' ? 'standard' : 'premium'}`}
                 className={`block w-full text-center py-3 rounded-lg font-medium transition-all ${
                   plan.popular
                     ? 'bg-white text-primary hover:bg-gray-100 hover:shadow-md'

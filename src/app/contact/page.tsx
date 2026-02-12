@@ -23,8 +23,8 @@ const storeCountOptions = [
 ];
 
 const planLabels: Record<string, string> = {
+  standard: '스탠다드 플랜',
   premium: '고급형 플랜',
-  analysis: '상세 분석 플랜',
   enterprise: '엔터프라이즈',
 };
 

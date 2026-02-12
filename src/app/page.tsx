@@ -1,19 +1,21 @@
 import HeroSection from '@/components/sections/HeroSection';
-import SocialProofSection from '@/components/sections/SocialProofSection';
 import LiveDemoSection from '@/components/sections/LiveDemoSection';
+import SocialProofSection from '@/components/sections/SocialProofSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import FeatureSection from '@/components/sections/FeatureSection';
-import CTASection from '@/components/sections/CTASection';
+import PricingSection from '@/components/sections/PricingSection';
+import FAQSection from '@/components/sections/FAQSection';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <SocialProofSection />
       <LiveDemoSection />
+      <SocialProofSection />
       <HowItWorksSection />
       <FeatureSection />
-      <CTASection />
+      <PricingSection />
+      <FAQSection />
     </>
   );
 }

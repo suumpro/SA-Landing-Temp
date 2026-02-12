@@ -29,7 +29,7 @@ const pricingJsonLd = {
     },
     {
       '@type': 'Offer',
-      name: '고급형',
+      name: '스탠다드',
       price: '1000',
       priceCurrency: 'KRW',
       priceSpecification: { '@type': 'UnitPriceSpecification', billingDuration: 'P1M' },
@@ -37,7 +37,7 @@ const pricingJsonLd = {
     },
     {
       '@type': 'Offer',
-      name: '상세 분석',
+      name: '고급형',
       price: '9900',
       priceCurrency: 'KRW',
       priceSpecification: { '@type': 'UnitPriceSpecification', billingDuration: 'P1M' },
@@ -139,7 +139,7 @@ export default function PricingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/#cta-section"
+              href="/#faq"
               className="bg-white text-primary font-medium px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
             >
               무료 시작하기

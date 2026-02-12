@@ -26,10 +26,10 @@ export default function PlanComparison() {
               무료
             </th>
             <th className="text-center py-4 px-4 font-medium text-primary">
-              고급형
+              스탠다드
             </th>
             <th className="text-center py-4 px-4 font-medium text-gray-900">
-              상세 분석
+              고급형
             </th>
             <th className="text-center py-4 px-4 font-medium text-gray-900">
               엔터프라이즈
@@ -61,10 +61,10 @@ export default function PlanComparison() {
                     <RenderValue value={feature.free} />
                   </td>
                   <td className="text-center py-3 px-4 bg-primary-lighter/50">
-                    <RenderValue value={feature.premium} />
+                    <RenderValue value={feature.standard} />
                   </td>
                   <td className="text-center py-3 px-4">
-                    <RenderValue value={feature.analysis} />
+                    <RenderValue value={feature.premium} />
                   </td>
                   <td className="text-center py-3 px-4">
                     <RenderValue value={feature.enterprise} />

@@ -6,9 +6,9 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/sample', label: '브리핑 샘플' },
-  { href: '/how-it-works', label: '서비스 소개' },
-  { href: '/pricing', label: '가격' },
-  { href: '/faq', label: 'FAQ' },
+  { href: '/#how-it-works', label: '서비스 소개', anchor: 'how-it-works' },
+  { href: '/#pricing', label: '가격', anchor: 'pricing' },
+  { href: '/#faq', label: 'FAQ', anchor: 'faq' },
 ];
 
 export default function Header() {
@@ -62,36 +62,53 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6" aria-label="메인 내비게이션">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-colors ${
-                pathname === link.href
-                  ? 'text-primary'
-                  : 'text-gray-600 hover:text-primary'
-              }`}
-              aria-current={pathname === link.href ? 'page' : undefined}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isAnchor = 'anchor' in link && link.anchor;
+            const isHome = pathname === '/';
+
+            if (isAnchor && isHome) {
+              return (
+                <button
+                  key={link.href}
+                  onClick={() => scrollToSection(link.anchor!)}
+                  className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </button>
+              );
+            }
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors ${
+                  pathname === link.href
+                    ? 'text-primary'
+                    : 'text-gray-600 hover:text-primary'
+                }`}
+                aria-current={pathname === link.href ? 'page' : undefined}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
           <button
-            onClick={() => scrollToSection('cta-section')}
+            onClick={() => scrollToSection('faq')}
             className="px-4 py-2 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
           >
             무료 구독
           </button>
-          <Link
-            href="/pricing"
+          <button
+            onClick={() => scrollToSection('pricing')}
             className="px-4 py-2 text-sm font-medium bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
           >
             플랜 보기
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -136,33 +153,50 @@ export default function Header() {
           className="bg-white border-t border-gray-100 max-w-6xl mx-auto px-4 py-4 space-y-4"
           aria-label="모바일 내비게이션"
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`block py-2 transition-colors ${
-                pathname === link.href
-                  ? 'text-primary font-medium'
-                  : 'text-gray-600 hover:text-primary'
-              }`}
-              aria-current={pathname === link.href ? 'page' : undefined}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isAnchor = 'anchor' in link && link.anchor;
+            const isHome = pathname === '/';
+
+            if (isAnchor && isHome) {
+              return (
+                <button
+                  key={link.href}
+                  onClick={() => scrollToSection(link.anchor!)}
+                  className="block w-full text-left py-2 text-gray-600 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </button>
+              );
+            }
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`block py-2 transition-colors ${
+                  pathname === link.href
+                    ? 'text-primary font-medium'
+                    : 'text-gray-600 hover:text-primary'
+                }`}
+                aria-current={pathname === link.href ? 'page' : undefined}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <hr className="border-gray-100" />
           <button
-            onClick={() => scrollToSection('cta-section')}
+            onClick={() => scrollToSection('faq')}
             className="block w-full text-left py-2 text-primary font-medium"
           >
             무료 구독
           </button>
-          <Link
-            href="/pricing"
+          <button
+            onClick={() => scrollToSection('pricing')}
             className="block w-full btn-primary text-center py-3"
           >
             플랜 보기
-          </Link>
+          </button>
         </nav>
       </div>
     </header>
