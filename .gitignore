@@ -22,7 +22,17 @@
 
 # misc
 .DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
 *.pem
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # debug
 npm-debug.log*
