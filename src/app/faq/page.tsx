@@ -9,9 +9,28 @@ export const metadata: Metadata = {
     '서비스, 결제, 플랜에 대한 궁금증을 해결하세요. 본사 연동 없이, 언제든 해지 가능합니다.',
 };
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqData.flatMap((cat) =>
+    cat.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  ),
+};
+
 export default function FAQPage() {
   return (
     <main className="pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero Section */}
       <section className="text-center mb-16 px-4">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">

@@ -1,9 +1,16 @@
 import { NextRequest } from 'next/server';
+import { z } from 'zod';
 import {
   getClientIp, isRateLimited, rateLimitResponse,
   sendSlackNotification, slackEscape, koreaTime,
   errorResponse, successResponse,
 } from '@/lib/api-utils';
+
+const contactSchema = z.object({
+  name: z.string().min(1).max(50),
+  contact: z.string().min(1).max(100),
+  storeCount: z.string().min(1).max(10),
+});
 
 export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
@@ -11,24 +18,17 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { name, contact, storeCount } = body;
+    const result = contactSchema.safeParse(body);
 
-    if (!name || typeof name !== 'string' || name.trim().length === 0) {
-      return errorResponse('이름을 입력해주세요', 400);
-    }
-    if (!contact || typeof contact !== 'string' || contact.trim().length === 0) {
-      return errorResponse('연락처를 입력해주세요', 400);
-    }
-    if (!storeCount || typeof storeCount !== 'string') {
-      return errorResponse('매장 수를 선택해주세요', 400);
+    if (!result.success) {
+      const firstError = result.error.issues[0]?.message ?? '입력값을 확인해주세요';
+      return errorResponse(firstError, 400);
     }
 
-    const trimmedName = name.trim().slice(0, 50);
-    const trimmedContact = contact.trim().slice(0, 50);
-    const trimmedStoreCount = storeCount.trim().slice(0, 10);
+    const { name, contact, storeCount } = result.data;
 
     await sendSlackNotification(
-      `🎯 새 상담 신청!\n\n*이름:* ${slackEscape(trimmedName)}\n*연락처:* ${slackEscape(trimmedContact)}\n*매장 수:* ${slackEscape(trimmedStoreCount)}\n*시간:* ${koreaTime()}`,
+      `🎯 새 상담 신청!\n\n*이름:* ${slackEscape(name)}\n*연락처:* ${slackEscape(contact)}\n*매장 수:* ${slackEscape(storeCount)}\n*시간:* ${koreaTime()}`,
     );
 
     return successResponse('상담 신청이 완료되었습니다');

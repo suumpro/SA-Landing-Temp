@@ -74,6 +74,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
+        <style dangerouslySetInnerHTML={{ __html: `@font-face{font-family:'Pretendard Variable';font-display:swap;}` }} />
       </head>
       <body className={`${geistMono.variable} antialiased`}>
         <script
