@@ -350,7 +350,7 @@ export default function HowItWorksPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/#cta-section"
+            href="/#faq"
             className="btn-primary px-8 py-4 text-center"
           >
             무료 시작하기

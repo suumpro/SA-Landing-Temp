@@ -21,7 +21,7 @@ export default function POSAnalysisSection() {
   const data = posAnalysisData[activeArea.id as AreaId];
 
   return (
-    <section id="pos-analysis" ref={ref} className="section bg-gray-50">
+    <section id="pos-analysis" ref={ref} className="section bg-white">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
         <div className={`text-center mb-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -33,6 +33,9 @@ export default function POSAnalysisSection() {
           </h2>
           <p className="text-gray-600">
             매출 트렌드부터 경쟁점 비교까지, AI가 자동으로 분석합니다
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
+            스탠다드 브리핑에 POS 데이터 분석이 더해집니다
           </p>
         </div>
 
@@ -51,7 +54,7 @@ export default function POSAnalysisSection() {
               className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                 activeIndex === index
                   ? 'bg-primary text-white shadow-md scale-105'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-200'
               }`}
             >
               <span aria-hidden="true">{area.icon}</span>
@@ -63,7 +66,7 @@ export default function POSAnalysisSection() {
         {/* 2x2 Analysis Cards Grid */}
         <div
           key={activeArea.id}
-          className={`animate-fade-switch ${isVisible ? '' : 'opacity-0'}`}
+          className={isVisible ? 'animate-fade-switch' : 'opacity-0'}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <SalesTrendCard data={data.salesTrend} />

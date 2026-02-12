@@ -56,7 +56,7 @@ export default function LiveDemoSection() {
   const timeLabels = { morning: '오전', afternoon: '오후', evening: '저녁' };
 
   return (
-    <section ref={ref} className="section bg-white">
+    <section id="demo" ref={ref} className="section bg-white">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
         <div className={`text-center mb-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -95,9 +95,7 @@ export default function LiveDemoSection() {
         {/* Main Content: Mockup + Value Panel */}
         <div
           key={activeArea.id}
-          className={`animate-fade-switch ${
-            isVisible ? '' : 'opacity-0'
-          }`}
+          className={isVisible ? 'animate-fade-switch' : 'opacity-0'}
         >
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
             {/* Left: Full Briefing Mockup */}

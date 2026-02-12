@@ -12,9 +12,9 @@ export default function Home() {
     <>
       <HeroSection />
       <LiveDemoSection />
-      <SocialProofSection />
-      <HowItWorksSection />
       <FeatureSection />
+      <HowItWorksSection />
+      <SocialProofSection />
       <POSAnalysisSection />
       <PricingSection />
       <FAQSection />

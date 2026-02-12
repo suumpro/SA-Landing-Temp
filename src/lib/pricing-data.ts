@@ -31,7 +31,7 @@ export const plans: Plan[] = [
       { text: 'POS 연동', included: false },
     ],
     cta: '무료 시작',
-    ctaLink: '/#cta-section',
+    ctaLink: '/#faq',
   },
   {
     id: 'standard',

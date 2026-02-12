@@ -34,7 +34,15 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
 
     observer.observe(element);
 
-    return () => observer.disconnect();
+    // FIC safety net: if IntersectionObserver hasn't triggered within 3s, show content
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+    }, 3000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+    };
   }, [threshold, once]);
 
   return { ref, isVisible };
