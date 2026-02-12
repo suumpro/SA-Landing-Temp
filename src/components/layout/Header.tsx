@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
+  { href: '/sample', label: '브리핑 샘플' },
   { href: '/how-it-works', label: '서비스 소개' },
   { href: '/pricing', label: '가격' },
   { href: '/faq', label: 'FAQ' },
