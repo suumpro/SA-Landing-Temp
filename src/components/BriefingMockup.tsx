@@ -1,7 +1,8 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { getTimeSlot, getBriefingTitle, getBriefingTime, getToday } from '@/lib/timeUtils';
+import type { TimeSlot } from '@/lib/timeUtils';
 import type { AreaType, BriefingScenario } from '@/data/briefingData';
 
 interface BriefingMockupProps {
@@ -12,9 +13,16 @@ interface BriefingMockupProps {
 }
 
 export const BriefingMockup = memo(function BriefingMockup({ area, scenario, dateOverride, timeOverride }: BriefingMockupProps) {
-  const timeSlot = getTimeSlot();
-  const today = dateOverride ?? getToday();
-  const time = timeOverride ?? getBriefingTime(timeSlot);
+  const [timeSlot, setTimeSlot] = useState<TimeSlot>('morning');
+  const [today, setToday] = useState(dateOverride ?? '');
+  const [time, setTime] = useState(timeOverride ?? '오전 6:00');
+
+  useEffect(() => {
+    const ts = getTimeSlot();
+    setTimeSlot(ts);
+    if (!dateOverride) setToday(getToday());
+    if (!timeOverride) setTime(getBriefingTime(ts));
+  }, [dateOverride, timeOverride]);
 
   return (
     <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-gray-200 w-full max-w-sm mx-auto">

@@ -1,7 +1,8 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { getTimeSlot, getBriefingTitle, getBriefingTime, getWeatherIcon, getToday } from '@/lib/timeUtils';
+import type { TimeSlot } from '@/lib/timeUtils';
 
 const contentByTime = {
   morning: {
@@ -25,8 +26,13 @@ const contentByTime = {
 } as const;
 
 export default function MockupImage() {
-  const timeSlot = useMemo(() => getTimeSlot(), []);
-  const today = useMemo(() => getToday(), []);
+  const [timeSlot, setTimeSlot] = useState<TimeSlot>('morning');
+  const [today, setToday] = useState('');
+
+  useEffect(() => {
+    setTimeSlot(getTimeSlot());
+    setToday(getToday());
+  }, []);
   const content = contentByTime[timeSlot];
 
   return (

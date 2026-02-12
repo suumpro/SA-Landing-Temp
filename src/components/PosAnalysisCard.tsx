@@ -84,7 +84,7 @@ export function SalesForecastCard({ data }: { data: SalesForecastData }) {
                 style={{ height: `${day.barPercent}%` }}
               />
             </div>
-            <span className="text-[10px] text-gray-400">{day.predicted}</span>
+            <span className="text-[11px] sm:text-xs text-gray-400">{day.predicted}</span>
             <span className={`text-xs font-medium ${
               day.isToday ? 'text-primary font-bold' : day.isPeak ? 'text-primary' : 'text-gray-500'
             }`}>
@@ -129,7 +129,7 @@ export function OrderRecommendCard({ data }: { data: OrderRecommendData }) {
             <div key={item.product} className={`${style.bg} border ${style.border} rounded-lg p-3`}>
               <div className="flex items-center justify-between mb-1">
                 <span className="text-sm font-medium text-gray-900">{item.product}</span>
-                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${style.text} ${style.bg}`}>
+                <span className={`text-[11px] sm:text-xs font-bold px-1.5 py-0.5 rounded ${style.text} ${style.bg}`}>
                   {style.label}
                 </span>
               </div>
@@ -161,7 +161,7 @@ export function CompetitorCard({ data }: { data: CompetitorData }) {
       <div className="flex items-center gap-4 mb-5 p-3 bg-primary-lighter rounded-lg">
         <div className="text-center">
           <span className="text-2xl font-bold text-primary">{data.myRank}위</span>
-          <p className="text-[10px] text-gray-500">/ {data.totalStores}개 매장</p>
+          <p className="text-[11px] sm:text-xs text-gray-500">/ {data.totalStores}개 매장</p>
         </div>
         <div className="h-8 w-px bg-primary/20" aria-hidden="true" />
         <p className="text-sm text-gray-700">
@@ -187,7 +187,7 @@ export function CompetitorCard({ data }: { data: CompetitorData }) {
                 </span>
               </div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-[10px] text-gray-500 w-12 shrink-0">내 매장</span>
+                <span className="text-[10px] text-gray-500 w-10 sm:w-12 shrink-0">내 매장</span>
                 <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-primary rounded-full transition-all duration-700"
@@ -199,7 +199,7 @@ export function CompetitorCard({ data }: { data: CompetitorData }) {
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] text-gray-400 w-12 shrink-0">경쟁 평균</span>
+                <span className="text-[11px] sm:text-xs text-gray-400 w-10 sm:w-12 shrink-0">경쟁 평균</span>
                 <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gray-300 rounded-full transition-all duration-700"

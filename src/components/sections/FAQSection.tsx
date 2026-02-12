@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { faqData } from '@/lib/faq-data';
 import Accordion from '@/components/ui/Accordion';
+import NewsletterForm from '@/components/ui/NewsletterForm';
 import InlineContactForm from '@/components/ui/InlineContactForm';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -38,6 +39,15 @@ export default function FAQSection() {
             전체 FAQ 보기
             <span aria-hidden="true">→</span>
           </Link>
+        </div>
+
+        {/* Newsletter Form */}
+        <div className={`mb-12 ${isVisible ? 'animate-fade-in-up delay-200' : 'opacity-0'}`}>
+          <div className="text-center mb-4">
+            <h3 className="text-lg font-bold text-gray-900">무료 뉴스레터 구독</h3>
+            <p className="text-sm text-gray-500">이메일만 입력하면 매일 아침 브리핑을 받아보실 수 있습니다</p>
+          </div>
+          <NewsletterForm />
         </div>
 
         {/* Inline Contact Form */}

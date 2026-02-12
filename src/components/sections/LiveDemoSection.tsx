@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import Link from 'next/link';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { getTimeSlot } from '@/lib/timeUtils';
+import type { TimeSlot } from '@/lib/timeUtils';
 import { areaTypes } from '@/data/briefingData';
 import type { AreaType } from '@/data/briefingData';
 import { getSeasonalScenario } from '@/data/seasonal';
@@ -46,7 +48,8 @@ export default function LiveDemoSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
 
-  const timeSlot = useMemo(() => getTimeSlot(), []);
+  const [timeSlot, setTimeSlot] = useState<TimeSlot>('morning');
+  useEffect(() => { setTimeSlot(getTimeSlot()); }, []);
   const activeArea = areaTypes[activeIndex];
   const activeScenario = useMemo(
     () => getSeasonalScenario(activeArea.id, timeSlot),
@@ -110,12 +113,20 @@ export default function LiveDemoSection() {
           </div>
         </div>
 
-        {/* Time Indicator */}
+        {/* Time Indicator + Sample Link */}
         <div className={`text-center mt-8 ${isVisible ? 'animate-fade-in-up delay-300' : 'opacity-0'}`}>
           <p className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 text-gray-500 rounded-full text-xs border border-gray-100">
             <span aria-hidden="true">&#9200;</span>
             지금 {timeLabels[timeSlot]} 시각 기준 브리핑입니다 &middot; 시간대마다 내용이 달라져요
           </p>
+          <div className="mt-3">
+            <Link
+              href="/sample"
+              className="inline-flex items-center gap-1 text-primary text-sm font-medium hover:underline"
+            >
+              7일간의 브리핑을 미리 확인해 보세요 →
+            </Link>
+          </div>
         </div>
       </div>
     </section>

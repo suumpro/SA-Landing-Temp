@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { href: '/sample', label: '브리핑 샘플' },
+  { href: '/sample', label: '브리핑 샘플', highlight: true },
   { href: '/#how-it-works', label: '서비스 소개', anchor: 'how-it-works' },
   { href: '/#pricing', label: '가격', anchor: 'pricing' },
   { href: '/#faq', label: 'FAQ', anchor: 'faq' },
@@ -85,6 +85,8 @@ export default function Header() {
                 className={`text-sm font-medium transition-colors ${
                   pathname === link.href
                     ? 'text-primary'
+                    : link.highlight
+                    ? 'text-primary font-semibold'
                     : 'text-gray-600 hover:text-primary'
                 }`}
                 aria-current={pathname === link.href ? 'page' : undefined}

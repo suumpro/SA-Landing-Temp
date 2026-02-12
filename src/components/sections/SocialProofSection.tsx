@@ -1,19 +1,7 @@
 'use client';
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-
-const testimonials = [
-  {
-    quote: '아침에 브리핑 확인하고 발주하니까 마음이 편해졌어요. 예전엔 뭘 빠뜨렸나 항상 불안했는데.',
-    author: 'CU 강남역점 김○○ 점주',
-    tag: '☀️ 일상 운영',
-  },
-  {
-    quote: '비 오기 전에 미리 알려줘서 우산 준비해뒀더니 다 팔렸어요. 이런 게 진짜 도움되는 정보죠.',
-    author: 'GS25 신촌점 박○○ 점주',
-    tag: '🌧️ 비 오는 날',
-  },
-];
+import { testimonials } from '@/data/testimonials';
 
 export default function SocialProofSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
@@ -29,7 +17,7 @@ export default function SocialProofSection() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.author}

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: '자주 묻는 질문 | STOREAGENT',
   description:
     '서비스, 결제, 플랜에 대한 궁금증을 해결하세요. 본사 연동 없이, 언제든 해지 가능합니다.',
+  alternates: {
+    canonical: '/faq',
+  },
 };
 
 const faqJsonLd = {

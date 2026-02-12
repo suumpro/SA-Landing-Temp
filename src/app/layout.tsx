@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://storeagent.kr"),
@@ -77,7 +71,7 @@ export default function RootLayout({
         />
         <style dangerouslySetInnerHTML={{ __html: `@font-face{font-family:'Pretendard Variable';font-display:swap;}` }} />
       </head>
-      <body className={`${geistMono.variable} antialiased`}>
+      <body className="antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
