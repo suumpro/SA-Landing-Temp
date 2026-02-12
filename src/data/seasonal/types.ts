@@ -9,3 +9,31 @@ export interface DailyBriefingTemplate {
 }
 
 export type SeasonScenarios = Record<AreaId, DailyBriefingTemplate[]>;
+
+// --- Building Block Types ---
+
+export interface WeatherBlock {
+  temp: string;
+  warning: string;
+  icon: string;
+}
+
+export interface EventBlock {
+  icon: string;
+  title: string;
+  detail: string;
+  impact: string;
+}
+
+export interface TipBlock {
+  text: string;
+  action: string;
+}
+
+export interface ScenarioInput {
+  weather: WeatherBlock;
+  tips: TipBlock[];
+  events: EventBlock[];
+  checklist: string[];
+  weekPreview: string[];
+}
