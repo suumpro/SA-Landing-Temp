@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useCallback, memo } from 'react';
+import { useState, useCallback, useMemo, memo } from 'react';
 import Link from 'next/link';
 import { areaTypes } from '@/data/briefingData';
-import { weeklySamples } from '@/data/weeklySampleData';
-import type { DailyBriefing } from '@/data/weeklySampleData';
+import { buildWeeklySamples } from '@/data/seasonal';
+import type { DailyBriefing } from '@/data/seasonal';
 import { BriefingMockup } from '@/components/BriefingMockup';
 
 const DayInsightPanel = memo(function DayInsightPanel({ daily }: { daily: DailyBriefing }) {
@@ -86,6 +86,8 @@ const DAYS = ['월', '화', '수', '목', '금', '토', '일'];
 export default function SamplePage() {
   const [areaIndex, setAreaIndex] = useState(0);
   const [dayIndex, setDayIndex] = useState(0);
+
+  const weeklySamples = useMemo(() => buildWeeklySamples(), []);
 
   const activeArea = areaTypes[areaIndex];
   const activeSample = weeklySamples[areaIndex];

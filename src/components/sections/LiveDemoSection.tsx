@@ -5,6 +5,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { getTimeSlot } from '@/lib/timeUtils';
 import { areaTypes } from '@/data/briefingData';
 import type { AreaType } from '@/data/briefingData';
+import { getSeasonalScenario } from '@/data/seasonal';
 import { BriefingMockup } from '@/components/BriefingMockup';
 
 function ValuePanel({ area }: { area: AreaType }) {
@@ -47,7 +48,10 @@ export default function LiveDemoSection() {
 
   const timeSlot = useMemo(() => getTimeSlot(), []);
   const activeArea = areaTypes[activeIndex];
-  const activeScenario = activeArea.scenarios[timeSlot];
+  const activeScenario = useMemo(
+    () => getSeasonalScenario(activeArea.id, timeSlot),
+    [activeArea.id, timeSlot],
+  );
 
   const timeLabels = { morning: '오전', afternoon: '오후', evening: '저녁' };
 
