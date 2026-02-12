@@ -3,6 +3,7 @@ import Link from 'next/link';
 const footerLinks = [
   { href: '/how-it-works', label: '서비스 소개' },
   { href: '/pricing', label: '가격' },
+  { href: '/blog', label: '뉴스레터 예시' },
   { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: '상담 신청' },
 ];

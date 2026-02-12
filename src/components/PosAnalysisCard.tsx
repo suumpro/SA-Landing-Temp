@@ -7,7 +7,7 @@ import type {
 
 export function SalesTrendCard({ data }: { data: SalesTrendData }) {
   return (
-    <div className="card">
+    <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="text-xl" aria-hidden="true">📈</span>
@@ -30,12 +30,12 @@ export function SalesTrendCard({ data }: { data: SalesTrendData }) {
               <span className="text-gray-700">{item.category}</span>
               <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-900">{item.amount}만</span>
-                <span className={`text-xs font-medium ${item.change >= 0 ? 'text-success' : 'text-error'}`}>
+                <span className={`text-xs sm:text-sm font-medium tabular-nums ${item.change >= 0 ? 'text-success' : 'text-error'}`}>
                   {item.change >= 0 ? '+' : ''}{item.change}%
                 </span>
               </div>
             </div>
-            <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div className="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
               <div
                 className="h-full bg-primary rounded-full transition-all duration-700"
                 style={{ width: `${item.barPercent}%` }}
@@ -50,7 +50,7 @@ export function SalesTrendCard({ data }: { data: SalesTrendData }) {
 
 export function SalesForecastCard({ data }: { data: SalesForecastData }) {
   return (
-    <div className="card">
+    <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="text-xl" aria-hidden="true">🔮</span>
@@ -69,10 +69,10 @@ export function SalesForecastCard({ data }: { data: SalesForecastData }) {
         📍 피크 예상: {data.peakDay} — {data.peakReason}
       </p>
 
-      <div className="flex items-end justify-between gap-1.5 h-36 pt-2">
+      <div className="flex items-end justify-between gap-1 sm:gap-2 h-44 pt-2">
         {data.days.map((day) => (
-          <div key={day.day} className="flex-1 flex flex-col items-center gap-1">
-            <div className="w-full flex flex-col justify-end" style={{ height: '96px' }}>
+          <div key={day.day} className="flex-1 flex flex-col items-center gap-0.5">
+            <div className="w-full flex flex-col justify-end" style={{ height: '88px' }}>
               <div
                 className={`w-full rounded-t transition-all duration-700 ${
                   day.isPeak
@@ -84,13 +84,17 @@ export function SalesForecastCard({ data }: { data: SalesForecastData }) {
                 style={{ height: `${day.barPercent}%` }}
               />
             </div>
-            <span className="text-[11px] sm:text-xs text-gray-400">{day.predicted}</span>
-            <span className={`text-xs font-medium ${
+            <span className="text-xs text-gray-500 tabular-nums">{day.predicted}</span>
+            <span className={`text-sm font-medium ${
               day.isToday ? 'text-primary font-bold' : day.isPeak ? 'text-primary' : 'text-gray-500'
             }`}>
               {day.day}
             </span>
-            {day.isToday && <span className="text-[8px] text-primary -mt-1">오늘</span>}
+            <span className={`text-[10px] sm:text-xs font-bold h-4 ${
+              day.isToday ? 'text-primary' : day.isPeak ? 'text-primary/60' : 'text-transparent'
+            }`}>
+              {day.isToday ? '오늘' : day.isPeak ? '피크' : '\u00A0'}
+            </span>
           </div>
         ))}
       </div>
@@ -106,7 +110,7 @@ export function OrderRecommendCard({ data }: { data: OrderRecommendData }) {
   };
 
   return (
-    <div className="card">
+    <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="text-xl" aria-hidden="true">📦</span>
@@ -126,19 +130,19 @@ export function OrderRecommendCard({ data }: { data: OrderRecommendData }) {
         {data.items.map((item) => {
           const style = urgencyStyles[item.urgency];
           return (
-            <div key={item.product} className={`${style.bg} border ${style.border} rounded-lg p-3`}>
+            <div key={item.product} className={`${style.bg} border ${style.border} rounded-xl p-4`}>
               <div className="flex items-center justify-between mb-1">
-                <span className="text-sm font-medium text-gray-900">{item.product}</span>
-                <span className={`text-[11px] sm:text-xs font-bold px-1.5 py-0.5 rounded ${style.text} ${style.bg}`}>
+                <span className="text-sm sm:text-base font-semibold text-gray-900 truncate">{item.product}</span>
+                <span className={`text-xs font-bold px-2 py-0.5 rounded-md ${style.text} ${style.bg} whitespace-nowrap shrink-0`}>
                   {style.label}
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-xs text-gray-500 mb-1">
+              <div className="flex items-center gap-2 text-sm text-gray-500 mb-1.5">
                 <span>현재 {item.currentStock}개</span>
                 <span aria-hidden="true">→</span>
                 <span className="font-semibold text-primary">{item.recommended}개 추천</span>
               </div>
-              <p className="text-xs text-gray-500">{item.reason}</p>
+              <p className="text-sm text-gray-500 leading-relaxed">{item.reason}</p>
             </div>
           );
         })}
@@ -149,7 +153,7 @@ export function OrderRecommendCard({ data }: { data: OrderRecommendData }) {
 
 export function CompetitorCard({ data }: { data: CompetitorData }) {
   return (
-    <div className="card">
+    <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="text-xl" aria-hidden="true">🏪</span>
@@ -161,7 +165,7 @@ export function CompetitorCard({ data }: { data: CompetitorData }) {
       <div className="flex items-center gap-4 mb-5 p-3 bg-primary-lighter rounded-lg">
         <div className="text-center">
           <span className="text-2xl font-bold text-primary">{data.myRank}위</span>
-          <p className="text-[11px] sm:text-xs text-gray-500">/ {data.totalStores}개 매장</p>
+          <p className="text-xs sm:text-sm text-gray-500">/ {data.totalStores}개 매장</p>
         </div>
         <div className="h-8 w-px bg-primary/20" aria-hidden="true" />
         <p className="text-sm text-gray-700">
@@ -187,26 +191,26 @@ export function CompetitorCard({ data }: { data: CompetitorData }) {
                 </span>
               </div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-[11px] sm:text-xs text-gray-500 w-10 sm:w-12 shrink-0">내 매장</span>
+                <span className="text-xs text-gray-600 w-14 shrink-0">내 매장</span>
                 <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-primary rounded-full transition-all duration-700"
                     style={{ width: `${myPercent}%` }}
                   />
                 </div>
-                <span className="text-xs font-medium text-gray-900 w-16 text-right">
+                <span className="text-xs sm:text-sm font-medium text-gray-900 w-20 text-right tabular-nums">
                   {metric.myValue.toLocaleString()}{metric.unit}
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] sm:text-xs text-gray-400 w-10 sm:w-12 shrink-0">경쟁 평균</span>
+              <div className="flex items-center gap-2 mt-1">
+                <span className="text-xs text-gray-400 w-14 shrink-0">경쟁 평균</span>
                 <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gray-300 rounded-full transition-all duration-700"
                     style={{ width: `${avgPercent}%` }}
                   />
                 </div>
-                <span className="text-xs text-gray-500 w-16 text-right">
+                <span className="text-xs sm:text-sm text-gray-500 w-20 text-right tabular-nums">
                   {metric.avgValue.toLocaleString()}{metric.unit}
                 </span>
               </div>

@@ -59,7 +59,7 @@ export default function LiveDemoSection() {
   const timeLabels = { morning: '오전', afternoon: '오후', evening: '저녁' };
 
   return (
-    <section id="demo" ref={ref} className="section bg-white">
+    <section id="demo" ref={ref} className="section bg-gray-50">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
         <div className={`text-center mb-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>

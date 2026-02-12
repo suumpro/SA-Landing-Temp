@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <LiveDemoSection />
       <FeatureSection />
       <HowItWorksSection />
-      <SocialProofSection />
+      <LiveDemoSection />
       <POSAnalysisSection />
+      <SocialProofSection />
       <PricingSection />
       <FAQSection />
     </>

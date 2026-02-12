@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/sample', label: '브리핑 샘플', highlight: true },
+  { href: '/blog', label: '뉴스레터 예시' },
   { href: '/#how-it-works', label: '서비스 소개', anchor: 'how-it-works' },
   { href: '/#pricing', label: '가격', anchor: 'pricing' },
   { href: '/#faq', label: 'FAQ', anchor: 'faq' },

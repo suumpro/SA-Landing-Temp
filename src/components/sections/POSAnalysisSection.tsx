@@ -53,7 +53,7 @@ export default function POSAnalysisSection() {
               aria-pressed={activeIndex === index}
               className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                 activeIndex === index
-                  ? 'bg-primary text-white shadow-md scale-105'
+                  ? 'bg-primary text-white shadow-md ring-2 ring-primary/30 ring-offset-2'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-200'
               }`}
             >
@@ -68,7 +68,7 @@ export default function POSAnalysisSection() {
           key={activeArea.id}
           className={isVisible ? 'animate-fade-switch' : 'opacity-0'}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <SalesTrendCard data={data.salesTrend} />
             <SalesForecastCard data={data.salesForecast} />
             <OrderRecommendCard data={data.orderRecommend} />
