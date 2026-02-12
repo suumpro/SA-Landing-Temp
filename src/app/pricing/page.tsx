@@ -8,11 +8,51 @@ export const metadata: Metadata = {
   title: '요금제 | STOREAGENT',
   description:
     '무료 뉴스레터부터 엔터프라이즈까지. 매장 규모에 맞는 플랜을 선택하세요.',
+  alternates: {
+    canonical: '/pricing',
+  },
+};
+
+const pricingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'STOREAGENT AI 브리핑',
+  description: '편의점 점주를 위한 AI 모닝 브리핑 서비스',
+  brand: { '@type': 'Organization', name: 'STOREAGENT' },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: '무료',
+      price: '0',
+      priceCurrency: 'KRW',
+      description: '주간 뉴스레터로 시작하기',
+    },
+    {
+      '@type': 'Offer',
+      name: '고급형',
+      price: '1000',
+      priceCurrency: 'KRW',
+      priceSpecification: { '@type': 'UnitPriceSpecification', billingDuration: 'P1M' },
+      description: '매일 아침 브리핑 받기',
+    },
+    {
+      '@type': 'Offer',
+      name: '상세 분석',
+      price: '9900',
+      priceCurrency: 'KRW',
+      priceSpecification: { '@type': 'UnitPriceSpecification', billingDuration: 'P1M' },
+      description: '데이터 기반 의사결정',
+    },
+  ],
 };
 
 export default function PricingPage() {
   return (
     <main className="pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
       {/* Hero Section */}
       <section className="text-center mb-16 px-4">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">

@@ -1,0 +1,18 @@
+{
+  "name": "STOREAGENT - 편의점 점주를 위한 AI 브리핑",
+  "short_name": "STOREAGENT",
+  "description": "발주 전 3분, 확인하고 가세요. 날씨, 이벤트, 오늘 체크할 것들을 매일 아침 정리해 드립니다.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E88E5",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

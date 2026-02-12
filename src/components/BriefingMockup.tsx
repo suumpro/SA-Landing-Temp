@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import { getTimeSlot, getBriefingTitle, getBriefingTime, getToday } from '@/lib/timeUtils';
 import type { AreaType, BriefingScenario } from '@/data/briefingData';
 
@@ -10,7 +11,7 @@ interface BriefingMockupProps {
   timeOverride?: string;
 }
 
-export function BriefingMockup({ area, scenario, dateOverride, timeOverride }: BriefingMockupProps) {
+export const BriefingMockup = memo(function BriefingMockup({ area, scenario, dateOverride, timeOverride }: BriefingMockupProps) {
   const timeSlot = getTimeSlot();
   const today = dateOverride ?? getToday();
   const time = timeOverride ?? getBriefingTime(timeSlot);
@@ -130,4 +131,4 @@ export function BriefingMockup({ area, scenario, dateOverride, timeOverride }: B
       </div>
     </div>
   );
-}
+});

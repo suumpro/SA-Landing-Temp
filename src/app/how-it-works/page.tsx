@@ -6,6 +6,36 @@ export const metadata: Metadata = {
   title: '서비스 소개 | STOREAGENT',
   description:
     '이메일과 매장 위치만 입력하면 끝. AI 에이전트가 매일 새벽 당신의 매장을 위해 일합니다.',
+  alternates: {
+    canonical: '/how-it-works',
+  },
+};
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'STOREAGENT AI 브리핑 시작하기',
+  description: '이메일과 매장 위치만 입력하면 AI 에이전트가 매일 새벽 브리핑을 준비합니다.',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: '30초 가입',
+      text: '이메일과 매장 위치를 입력합니다. 본사 연동 없이 개인 이메일만으로 시작합니다.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'AI 에이전트 자동 분석',
+      text: '새벽 5시, AI가 날씨 API, 이벤트 DB, 캘린더에서 정보를 수집하고 매장에 맞게 분석합니다.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: '아침 6시 브리핑 도착',
+      text: '날씨 대비 팁, 주변 이벤트, 체크리스트가 이메일로 도착합니다.',
+    },
+  ],
 };
 
 const aiTimeline = [
@@ -61,6 +91,10 @@ const features = [
 export default function HowItWorksPage() {
   return (
     <main className="pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
       {/* Hero Section */}
       <section className="text-center mb-20 px-4">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
