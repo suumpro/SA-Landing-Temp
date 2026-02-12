@@ -187,7 +187,7 @@ export function CompetitorCard({ data }: { data: CompetitorData }) {
                 </span>
               </div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-[10px] text-gray-500 w-10 sm:w-12 shrink-0">내 매장</span>
+                <span className="text-[11px] sm:text-xs text-gray-500 w-10 sm:w-12 shrink-0">내 매장</span>
                 <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-primary rounded-full transition-all duration-700"
