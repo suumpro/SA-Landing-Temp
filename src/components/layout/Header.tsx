@@ -100,13 +100,13 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={() => scrollToSection('faq')}
-            className="px-4 py-2 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
+            className="px-5 py-2.5 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
           >
             무료 구독
           </button>
           <button
             onClick={() => scrollToSection('pricing')}
-            className="px-4 py-2 text-sm font-medium bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+            className="btn-primary btn-sm rounded-lg"
           >
             플랜 보기
           </button>
@@ -115,7 +115,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2.5 text-gray-600 hover:text-gray-900 transition-colors"
+          className="md:hidden p-3 text-gray-600 hover:text-gray-900 transition-colors"
           aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
           aria-expanded={isMenuOpen}
         >
@@ -163,7 +163,7 @@ export default function Header() {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.anchor!)}
-                  className="block w-full text-left py-2 text-gray-600 hover:text-primary transition-colors"
+                  className="block w-full text-left py-3 text-gray-600 hover:text-primary transition-colors"
                 >
                   {link.label}
                 </button>
@@ -174,7 +174,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block py-2 transition-colors ${
+                className={`block py-3 transition-colors ${
                   pathname === link.href
                     ? 'text-primary font-medium'
                     : 'text-gray-600 hover:text-primary'
@@ -188,7 +188,7 @@ export default function Header() {
           <hr className="border-gray-100" />
           <button
             onClick={() => scrollToSection('faq')}
-            className="block w-full text-left py-2 text-primary font-medium"
+            className="block w-full text-left py-3 text-primary font-medium"
           >
             무료 구독
           </button>

@@ -80,7 +80,7 @@ export default function POSAnalysisSection() {
         <div className={`text-center mt-10 ${isVisible ? 'animate-fade-in-up delay-300' : 'opacity-0'}`}>
           <Link
             href="/contact?plan=premium"
-            className="btn-primary inline-flex items-center gap-2 px-8 py-3"
+            className="btn-primary inline-flex items-center gap-2"
           >
             고급형으로 시작하기
             <span aria-hidden="true">→</span>

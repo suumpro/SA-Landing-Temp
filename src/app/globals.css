@@ -148,6 +148,10 @@ body {
   box-shadow: none;
 }
 
+/* Button Size Variants */
+.btn-sm { padding: 8px 16px; font-size: 14px; }
+.btn-lg { padding: 16px 32px; font-size: 16px; }
+
 /* ========================================
    CARD STYLE
    ======================================== */
@@ -202,6 +206,24 @@ body {
 *:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+
+/* Form elements use their own ring style → exclude global outline */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+/* Invalid state visual feedback */
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+input[aria-invalid="true"]:focus,
+select[aria-invalid="true"]:focus {
+  --tw-ring-color: var(--error);
 }
 
 /* ========================================

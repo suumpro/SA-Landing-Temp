@@ -30,7 +30,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up delay-200">
               <button
                 onClick={() => scrollToSection('faq')}
-                className="btn-primary text-base px-8 py-4"
+                className="btn-primary btn-lg"
                 aria-label="무료 뉴스레터 구독하기"
               >
                 뉴스레터 구독하기
@@ -38,7 +38,7 @@ export default function HeroSection() {
               </button>
               <button
                 onClick={() => scrollToSection('pricing')}
-                className="btn-secondary text-base px-8 py-4 text-center"
+                className="btn-secondary btn-lg text-center"
               >
                 플랜 보기
               </button>

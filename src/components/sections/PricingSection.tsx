@@ -34,7 +34,7 @@ export default function PricingSection() {
                 key={plan.id}
                 className={`relative rounded-2xl p-6 transition-all duration-300 ${
                   isPopular
-                    ? 'bg-primary text-white border-2 border-primary shadow-xl lg:scale-105'
+                    ? 'bg-primary text-white border-2 border-primary shadow-lg ring-2 ring-primary/30 ring-offset-2'
                     : 'bg-white border border-gray-200 hover:border-primary/30 hover:shadow-lg'
                 } ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: isVisible ? `${(index + 1) * 100}ms` : '0ms' }}
