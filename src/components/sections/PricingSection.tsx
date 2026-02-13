@@ -47,9 +47,15 @@ export default function PricingSection() {
                   </div>
                 )}
 
-                <h3 className={`text-xl font-bold mb-2 ${isPopular ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-xl font-bold mb-1 ${isPopular ? 'text-white' : 'text-gray-900'}`}>
                   {plan.name}
                 </h3>
+
+                {plan.targetUser && (
+                  <p className={`text-xs mb-3 ${isPopular ? 'text-white/70' : 'text-gray-500'}`}>
+                    {plan.targetUser}
+                  </p>
+                )}
 
                 <div className="mb-1">
                   <span className={`text-3xl font-bold ${isPopular ? 'text-white' : 'text-primary'}`}>

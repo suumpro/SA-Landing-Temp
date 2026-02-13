@@ -48,8 +48,8 @@ export default function BlogPage() {
                 {s.title}
               </p>
               <p className="text-xs text-gray-500">{s.subtitle}</p>
-              <span className="inline-block mt-2 text-xs font-semibold text-primary bg-primary-lighter px-2 py-0.5 rounded-full">
-                {s.highlightMetric}
+              <span className="inline-flex items-center gap-1 mt-2 text-sm font-bold text-primary bg-primary-lighter px-3 py-1 rounded-full">
+                <span aria-hidden="true">📊</span>{s.highlightMetric}
               </span>
             </button>
           ))}
@@ -108,10 +108,10 @@ export default function BlogPage() {
             </div>
 
             {/* Value Highlight */}
-            <div className="flex items-center gap-3 bg-primary-lighter rounded-xl p-4">
-              <span className="text-2xl">📊</span>
+            <div className="flex items-center gap-3 bg-primary-lighter rounded-xl p-5 border-2 border-primary/20">
+              <span className="text-3xl">📊</span>
               <div>
-                <p className="text-sm font-bold text-primary">{sample.highlightMetric}</p>
+                <p className="text-base font-bold text-primary">{sample.highlightMetric}</p>
                 <p className="text-xs text-gray-600">이 브리핑을 받은 점주님들의 실제 성과</p>
               </div>
             </div>

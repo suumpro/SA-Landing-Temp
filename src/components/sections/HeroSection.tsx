@@ -17,13 +17,13 @@ export default function HeroSection() {
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6 animate-fade-in-up">
-              발주 전 3분,<br />
-              <span className="text-primary">확인하고 가세요</span>
+              편의점 매출을 올리는<br />
+              <span className="text-primary">AI 브리핑</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed animate-fade-in-up delay-100">
-              날씨·행사·체크리스트부터 <strong className="text-primary">POS 매출 데이터 분석</strong>까지,<br className="hidden sm:block" />
-              매일 아침 정리해 드립니다
+              날씨·행사·발주 체크리스트부터 <strong className="text-primary">POS 매출 분석</strong>까지,<br className="hidden sm:block" />
+              매일 아침 3분이면 충분합니다
             </p>
 
             {/* CTA Buttons */}
@@ -33,8 +33,8 @@ export default function HeroSection() {
                 className="btn-primary btn-lg"
                 aria-label="무료 뉴스레터 구독하기"
               >
-                뉴스레터 구독하기
-                <span className="ml-2 text-sm opacity-80">(무료)</span>
+                무료로 시작하기
+                <span className="ml-2 text-sm opacity-80">(주간 뉴스레터)</span>
               </button>
               <button
                 onClick={() => scrollToSection('pricing')}

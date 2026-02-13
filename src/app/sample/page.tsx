@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useMemo, memo } from 'react';
+import { useState, useCallback, useMemo, useRef, memo } from 'react';
 import Link from 'next/link';
 import { areaTypes } from '@/data/briefingData';
 import { buildWeeklySamples } from '@/data/seasonal';
@@ -93,9 +93,12 @@ export default function SamplePage() {
   const activeSample = weeklySamples[areaIndex];
   const activeDaily = activeSample.days[dayIndex];
 
+  const contentRef = useRef<HTMLElement>(null);
+
   const handleAreaChange = useCallback((index: number) => {
     setAreaIndex(index);
     setDayIndex(0);
+    setTimeout(() => contentRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
   }, []);
 
   return (
@@ -169,12 +172,15 @@ export default function SamplePage() {
             <p className="text-xs text-gray-500">
               {activeArea.icon} {activeArea.location} &middot; {activeDaily.theme}
             </p>
+            <p className="text-center text-xs text-gray-400 mt-1 sm:hidden">
+              아래로 스크롤해 브리핑을 확인하세요 ↓
+            </p>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <section className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
+      <section ref={contentRef} className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
         <div
           key={`${activeArea.id}-${dayIndex}`}
           className="animate-fade-switch"

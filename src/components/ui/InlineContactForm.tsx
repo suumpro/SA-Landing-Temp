@@ -9,6 +9,7 @@ const schema = z.object({
   name: z.string().min(1, '이름을 입력해주세요'),
   contact: z.string().min(1, '연락처를 입력해주세요'),
   storeCount: z.string().min(1, '매장 수를 선택해주세요'),
+  message: z.string().optional(),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -156,6 +157,20 @@ export default function InlineContactForm() {
               {errors.storeCount.message}
             </p>
           )}
+        </div>
+
+        <div>
+          <label htmlFor="inline-message" className="block text-sm font-medium text-gray-700 mb-1">
+            문의 내용 <span className="text-gray-400">(선택)</span>
+          </label>
+          <textarea
+            id="inline-message"
+            placeholder="궁금한 점이나 요청사항을 적어주세요"
+            {...register('message')}
+            rows={3}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-400 transition-shadow resize-none"
+            disabled={isSubmitting}
+          />
         </div>
 
         {error && (

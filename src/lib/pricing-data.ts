@@ -11,6 +11,7 @@ export interface Plan {
   price: string;
   priceNote?: string;
   description: string;
+  targetUser?: string;
   features: PlanFeature[];
   cta: string;
   ctaLink: string;
@@ -23,6 +24,7 @@ export const plans: Plan[] = [
     name: '무료',
     price: '0원',
     description: '주간 뉴스레터로 시작하기',
+    targetUser: '트렌드·시즌 정보 가볍게 확인',
     features: [
       { text: '주간 뉴스레터 (주 1-2회)', included: true },
       { text: '업계 트렌드 요약', included: true },
@@ -39,6 +41,7 @@ export const plans: Plan[] = [
     price: '1,000원',
     priceNote: '/월',
     description: '매일 아침 브리핑 받기',
+    targetUser: '매일 브리핑 기반 운영 관리',
     features: [
       { text: '주간 뉴스레터', included: true },
       { text: '매일 모닝 브리핑', included: true },
@@ -56,6 +59,7 @@ export const plans: Plan[] = [
     price: '9,900원',
     priceNote: '/월',
     description: '데이터 기반 의사결정',
+    targetUser: 'POS 데이터 기반 발주·매출 최적화',
     features: [
       { text: '스탠다드 모든 기능', included: true },
       { text: 'POS 매출 연동', included: true },
@@ -71,6 +75,7 @@ export const plans: Plan[] = [
     name: '엔터프라이즈',
     price: '상담',
     description: '다점포 맞춤 솔루션',
+    targetUser: '다점포 맞춤 분석 및 통합 관리',
     features: [
       { text: '고급형 모든 기능', included: true },
       { text: '다점포 통합 관리', included: true },

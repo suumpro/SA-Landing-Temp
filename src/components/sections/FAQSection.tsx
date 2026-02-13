@@ -45,7 +45,7 @@ export default function FAQSection() {
         <div className={`mb-12 ${isVisible ? 'animate-fade-in-up delay-200' : 'opacity-0'}`}>
           <div className="text-center mb-4">
             <h3 className="text-lg font-bold text-gray-900">무료 뉴스레터 구독</h3>
-            <p className="text-sm text-gray-500">이메일만 입력하면 매일 아침 브리핑을 받아보실 수 있습니다</p>
+            <p className="text-sm text-gray-500">주 1-2회 업계 트렌드와 시즌 팁을 받아보세요. 매일 브리핑은 스탠다드 플랜부터.</p>
           </div>
           <NewsletterForm />
         </div>

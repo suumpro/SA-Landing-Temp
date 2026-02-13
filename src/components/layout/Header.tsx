@@ -4,12 +4,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const navLinks = [
-  { href: '/sample', label: '브리핑 샘플', highlight: true },
-  { href: '/blog', label: '뉴스레터 예시' },
+const anchorLinks = [
   { href: '/#how-it-works', label: '서비스 소개', anchor: 'how-it-works' },
   { href: '/#pricing', label: '가격', anchor: 'pricing' },
   { href: '/#faq', label: 'FAQ', anchor: 'faq' },
+];
+
+const contentLinks = [
+  { href: '/sample', label: '브리핑 샘플', highlight: true },
+  { href: '/blog', label: '뉴스레터 예시' },
 ];
 
 export default function Header() {
@@ -61,15 +64,14 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6" aria-label="메인 내비게이션">
-          {navLinks.map((link) => {
-            const isAnchor = 'anchor' in link && link.anchor;
+          {anchorLinks.map((link) => {
             const isHome = pathname === '/';
 
-            if (isAnchor && isHome) {
+            if (isHome) {
               return (
                 <button
                   key={link.href}
-                  onClick={() => scrollToSection(link.anchor!)}
+                  onClick={() => scrollToSection(link.anchor)}
                   className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
                 >
                   {link.label}
@@ -81,19 +83,29 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
-                  pathname === link.href
-                    ? 'text-primary'
-                    : link.highlight
-                    ? 'text-primary font-semibold'
-                    : 'text-gray-600 hover:text-primary'
-                }`}
-                aria-current={pathname === link.href ? 'page' : undefined}
+                className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
             );
           })}
+          <span className="text-gray-300" aria-hidden="true">|</span>
+          {contentLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-medium transition-colors ${
+                pathname === link.href
+                  ? 'text-primary'
+                  : link.highlight
+                  ? 'text-primary font-semibold'
+                  : 'text-gray-600 hover:text-primary'
+              }`}
+              aria-current={pathname === link.href ? 'page' : undefined}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         {/* CTA Buttons */}
@@ -154,15 +166,14 @@ export default function Header() {
           className="bg-white border-t border-gray-100 max-w-6xl mx-auto px-4 py-4 space-y-4"
           aria-label="모바일 내비게이션"
         >
-          {navLinks.map((link) => {
-            const isAnchor = 'anchor' in link && link.anchor;
+          {anchorLinks.map((link) => {
             const isHome = pathname === '/';
 
-            if (isAnchor && isHome) {
+            if (isHome) {
               return (
                 <button
                   key={link.href}
-                  onClick={() => scrollToSection(link.anchor!)}
+                  onClick={() => scrollToSection(link.anchor)}
                   className="block w-full text-left py-3 text-gray-600 hover:text-primary transition-colors"
                 >
                   {link.label}
@@ -174,17 +185,29 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block py-3 transition-colors ${
-                  pathname === link.href
-                    ? 'text-primary font-medium'
-                    : 'text-gray-600 hover:text-primary'
-                }`}
-                aria-current={pathname === link.href ? 'page' : undefined}
+                className="block py-3 text-gray-600 hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
             );
           })}
+          <hr className="border-gray-100" />
+          {contentLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`block py-3 transition-colors ${
+                pathname === link.href
+                  ? 'text-primary font-medium'
+                  : link.highlight
+                  ? 'text-primary font-semibold'
+                  : 'text-gray-600 hover:text-primary'
+              }`}
+              aria-current={pathname === link.href ? 'page' : undefined}
+            >
+              {link.label}
+            </Link>
+          ))}
           <hr className="border-gray-100" />
           <button
             onClick={() => scrollToSection('faq')}
