@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  productionBrowserSourceMaps: false,
+  experimental: {
+    optimizePackageImports: ['zod', 'react-hook-form'],
+  },
   async headers() {
     return [
       {

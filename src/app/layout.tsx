@@ -22,11 +22,13 @@ export const metadata: Metadata = {
     siteName: "STOREAGENT",
     locale: "ko_KR",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "STOREAGENT - 편의점 점주를 위한 AI 브리핑",
     description: "발주 전 3분, 확인하고 가세요.",
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
@@ -65,8 +67,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:text-primary focus:top-2 focus:left-2 focus:rounded-lg focus:shadow-md"
+        >
+          본문으로 건너뛰기
+        </a>
         <Header />
-        <main className="pt-16">
+        <main id="main-content" className="pt-16">
           {children}
         </main>
         <Footer />

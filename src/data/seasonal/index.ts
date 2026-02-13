@@ -44,7 +44,7 @@ export function buildWeeklySamples(): WeeklyAreaSample[] {
   return AREA_IDS.map((areaId) => {
     const templates = scenarios[areaId];
     const days: DailyBriefing[] = templates.map((t) => {
-      const dateInfo = weekDates[t.dayIndex];
+      const dateInfo = weekDates[t.dayIndex] ?? weekDates[0];
       return {
         day: dateInfo.day,
         date: dateInfo.date,

@@ -13,6 +13,13 @@ export function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const entry = rateLimit.get(ip);
 
+  // 만료 엔트리 정리 (100개 초과 시)
+  if (rateLimit.size > 100) {
+    for (const [key, val] of rateLimit) {
+      if (now > val.resetTime) rateLimit.delete(key);
+    }
+  }
+
   if (!entry || now > entry.resetTime) {
     rateLimit.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
     return false;
@@ -23,9 +30,12 @@ export function isRateLimited(ip: string): boolean {
 }
 
 export function rateLimitResponse() {
-  return NextResponse.json(
-    { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
-    { status: 429 },
+  return new NextResponse(
+    JSON.stringify({ error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' }),
+    {
+      status: 429,
+      headers: { 'Retry-After': '60', 'Content-Type': 'application/json' },
+    },
   );
 }
 

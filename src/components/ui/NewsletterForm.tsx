@@ -75,6 +75,7 @@ export default function NewsletterForm() {
           {...register('email')}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-400 transition-shadow"
           disabled={isSubmitting}
+          aria-required="true"
           aria-describedby={errors.email ? 'email-error' : undefined}
           aria-invalid={errors.email ? 'true' : undefined}
         />

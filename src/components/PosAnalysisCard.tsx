@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type {
   SalesTrendData,
   SalesForecastData,
@@ -5,7 +6,7 @@ import type {
   CompetitorData,
 } from '@/data/posAnalysisData';
 
-export function SalesTrendCard({ data }: { data: SalesTrendData }) {
+export const SalesTrendCard = memo(function SalesTrendCard({ data }: { data: SalesTrendData }) {
   return (
     <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
@@ -46,9 +47,9 @@ export function SalesTrendCard({ data }: { data: SalesTrendData }) {
       </div>
     </div>
   );
-}
+});
 
-export function SalesForecastCard({ data }: { data: SalesForecastData }) {
+export const SalesForecastCard = memo(function SalesForecastCard({ data }: { data: SalesForecastData }) {
   return (
     <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
@@ -100,9 +101,9 @@ export function SalesForecastCard({ data }: { data: SalesForecastData }) {
       </div>
     </div>
   );
-}
+});
 
-export function OrderRecommendCard({ data }: { data: OrderRecommendData }) {
+export const OrderRecommendCard = memo(function OrderRecommendCard({ data }: { data: OrderRecommendData }) {
   const urgencyStyles = {
     high: { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-200', label: '긴급' },
     medium: { bg: 'bg-yellow-50', text: 'text-yellow-700', border: 'border-yellow-200', label: '권장' },
@@ -149,9 +150,9 @@ export function OrderRecommendCard({ data }: { data: OrderRecommendData }) {
       </div>
     </div>
   );
-}
+});
 
-export function CompetitorCard({ data }: { data: CompetitorData }) {
+export const CompetitorCard = memo(function CompetitorCard({ data }: { data: CompetitorData }) {
   return (
     <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
@@ -220,4 +221,4 @@ export function CompetitorCard({ data }: { data: CompetitorData }) {
       </div>
     </div>
   );
-}
+});

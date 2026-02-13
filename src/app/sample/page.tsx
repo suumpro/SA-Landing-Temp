@@ -89,9 +89,9 @@ export default function SamplePage() {
 
   const weeklySamples = useMemo(() => buildWeeklySamples(), []);
 
-  const activeArea = areaTypes[areaIndex];
-  const activeSample = weeklySamples[areaIndex];
-  const activeDaily = activeSample.days[dayIndex];
+  const activeArea = areaTypes[areaIndex] ?? areaTypes[0];
+  const activeSample = weeklySamples[areaIndex] ?? weeklySamples[0];
+  const activeDaily = activeSample.days[dayIndex] ?? activeSample.days[0];
 
   const contentRef = useRef<HTMLElement>(null);
 

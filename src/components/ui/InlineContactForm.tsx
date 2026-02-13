@@ -69,7 +69,7 @@ export default function InlineContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-primary-lighter rounded-2xl p-8 text-center">
+      <div className="bg-primary-lighter rounded-2xl p-8 text-center" role="status" aria-live="polite">
         <div className="text-4xl mb-4">✅</div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">문의가 접수되었습니다!</h3>
         <p className="text-gray-600">영업일 기준 1-2일 내로 연락드리겠습니다.</p>
@@ -101,6 +101,7 @@ export default function InlineContactForm() {
               {...register('name')}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-400 transition-shadow"
               disabled={isSubmitting}
+              aria-required="true"
               aria-describedby={errors.name ? 'inline-name-error' : undefined}
               aria-invalid={errors.name ? 'true' : undefined}
             />
@@ -122,6 +123,7 @@ export default function InlineContactForm() {
               {...register('contact')}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-400 transition-shadow"
               disabled={isSubmitting}
+              aria-required="true"
               aria-describedby={errors.contact ? 'inline-contact-error' : undefined}
               aria-invalid={errors.contact ? 'true' : undefined}
             />
@@ -142,6 +144,7 @@ export default function InlineContactForm() {
             {...register('storeCount')}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 bg-white transition-shadow"
             disabled={isSubmitting}
+            aria-required="true"
             aria-describedby={errors.storeCount ? 'inline-store-error' : undefined}
             aria-invalid={errors.storeCount ? 'true' : undefined}
           >

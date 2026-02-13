@@ -8,8 +8,8 @@ import { BriefingMockup } from '@/components/BriefingMockup';
 
 export default function BlogPage() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sample = newsletterSamples[activeIndex];
-  const area = areaTypes[sample.areaIndex];
+  const sample = newsletterSamples[activeIndex] ?? newsletterSamples[0];
+  const area = areaTypes[sample.areaIndex] ?? areaTypes[0];
 
   return (
     <main className="min-h-screen bg-gray-50">

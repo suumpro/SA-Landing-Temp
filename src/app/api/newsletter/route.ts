@@ -17,8 +17,14 @@ export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
   if (isRateLimited(ip)) return rateLimitResponse();
 
+  let body;
   try {
-    const body = await request.json();
+    body = await request.json();
+  } catch {
+    return errorResponse('잘못된 요청 형식입니다', 400);
+  }
+
+  try {
     const result = newsletterSchema.safeParse(body);
 
     if (!result.success) {
@@ -33,7 +39,8 @@ export async function POST(request: NextRequest) {
     );
 
     return successResponse('구독이 완료되었습니다');
-  } catch {
+  } catch (err) {
+    console.error('[API] newsletter error:', err);
     return errorResponse('서버 오류가 발생했습니다', 500);
   }
 }
