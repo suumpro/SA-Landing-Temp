@@ -117,9 +117,9 @@ export default function SamplePage() {
         </div>
       </section>
 
-      {/* Sticky Controls */}
-      <div className="sticky top-16 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-3 space-y-3">
+      {/* Controls — sticky on md+, scrollable on mobile */}
+      <div className="md:sticky md:top-16 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 py-2 space-y-2">
           {/* Area Tabs */}
           <div className="flex justify-center gap-2 sm:gap-3">
             {areaTypes.map((area, index) => (
@@ -140,8 +140,8 @@ export default function SamplePage() {
             ))}
           </div>
 
-          {/* Day Selector */}
-          <div className="flex justify-center gap-1 sm:gap-2 overflow-x-auto pb-1 snap-x snap-mandatory">
+          {/* Day Selector — compact pills */}
+          <div className="flex justify-center gap-1 sm:gap-1.5 overflow-x-auto pb-0.5 snap-x snap-mandatory">
             {DAYS.map((day, index) => {
               const daily = activeSample.days[index];
               return (
@@ -150,37 +150,28 @@ export default function SamplePage() {
                   onClick={() => setDayIndex(index)}
                   aria-label={`${day}요일 ${daily.date} 선택`}
                   aria-pressed={dayIndex === index}
-                  className={`flex flex-col items-center min-w-[3.5rem] px-2 sm:px-3 py-2.5 rounded-xl text-sm font-medium transition-all snap-center ${
+                  className={`min-w-[2.5rem] px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all snap-center ${
                     dayIndex === index
                       ? 'bg-primary text-white shadow-md'
                       : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
                   }`}
                 >
-                  <span className="text-xs font-bold">{day}</span>
-                  <span className={`text-[10px] mt-0.5 ${
-                    dayIndex === index ? 'text-white/80' : 'text-gray-400'
-                  }`}>
-                    {daily.date.split(' ')[0]}
-                  </span>
+                  {day}
                 </button>
               );
             })}
-          </div>
-
-          {/* Selected Day Info */}
-          <div className="text-center">
-            <p className="text-xs text-gray-500">
-              {activeArea.icon} {activeArea.location} &middot; {activeDaily.theme}
-            </p>
-            <p className="text-center text-xs text-gray-400 mt-1 sm:hidden">
-              아래로 스크롤해 브리핑을 확인하세요 ↓
-            </p>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
       <section ref={contentRef} className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
+        {/* Current Selection Summary */}
+        <div className="text-center mb-6">
+          <p className="text-sm text-gray-500">
+            {activeArea.icon} {activeArea.location} &middot; {activeDaily.date} &middot; {activeDaily.theme}
+          </p>
+        </div>
         <div
           key={`${activeArea.id}-${dayIndex}`}
           className="animate-fade-switch"
