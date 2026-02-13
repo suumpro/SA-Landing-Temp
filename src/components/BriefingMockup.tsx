@@ -28,7 +28,7 @@ export const BriefingMockup = memo(function BriefingMockup({ area, scenario, dat
     <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-gray-200 w-full max-w-sm mx-auto">
       {/* Status Bar */}
       <div className="bg-gray-900 px-6 pt-3 pb-2 flex items-center justify-between">
-        <span className="text-white text-xs font-medium">{time}</span>
+        <span className="text-white text-xs font-medium" suppressHydrationWarning>{time}</span>
         <div className="w-20 h-5 bg-gray-800 rounded-full" aria-hidden="true" />
         <div className="flex items-center gap-1">
           <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -44,8 +44,8 @@ export const BriefingMockup = memo(function BriefingMockup({ area, scenario, dat
       <div className="bg-primary px-5 py-4">
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="text-white font-bold text-lg">{dateOverride ? 'SA 오늘의 브리핑' : getBriefingTitle(timeSlot)}</h4>
-            <p className="text-white/80 text-sm">{today} {time}</p>
+            <h4 className="text-white font-bold text-lg" suppressHydrationWarning>{dateOverride ? 'SA 오늘의 브리핑' : getBriefingTitle(timeSlot)}</h4>
+            <p className="text-white/80 text-sm" suppressHydrationWarning>{today} {time}</p>
             <p className="text-white/60 text-xs mt-0.5">{area.location}</p>
           </div>
           <span className="text-3xl" role="img" aria-label="날씨">{scenario.weather.icon}</span>

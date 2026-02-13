@@ -29,7 +29,7 @@ export default function SocialProofSection() {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex gap-1" role="img" aria-label="5점 만점">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-yellow-400" aria-hidden="true">⭐</span>
+                    <span key={`star-${i}`} className="text-yellow-400" aria-hidden="true">⭐</span>
                   ))}
                 </div>
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">

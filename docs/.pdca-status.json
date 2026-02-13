@@ -1,0 +1,10 @@
+{
+  "optimization-stabilization": {
+    "phase": "do",
+    "phaseNumber": 3,
+    "matchRate": null,
+    "iterationCount": 0,
+    "startedAt": "2026-02-11T00:00:00Z",
+    "planPath": "docs/01-plan/features/optimization-stabilization.plan.md"
+  }
+}

@@ -69,7 +69,7 @@ export default function Accordion({ items }: AccordionProps) {
     <div>
       {items.map((item, index) => (
         <AccordionItem
-          key={index}
+          key={item.question}
           index={index}
           question={item.question}
           answer={item.answer}

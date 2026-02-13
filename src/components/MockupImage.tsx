@@ -39,7 +39,7 @@ export default function MockupImage() {
     <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-gray-200 max-w-sm mx-auto">
       {/* Mobile Status Bar */}
       <div className="bg-gray-900 px-6 pt-3 pb-2 flex items-center justify-between">
-        <span className="text-white text-xs font-medium">{getBriefingTime(timeSlot)}</span>
+        <span className="text-white text-xs font-medium" suppressHydrationWarning>{getBriefingTime(timeSlot)}</span>
         <div className="w-20 h-5 bg-gray-800 rounded-full" aria-hidden="true" />
         <div className="flex items-center gap-1">
           <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -55,8 +55,8 @@ export default function MockupImage() {
       <div className="bg-primary px-5 py-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-white font-bold text-lg">{getBriefingTitle(timeSlot)}</h3>
-            <p className="text-white/80 text-sm">{today} {getBriefingTime(timeSlot)}</p>
+            <h3 className="text-white font-bold text-lg" suppressHydrationWarning>{getBriefingTitle(timeSlot)}</h3>
+            <p className="text-white/80 text-sm" suppressHydrationWarning>{today} {getBriefingTime(timeSlot)}</p>
           </div>
           <span className="text-3xl" role="img" aria-label="날씨">{getWeatherIcon(timeSlot)}</span>
         </div>

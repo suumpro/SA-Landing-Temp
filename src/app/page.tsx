@@ -1,11 +1,25 @@
+import dynamic from 'next/dynamic';
 import HeroSection from '@/components/sections/HeroSection';
-import LiveDemoSection from '@/components/sections/LiveDemoSection';
-import SocialProofSection from '@/components/sections/SocialProofSection';
-import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import FeatureSection from '@/components/sections/FeatureSection';
-import POSAnalysisSection from '@/components/sections/POSAnalysisSection';
-import PricingSection from '@/components/sections/PricingSection';
-import FAQSection from '@/components/sections/FAQSection';
+import HowItWorksSection from '@/components/sections/HowItWorksSection';
+import LiveDemoSection from '@/components/sections/LiveDemoSection';
+
+const POSAnalysisSection = dynamic(
+  () => import('@/components/sections/POSAnalysisSection'),
+  { loading: () => <div className="min-h-[600px]" /> }
+);
+const SocialProofSection = dynamic(
+  () => import('@/components/sections/SocialProofSection'),
+  { loading: () => <div className="min-h-[400px]" /> }
+);
+const PricingSection = dynamic(
+  () => import('@/components/sections/PricingSection'),
+  { loading: () => <div className="min-h-[500px]" /> }
+);
+const FAQSection = dynamic(
+  () => import('@/components/sections/FAQSection'),
+  { loading: () => <div className="min-h-[400px]" /> }
+);
 
 export default function Home() {
   return (

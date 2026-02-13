@@ -16,7 +16,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const [prevPathname, setPrevPathname] = useState(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,11 +32,10 @@ export default function Header() {
     };
   }, []);
 
-  // Close mobile menu on route change (adjusting state during render)
-  if (prevPathname !== pathname) {
-    setPrevPathname(pathname);
+  // Close mobile menu on route change
+  useEffect(() => {
     setIsMenuOpen(false);
-  }
+  }, [pathname]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

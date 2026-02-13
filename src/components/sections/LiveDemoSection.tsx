@@ -115,7 +115,7 @@ export default function LiveDemoSection() {
 
         {/* Time Indicator + Sample Link */}
         <div className={`text-center mt-8 ${isVisible ? 'animate-fade-in-up delay-300' : 'opacity-0'}`}>
-          <p className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 text-gray-500 rounded-full text-xs border border-gray-100">
+          <p className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 text-gray-500 rounded-full text-xs border border-gray-100" suppressHydrationWarning>
             <span aria-hidden="true">&#9200;</span>
             지금 {timeLabels[timeSlot]} 시각 기준 브리핑입니다 &middot; 시간대마다 내용이 달라져요
           </p>
