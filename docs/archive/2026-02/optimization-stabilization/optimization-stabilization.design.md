@@ -49,52 +49,35 @@
 
 ### 2.2 변경 설계 (After)
 
-**방식**: `next/font/local`로 전환
+**방식**: `pretendard` npm 패키지 + CSS @import
 
-Pretendard는 next/font/google에 미등록이므로 로컬 폰트 방식 사용. CDN의 dynamic-subset CSS가 참조하는 woff2 파일을 직접 다운로드하지 않고, **CDN stylesheet URL을 next/font가 아닌 기존 방식 유지하되 최적화**하는 방안과 **완전 로컬화** 두 가지 중 완전 로컬화 선택.
+npm 패키지 방식 선택 (next/font/local 대비 장점: woff2 수동 관리 불필요, npm update 자동 업데이트, dynamic-subset 유지)
+
+**의존성 추가**: `npm install pretendard`
+
+**수정 파일**: `src/app/globals.css`
+
+```css
+@import "tailwindcss";
+@import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
+```
 
 **수정 파일**: `src/app/layout.tsx`
 
 ```tsx
-// Before: CDN links in <head>
-// After: next/font/local import
+// Before: CDN links 4개 in <head>
+// After: <head>에 manifest link만 유지
 
-import localFont from 'next/font/local';
-
-const pretendard = localFont({
-  src: [
-    {
-      path: '../fonts/PretendardVariable.subset.woff2',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-pretendard',
-  display: 'swap',
-  preload: true,
-});
-
-// <html lang="ko" className={pretendard.variable}>
-// globals.css: font-family: var(--font-pretendard), ...
+<head>
+  <link rel="manifest" href="/manifest.json" />
+</head>
 ```
-
-**신규 파일**: `src/fonts/PretendardVariable.subset.woff2`
-- Pretendard Variable dynamic-subset woff2 (약 2.5MB → subset으로 ~300KB)
-- 출처: https://github.com/orioncactus/pretendard/releases
 
 **삭제 항목** (layout.tsx에서):
-- `<link rel="preconnect" href="https://cdn.jsdelivr.net" ...>` (line 62)
-- `<link rel="preload" as="style" ...>` (lines 63-66)
-- `<link rel="stylesheet" ...>` (lines 67-70)
-- `<style dangerouslySetInnerHTML ...>` (line 72)
-
-**globals.css 수정**:
-```css
-/* Before */
-font-family: 'Pretendard Variable', Pretendard, ...;
-
-/* After */
-font-family: var(--font-pretendard), 'Pretendard Variable', Pretendard, ...;
-```
+- `<link rel="preconnect" href="https://cdn.jsdelivr.net" ...>`
+- `<link rel="preload" as="style" ...>`
+- `<link rel="stylesheet" ...>`
+- `<style dangerouslySetInnerHTML ...>`
 
 **next.config.ts CSP 수정**:
 - `font-src` 에서 `https://cdn.jsdelivr.net` 제거
@@ -328,10 +311,10 @@ useEffect(() => {
 | `src/app/layout.tsx` | 수정 | FR-01 |
 | `src/app/globals.css` | 수정 | FR-01 |
 | `next.config.ts` | 수정 | FR-01 |
-| `src/fonts/PretendardVariable.subset.woff2` | 신규 | FR-01 |
+| `package.json` | 수정 | FR-01 (pretendard 의존성 추가) |
 | `src/app/page.tsx` | 수정 | FR-02 |
 
-**총 12개 파일** (수정 11 + 신규 1)
+**총 12개 파일** (수정 12)
 
 ---
 
