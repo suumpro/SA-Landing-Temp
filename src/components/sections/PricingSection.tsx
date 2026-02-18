@@ -43,7 +43,7 @@ export default function PricingSection() {
               >
                 {isPopular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm">
+                    <span className="bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm whitespace-nowrap">
                       1,200+ 점주님이 선택
                     </span>
                   </div>
