@@ -8,7 +8,7 @@ import {
 
 const contactSchema = z.object({
   name: z.string().min(1).max(50),
-  contact: z.string().min(1).max(100),
+  contact: z.string().min(5).max(100),
   storeCount: z.string().min(1).max(10),
 });
 

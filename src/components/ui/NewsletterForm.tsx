@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
+import { Check } from 'lucide-react';
 
 const schema = z.object({
   email: z.string().email('올바른 이메일 주소를 입력해주세요'),
@@ -17,6 +18,13 @@ export default function NewsletterForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const redirectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (redirectTimeoutRef.current) clearTimeout(redirectTimeoutRef.current);
+    };
+  }, []);
 
   const {
     register,
@@ -50,7 +58,7 @@ export default function NewsletterForm() {
       }
 
       setIsSuccess(true);
-      setTimeout(() => router.push('/thank-you'), 800);
+      redirectTimeoutRef.current = setTimeout(() => router.push('/thank-you'), 800);
     } catch (err) {
       if (err instanceof DOMException && err.name === 'AbortError') {
         setError('요청 시간이 초과되었습니다. 다시 시도해주세요.');
@@ -93,11 +101,15 @@ export default function NewsletterForm() {
       <button
         type="submit"
         disabled={isSubmitting || isSuccess}
-        className="w-full btn-primary py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+        className={`w-full py-3 disabled:cursor-not-allowed transition-all duration-300 ${
+          isSuccess
+            ? 'bg-success text-white rounded-xl font-semibold'
+            : 'btn-primary disabled:opacity-50'
+        }`}
       >
         {isSuccess ? (
           <span className="inline-flex items-center gap-2">
-            <span className="text-white">✓</span> 구독 완료!
+            <Check className="w-5 h-5 animate-checkmark" /> 구독 완료!
           </span>
         ) : isSubmitting ? (
           <span className="inline-flex items-center gap-2">

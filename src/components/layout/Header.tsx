@@ -115,7 +115,7 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-2">
           <button
             onClick={() => scrollToSection('faq')}
-            className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+            className="px-4 py-2 text-sm font-medium text-primary bg-primary/5 hover:bg-primary/10 rounded-lg transition-all"
           >
             무료 구독
           </button>

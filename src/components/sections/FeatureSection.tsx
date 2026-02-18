@@ -9,32 +9,40 @@ const features = [
     title: '오늘 확인할 것들 정리',
     description: '매일 아침 6시, 오늘의 핵심만 정리해서 알려드립니다',
     color: 'text-primary',
-    bgColor: 'bg-primary/10',
+    bgFrom: 'from-primary/15',
+    bgTo: 'to-primary/5',
     borderColor: 'group-hover:border-primary/20',
+    barColor: 'from-primary to-primary-light',
   },
   {
     icon: CloudRain,
     title: '날씨 변화에 미리 대비',
     description: '내일 갑자기 추워지면? 비 오면? 미리 준비하세요',
     color: 'text-sky-500',
-    bgColor: 'bg-sky-50',
+    bgFrom: 'from-sky-100',
+    bgTo: 'to-sky-50',
     borderColor: 'group-hover:border-sky-200',
+    barColor: 'from-sky-400 to-sky-300',
   },
   {
     icon: MapPin,
     title: '주변 행사 미리 알기',
     description: '반경 1km 내 콘서트, 축제, 시험기간 등',
     color: 'text-rose-500',
-    bgColor: 'bg-rose-50',
+    bgFrom: 'from-rose-100',
+    bgTo: 'to-rose-50',
     borderColor: 'group-hover:border-rose-200',
+    barColor: 'from-rose-400 to-rose-300',
   },
   {
     icon: BarChart3,
     title: '매출 데이터로 발주 최적화',
     description: 'POS 매출 데이터 연동으로 판매 트렌드 분석, 재고 최적화 제안까지',
     color: 'text-secondary',
-    bgColor: 'bg-secondary/10',
+    bgFrom: 'from-secondary/15',
+    bgTo: 'to-secondary/5',
     borderColor: 'group-hover:border-secondary/20',
+    barColor: 'from-secondary to-secondary-dark',
   },
 ];
 
@@ -59,11 +67,13 @@ export default function FeatureSection() {
             return (
               <div
                 key={feature.title}
-                className={`group card cursor-default ${feature.borderColor} ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                className={`group card cursor-default overflow-hidden ${feature.borderColor} ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: isVisible ? `${(index + 1) * 100}ms` : '0ms' }}
               >
-                <div className={`w-12 h-12 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-5`}>
-                  <Icon className={`w-6 h-6 ${feature.color}`} />
+                {/* Color accent bar */}
+                <div className={`h-[3px] bg-gradient-to-r ${feature.barColor} -mx-[29px] -mt-[29px] mb-5`} aria-hidden="true" />
+                <div className={`w-12 h-12 bg-gradient-to-br ${feature.bgFrom} ${feature.bgTo} rounded-2xl flex items-center justify-center mb-5 transition-shadow duration-200 group-hover:shadow-md`}>
+                  <Icon className={`w-6 h-6 ${feature.color} transition-transform duration-200 group-hover:scale-110`} />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2 text-[15px]">
                   {feature.title}

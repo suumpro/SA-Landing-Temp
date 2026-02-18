@@ -9,7 +9,7 @@ import { useSearchParams } from 'next/navigation';
 
 const schema = z.object({
   name: z.string().min(1, '이름을 입력해주세요'),
-  contact: z.string().min(1, '연락처를 입력해주세요'),
+  contact: z.string().min(5, '연락처를 정확히 입력해주세요'),
   storeCount: z.string().min(1, '매장 수를 선택해주세요'),
 });
 

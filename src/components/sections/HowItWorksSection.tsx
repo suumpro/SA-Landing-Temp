@@ -10,6 +10,7 @@ const steps = [
     title: '이메일로 구독',
     description: '본사 연동 없이 30초면 끝',
     color: 'text-primary',
+    badgeBg: 'bg-primary',
     bgFrom: 'from-primary/10',
     bgTo: 'to-primary/5',
   },
@@ -19,6 +20,7 @@ const steps = [
     title: 'AI가 매일 분석',
     description: '날씨·이벤트·체크리스트 자동 정리',
     color: 'text-secondary',
+    badgeBg: 'bg-secondary',
     bgFrom: 'from-secondary/10',
     bgTo: 'to-secondary/5',
   },
@@ -28,6 +30,7 @@ const steps = [
     title: '아침 6시 브리핑',
     description: '발주 전 3분이면 오늘 할 일 파악',
     color: 'text-warning',
+    badgeBg: 'bg-warning',
     bgFrom: 'from-warning/10',
     bgTo: 'to-warning/5',
   },
@@ -60,11 +63,11 @@ export default function HowItWorksSection() {
             const Icon = step.icon;
             return (
               <div key={step.number}>
-                <div className="relative text-center">
+                <div className="relative text-center bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                   {/* Connector line (desktop only, between steps) */}
                   {index < steps.length - 1 && (
                     <div
-                      className="hidden md:block absolute top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-gray-200 to-gray-100 translate-x-[10%]"
+                      className="hidden md:block absolute top-1/2 -right-4 w-8 border-t-2 border-dashed border-gray-300"
                       aria-hidden="true"
                     />
                   )}
@@ -72,7 +75,7 @@ export default function HowItWorksSection() {
                   {/* Step circle */}
                   <div className={`relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${step.bgFrom} ${step.bgTo} rounded-2xl mb-5 shadow-sm`}>
                     <Icon className={`w-8 h-8 ${step.color}`} />
-                    <span className="absolute -top-1.5 -right-1.5 w-7 h-7 bg-gray-900 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-sm">
+                    <span className={`absolute -top-1.5 -right-1.5 w-7 h-7 ${step.badgeBg} text-white text-xs font-bold rounded-full flex items-center justify-center shadow-sm`}>
                       {step.number}
                     </span>
                   </div>
@@ -85,7 +88,7 @@ export default function HowItWorksSection() {
                 {/* Mobile connector arrow (between steps) */}
                 {index < steps.length - 1 && (
                   <div className="flex justify-center py-3 md:hidden" aria-hidden="true">
-                    <div className="w-0.5 h-6 bg-gray-200 rounded-full" />
+                    <div className="w-0.5 h-6 border-l-2 border-dashed border-gray-300" />
                   </div>
                 )}
               </div>

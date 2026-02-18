@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 export function useCountUp(target: number, duration: number = 1500) {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,22 +28,25 @@ export function useCountUp(target: number, duration: number = 1500) {
   useEffect(() => {
     if (!hasStarted) return;
 
+    let rafId: number;
     const startTime = performance.now();
 
     const tick = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out curve
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.round(eased * target));
 
       if (progress < 1) {
-        requestAnimationFrame(tick);
+        rafId = requestAnimationFrame(tick);
+      } else {
+        setIsComplete(true);
       }
     };
 
-    requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
   }, [hasStarted, target, duration]);
 
-  return { count, ref };
+  return { count, ref, isComplete };
 }

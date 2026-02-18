@@ -12,13 +12,15 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#EBF4FF] via-[#F5F9FF] to-white">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#DBEAFE] via-[#EFF6FF] to-white">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 -left-32 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-primary/3 rounded-full blur-3xl" />
+        <div className="absolute -top-24 -right-24 w-[28rem] h-[28rem] bg-primary/8 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 -left-32 w-96 h-96 bg-secondary/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
       </div>
+      {/* Dot pattern overlay */}
+      <div className="absolute inset-0 bg-dot-pattern opacity-50 pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-32 pb-20 lg:pt-36 lg:pb-28">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -47,8 +49,7 @@ export default function HeroSection() {
                 className="btn-primary btn-lg animate-pulse-soft"
                 aria-label="무료 뉴스레터 구독하기"
               >
-                무료로 시작하기
-                <span className="ml-2 text-sm opacity-70">(주간 뉴스레터)</span>
+                무료 뉴스레터 받기
               </button>
               <button
                 onClick={() => scrollToSection('pricing')}
@@ -58,8 +59,22 @@ export default function HeroSection() {
               </button>
             </div>
 
+            {/* Social Proof */}
+            <div className="flex items-center gap-3 mt-6 justify-center lg:justify-start animate-fade-in-up delay-400">
+              <div className="flex -space-x-2">
+                {['김', '박', '이'].map((initial, i) => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium text-gray-600">
+                    {initial}
+                  </div>
+                ))}
+              </div>
+              <span className="text-sm text-gray-500">
+                <strong className="text-gray-700">1,500+</strong> 점주님이 구독 중
+              </span>
+            </div>
+
             {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-8 justify-center lg:justify-start animate-fade-in-up delay-400">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-5 justify-center lg:justify-start animate-fade-in-up delay-500">
               {[
                 '본사 연동 없이 바로 시작',
                 '언제든 해지 가능',
@@ -80,7 +95,7 @@ export default function HeroSection() {
             <div className="animate-float">
               <div className="relative">
                 {/* Glow effect behind mockup */}
-                <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl scale-90" aria-hidden="true" />
+                <div className="absolute inset-0 bg-primary/15 rounded-3xl blur-3xl scale-90" aria-hidden="true" />
                 <div className="relative">
                   <MockupImage />
                 </div>

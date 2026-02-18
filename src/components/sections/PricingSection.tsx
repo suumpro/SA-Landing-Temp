@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Check, Minus } from 'lucide-react';
+import { Check, Minus, Shield } from 'lucide-react';
 import { plans } from '@/lib/pricing-data';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -44,7 +44,7 @@ export default function PricingSection() {
                 {isPopular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
                     <span className="bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm">
-                      추천
+                      1,200+ 점주님이 선택
                     </span>
                   </div>
                 )}
@@ -102,10 +102,10 @@ export default function PricingSection() {
 
                 <Link
                   href={plan.ctaLink}
-                  className={`block w-full text-center py-3.5 rounded-xl font-semibold transition-all text-sm ${
+                  className={`block w-full text-center py-3.5 rounded-xl font-semibold transition-all duration-200 text-sm ${
                     isPopular
-                      ? 'bg-white text-gray-900 hover:bg-gray-100'
-                      : 'bg-gray-900 text-white hover:bg-gray-800'
+                      ? 'bg-white text-gray-900 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/20 hover:scale-[1.02]'
+                      : 'bg-gray-900 text-white hover:bg-gray-800 hover:shadow-lg hover:scale-[1.02]'
                   }`}
                 >
                   {plan.cta}
@@ -115,11 +115,17 @@ export default function PricingSection() {
           })}
         </div>
 
+        {/* Guarantee Badge */}
+        <div className={`flex items-center justify-center gap-2 mt-8 mb-6 ${isVisible ? 'animate-fade-in-up delay-500' : 'opacity-0'}`}>
+          <Shield className="w-4 h-4 text-success" />
+          <span className="text-sm text-gray-500">7일 무료 체험 · 만족하지 않으면 100% 환불</span>
+        </div>
+
         {/* View Full Comparison */}
-        <div className={`text-center ${isVisible ? 'animate-fade-in-up delay-500' : 'opacity-0'}`}>
+        <div className={`text-center ${isVisible ? 'animate-fade-in-up delay-600' : 'opacity-0'}`}>
           <Link
             href="/pricing"
-            className="text-primary hover:text-primary-dark font-medium inline-flex items-center gap-1 transition-colors text-sm"
+            className="arrow-link text-primary hover:text-primary-dark font-medium inline-flex items-center gap-1 transition-colors text-sm"
           >
             상세 비교표 보기
             <span aria-hidden="true">&rarr;</span>

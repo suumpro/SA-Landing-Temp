@@ -23,13 +23,16 @@ export const metadata: Metadata = {
     siteName: "STOREAGENT",
     locale: "ko_KR",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "STOREAGENT - 편의점 점주를 위한 AI 브리핑" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "STOREAGENT - 편의점 점주를 위한 AI 브리핑",
     description: "발주 전 3분, 확인하고 가세요.",
     images: ["/twitter-image"],
+  },
+  alternates: {
+    canonical: '/',
   },
   robots: {
     index: true,

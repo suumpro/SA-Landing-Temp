@@ -20,12 +20,16 @@ function AccordionItem({
     <div className="border-b border-gray-200 last:border-b-0">
       <button
         onClick={onToggle}
-        className="w-full py-5 flex items-center justify-between text-left group"
+        className={`w-full py-5 flex items-center justify-between text-left group transition-all duration-200 ${
+          isOpen ? 'pl-3 border-l-2 border-primary' : 'pl-0 border-l-2 border-transparent hover:pl-3 hover:border-primary/30'
+        }`}
         aria-expanded={isOpen}
         aria-controls={`accordion-panel-${index}`}
         id={`accordion-btn-${index}`}
       >
-        <span className="font-medium text-gray-900 pr-4 group-hover:text-primary transition-colors">
+        <span className={`pr-4 transition-colors ${
+          isOpen ? 'font-semibold text-primary' : 'font-medium text-gray-900 group-hover:text-primary'
+        }`}>
           {question}
         </span>
         <span

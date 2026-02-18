@@ -30,19 +30,24 @@ export default function MobileStickyBar() {
       }`}
     >
       <div className="bg-white/95 backdrop-blur-xl border-t border-gray-100 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-4 py-3 safe-area-pb">
-        <div className="flex items-center gap-3 max-w-lg mx-auto">
-          <button
-            onClick={() => scrollToSection('pricing')}
-            className="flex-shrink-0 px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-primary transition-colors"
-          >
-            플랜 보기
-          </button>
-          <button
-            onClick={() => scrollToSection('faq')}
-            className="flex-1 py-3 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-xl transition-all text-center"
-          >
-            무료로 시작하기
-          </button>
+        <div className="max-w-lg mx-auto">
+          <p className="text-center text-xs text-gray-400 mb-2">
+            <strong className="text-gray-500">1,500+</strong> 점주님과 함께
+          </p>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => scrollToSection('pricing')}
+              className="flex-shrink-0 px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+            >
+              플랜 보기
+            </button>
+            <button
+              onClick={() => scrollToSection('faq')}
+              className="flex-1 py-3.5 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-xl transition-all text-center"
+            >
+              무료 뉴스레터 받기
+            </button>
+          </div>
         </div>
       </div>
     </div>

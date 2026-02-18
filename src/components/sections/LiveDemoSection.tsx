@@ -73,6 +73,8 @@ export default function LiveDemoSection() {
 
         {/* Area Type Tabs */}
         <div
+          role="tablist"
+          aria-label="상권 유형 선택"
           className={`flex justify-center gap-2 sm:gap-3 mb-10 ${
             isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'
           }`}
@@ -80,9 +82,23 @@ export default function LiveDemoSection() {
           {areaTypes.map((area, index) => (
             <button
               key={area.id}
+              role="tab"
+              aria-selected={activeIndex === index}
+              tabIndex={activeIndex === index ? 0 : -1}
               onClick={() => setActiveIndex(index)}
-              aria-label={`${area.label} 상권 선택`}
-              aria-pressed={activeIndex === index}
+              onKeyDown={(e) => {
+                if (e.key === 'ArrowRight') {
+                  e.preventDefault();
+                  const next = (index + 1) % areaTypes.length;
+                  setActiveIndex(next);
+                  (e.currentTarget.parentElement?.children[next] as HTMLElement)?.focus();
+                } else if (e.key === 'ArrowLeft') {
+                  e.preventDefault();
+                  const prev = (index - 1 + areaTypes.length) % areaTypes.length;
+                  setActiveIndex(prev);
+                  (e.currentTarget.parentElement?.children[prev] as HTMLElement)?.focus();
+                }
+              }}
               className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                 activeIndex === index
                   ? 'bg-primary text-white shadow-md'
