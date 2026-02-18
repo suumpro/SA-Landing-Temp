@@ -1,0 +1,99 @@
+import type { Article } from '../types';
+
+export const article: Article = {
+  slug: 'rainy-day-sales-secret',
+  title: '비 오는 날 매출 +23%의 비밀',
+  excerpt: '비 오는 날 편의점 매출이 왜 오르는지, 어떤 카테고리가 얼마나 오르는지 데이터로 분석했습니다.',
+  category: 'insight',
+  date: '2026-02-03',
+  readTime: 4,
+  tags: [
+    "데이터",
+    "날씨",
+    "매출분석",
+  ],
+  icon: 'CloudRain',
+  content: [
+    {
+      type: 'paragraph',
+      text: '"비 오는 날은 장사가 안 된다"는 편의점 업계의 오래된 통념입니다. 하지만 데이터를 보면 이야기가 다릅니다. 비 오는 날 편의점 전체 매출은 오히려 평균 23% 증가합니다.',
+    },
+    {
+      type: 'stat',
+      label: '비 오는 날 전체 매출',
+      value: '+23%',
+      change: '맑은 날 대비',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      type: 'heading',
+      text: '카테고리별 매출 변화',
+    },
+    {
+      type: 'paragraph',
+      text: '비 오는 날 매출 증가는 카테고리마다 크게 다릅니다. 핵심은 "외출을 꺼리는 소비자가 가까운 편의점으로 몰린다"는 점입니다.',
+    },
+    {
+      type: 'stat',
+      label: '우산·우비',
+      value: '+450%',
+    },
+    {
+      type: 'stat',
+      label: '간편식 (도시락·삼각김밥)',
+      value: '+35%',
+    },
+    {
+      type: 'stat',
+      label: '따뜻한 음료',
+      value: '+28%',
+    },
+    {
+      type: 'stat',
+      label: '라면·컵라면',
+      value: '+42%',
+    },
+    {
+      type: 'stat',
+      label: '과자·스낵',
+      value: '+15%',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      type: 'heading',
+      text: '비 예보 시 대응 전략',
+    },
+    {
+      type: 'tip',
+      title: '48시간 전',
+      text: '기상청 예보 확인 후 우산(접이식 위주), 비닐우산 발주. 도시락·삼각김밥 발주량 +30%.',
+    },
+    {
+      type: 'tip',
+      title: '당일 아침',
+      text: '입구에 우산 진열대 설치. "비 오는 날 따뜻하게" 보온 음료 진열 강화. 라면 용기 옆에 젓가락·포크 비치 확인.',
+    },
+    {
+      type: 'tip',
+      title: '비 그친 후',
+      text: '우산 발주 중단, 간편식은 2일간 유지 후 정상으로. 비 다음 날은 외출 수요가 반등하므로 음료 재고 확인.',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      type: 'quote',
+      text: '브리핑 보고 비 오기 전에 우산 준비해뒀더니 다 팔렸어요. 이런 게 진짜 도움되는 정보죠.',
+      author: 'GS25 신촌점 박○○ 점주',
+    },
+    {
+      type: 'callout',
+      variant: 'info',
+      text: 'STOREAGENT 브리핑은 48시간 전 비 예보를 감지하면 자동으로 대비 팁을 포함합니다. 점주님은 브리핑만 확인하시면 됩니다.',
+    },
+  ],
+};
