@@ -1,5 +1,13 @@
-import { Check, Info, AlertTriangle, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
+import { Check, Info, AlertTriangle, CheckCircle, Hash } from 'lucide-react';
 import type { ArticleBlock } from '@/data/articles/types';
+
+function toSlug(text: string): string {
+  return text
+    .replace(/[^\w\s가-힣]/g, '')
+    .replace(/\s+/g, '-')
+    .toLowerCase();
+}
 
 function StatBlock({ label, value, change }: { label: string; value: string; change?: string }) {
   return (
@@ -50,8 +58,17 @@ export default function ArticleRenderer({ blocks }: { blocks: ArticleBlock[] }) 
         }
 
         switch (block.type) {
-          case 'heading':
-            return <h2 key={idx} className="text-xl font-bold text-gray-900 pt-2">{block.text}</h2>;
+          case 'heading': {
+            const id = toSlug(block.text);
+            return (
+              <h2 key={idx} id={id} className="group/heading text-xl font-bold text-gray-900 pt-2 scroll-mt-24">
+                <Link href={`#${id}`} className="inline-flex items-center gap-2 hover:text-primary transition-colors">
+                  {block.text}
+                  <Hash className="w-4 h-4 text-gray-300 opacity-0 group-hover/heading:opacity-100 transition-opacity" />
+                </Link>
+              </h2>
+            );
+          }
 
           case 'paragraph':
             return <p key={idx} className="text-gray-700 leading-relaxed">{block.text}</p>;
@@ -115,4 +132,11 @@ export default function ArticleRenderer({ blocks }: { blocks: ArticleBlock[] }) 
       })}
     </div>
   );
+}
+
+/** Extract heading slugs for TOC */
+export function getHeadings(blocks: ArticleBlock[]): { id: string; text: string }[] {
+  return blocks
+    .filter((b): b is Extract<ArticleBlock, { type: 'heading' }> => b.type === 'heading')
+    .map((b) => ({ id: toSlug(b.text), text: b.text }));
 }
