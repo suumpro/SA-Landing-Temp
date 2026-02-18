@@ -15,7 +15,7 @@ const stats = [
   },
   {
     icon: TrendingUp,
-    value: 8.5,
+    value: 7.2,
     suffix: '%',
     prefix: '+',
     label: '평균 매출 증가',

@@ -140,7 +140,7 @@ export const summerScenarios: SeasonScenarios = {
       events: [
         {
           icon: '🍺', title: '불금 회식 시즌',
-          detail: '직장인 회식·모임 증가, 주류 수요 폭증', impact: '맥주 +250%, 안주 +180%',
+          detail: '직장인 회식·모임 증가, 주류 수요 폭증', impact: '맥주 +150%, 안주 +120%',
         },
         gangnamStartupEvent,
       ],
@@ -372,7 +372,7 @@ export const summerScenarios: SeasonScenarios = {
       events: [
         {
           icon: '🏊', title: '워터파크+한강 피크',
-          detail: '주말 물놀이 인파 폭증', impact: '음료 +250%, 아이스크림 +300%',
+          detail: '주말 물놀이 인파 폭증', impact: '음료 +150%, 아이스크림 +180%',
         },
         heatwaveAlert,
       ],
@@ -552,11 +552,11 @@ export const summerScenarios: SeasonScenarios = {
       events: [
         {
           icon: '🏕️', title: '방학 MT 시즌',
-          detail: '학과·동아리 MT, 주류·음료 수요 폭증', impact: '주류 +300%, 음료 +200%, 과자 +150%',
+          detail: '학과·동아리 MT, 주류·음료 수요 폭증', impact: '주류 +200%, 음료 +150%, 과자 +100%',
         },
         {
           icon: '🌃', title: '저녁 매출 피크',
-          detail: '저녁 6~11시 매출 집중', impact: '저녁 시간대 +250%',
+          detail: '저녁 6~11시 매출 집중', impact: '저녁 시간대 +150%',
         },
       ],
       checklist: [
@@ -584,11 +584,11 @@ export const summerScenarios: SeasonScenarios = {
       events: [
         {
           icon: '🎪', title: '여름 축제 시즌',
-          detail: '대학가 야외 축제·공연 집중', impact: '주류 +400%, 간식 +200%',
+          detail: '대학가 야외 축제·공연 집중', impact: '주류 +200%, 간식 +100%',
         },
         {
           icon: '🌙', title: '심야 매출 최대',
-          detail: '밤 10시~새벽 3시 피크', impact: '심야 시간대 +300%',
+          detail: '밤 10시~새벽 3시 피크', impact: '심야 시간대 +200%',
         },
       ],
       checklist: [
@@ -756,7 +756,7 @@ export const summerScenarios: SeasonScenarios = {
         hongdaeBeerFest,
         {
           icon: '🌙', title: '심야 매출 최대',
-          detail: '밤 10시~새벽 5시 피크', impact: '심야 시간대 +500%',
+          detail: '밤 10시~새벽 5시 피크', impact: '심야 시간대 +200%',
         },
       ],
       checklist: [
@@ -776,7 +776,7 @@ export const summerScenarios: SeasonScenarios = {
       tips: [
         entertainmentTips.clubPreDrink,
         {
-          text: '야외 EDM 페스티벌, 생수·이온음료 탈수 예방 수요 +300%',
+          text: '야외 EDM 페스티벌, 생수·이온음료 탈수 예방 수요 +150%',
           action: '생수 60개·이온음료 30개 매장 앞 야외 아이스박스 세팅, 입구 POP',
         },
         fridayNightTips.lateNightOps,
@@ -784,11 +784,11 @@ export const summerScenarios: SeasonScenarios = {
       events: [
         {
           icon: '🎪', title: '클럽+야외 EDM 페스티벌',
-          detail: '홍대 클럽데이+야외 EDM 페스티벌', impact: '주류 +500%, 음료 +300%',
+          detail: '홍대 클럽데이+야외 EDM 페스티벌', impact: '주류 +200%, 음료 +150%',
         },
         {
           icon: '🌙', title: '주말 심야 최대 피크',
-          detail: '밤 11시~새벽 6시 매출 집중', impact: '심야 시간대 +600%',
+          detail: '밤 11시~새벽 6시 매출 집중', impact: '심야 시간대 +250%',
         },
       ],
       checklist: [

@@ -29,7 +29,7 @@ export const article: Article = {
     {
       type: 'stat',
       label: '영하 5도 이하 (혹한)',
-      value: '핫팩 +200%',
+      value: '핫팩 +150%',
       change: '보온음료·국물류 집중',
     },
     {
@@ -53,7 +53,7 @@ export const article: Article = {
     {
       type: 'stat',
       label: '30도 이상 (폭염)',
-      value: '얼음컵 +300%',
+      value: '얼음컵 +200%',
       change: '음료 전체 +40%',
     },
     {

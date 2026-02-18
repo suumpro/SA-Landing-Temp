@@ -55,7 +55,7 @@ export const article: Article = {
     {
       type: 'stat',
       label: '6월 빙과류 매출',
-      value: '+180%',
+      value: '+140%',
       change: '4월 대비',
     },
     {

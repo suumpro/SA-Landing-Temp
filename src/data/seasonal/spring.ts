@@ -108,7 +108,7 @@ export const springScenarios: SeasonScenarios = {
         { text: '삼각김밥·주먹밥 야외 간식 선호도 증가', action: '삼각김밥 30개·주먹밥 15개 냉장고 전면, "봄 나들이 도시락" POP 부착' },
       ],
       events: [
-        { icon: '🥗', title: '화창한 봄날 건강식 수요', detail: '날씨 좋은 목요일, 테라스·공원 점심 인파', impact: '샐러드 +250%, 샌드위치 +200%' },
+        { icon: '🥗', title: '화창한 봄날 건강식 수요', detail: '날씨 좋은 목요일, 테라스·공원 점심 인파', impact: '샐러드 +150%, 샌드위치 +120%' },
         { icon: '☕', title: '야외 식사 증가', detail: '점심 테이크아웃 피크 (11:30~13:30)', impact: '테이크아웃 음료 +150%' },
       ],
       checklist: [
@@ -131,7 +131,7 @@ export const springScenarios: SeasonScenarios = {
         { text: '주말 나들이 간편식 사전 구매 시작', action: '도시락 15개·김밥 20개·샌드위치 15개 냉장고 전면, "주말 피크닉" POP 부착' },
       ],
       events: [
-        { icon: '🍻', title: '불금 회식 시즌', detail: '저녁 7시 이후 주류·안주 수요 폭증', impact: '맥주 +180%, 안주 +200%' },
+        { icon: '🍻', title: '불금 회식 시즌', detail: '저녁 7시 이후 주류·안주 수요 폭증', impact: '맥주 +180%, 안주 +150%' },
         { icon: '🌸', title: '주말 벚꽃 나들이 준비', detail: '도시락·음료 사전 구매', impact: '도시락 +150%, 음료 +120%' },
       ],
       checklist: [
@@ -155,7 +155,7 @@ export const springScenarios: SeasonScenarios = {
       ],
       events: [
         { icon: '🌸', title: '벚꽃축제 피크', detail: '한강·서울숲 일대 인파 몰림', impact: '도시락 +180%, 음료 +150%, 간식 +120%' },
-        { icon: '🧺', title: '피크닉 용품 수요 폭발', detail: '일회용품·물티슈 완판 위험', impact: '종이컵·접시 +250%, 물티슈 +200%' },
+        { icon: '🧺', title: '피크닉 용품 수요 폭발', detail: '일회용품·물티슈 완판 위험', impact: '종이컵·접시 +180%, 물티슈 +150%' },
       ],
       checklist: [
         ...cherryBlossomChecks.slice(0, 3),
@@ -244,7 +244,7 @@ export const springScenarios: SeasonScenarios = {
         residentialTips.childVitamin,
       ],
       events: [
-        { icon: '😷', title: '미세먼지 매우나쁨', detail: 'PM2.5 농도 151μg/m³ (매우나쁨)', impact: '마스크 +300%, 실내 놀이용품 +200%' },
+        { icon: '😷', title: '미세먼지 매우나쁨', detail: 'PM2.5 농도 151μg/m³ (매우나쁨)', impact: '마스크 +200%, 실내 놀이용품 +150%' },
         { icon: '🏠', title: '실내 활동 증가', detail: '야외활동 취소, 집콕 수요 급증', impact: '간식 +150%, 음료 +120%' },
       ],
       checklist: [
@@ -287,7 +287,7 @@ export const springScenarios: SeasonScenarios = {
         { text: '가족 외출 간식 사전 확보 수요', action: '과자 20봉·음료 30개·아이스크림 15개 냉장고 전면, "주말 나들이" POP 부착' },
       ],
       events: [
-        { icon: '🛒', title: '주말 장보기 피크', detail: '금요일 저녁 가족 장보기 (17~20시)', impact: '식재료 +200%, 간편식 +180%' },
+        { icon: '🛒', title: '주말 장보기 피크', detail: '금요일 저녁 가족 장보기 (17~20시)', impact: '식재료 +150%, 간편식 +120%' },
       ],
       checklist: [
         ...weekendOutingChecks.slice(0, 2),
@@ -309,7 +309,7 @@ export const springScenarios: SeasonScenarios = {
       ],
       events: [
         hangangCherryBlossom,
-        { icon: '🧺', title: '가족 피크닉', detail: '유모차 동반 가족 대거 방문', impact: '아이스크림 +300%, 과자 +250%' },
+        { icon: '🧺', title: '가족 피크닉', detail: '유모차 동반 가족 대거 방문', impact: '아이스크림 +150%, 과자 +120%' },
       ],
       checklist: [
         ...cherryBlossomChecks.slice(0, 3),
@@ -324,11 +324,11 @@ export const springScenarios: SeasonScenarios = {
       weather: springMild,
       tips: [
         weekendBrunchTips.brunchDemand,
-        { text: '오후 한강 산책 가족 아이스크림 수요 +280%', action: '아이스크림(콘 15개·바 15개·컵 10개) 냉동고 전면, 14시 보충 알람 세팅' },
+        { text: '오후 한강 산책 가족 아이스크림 수요 +150%', action: '아이스크림(콘 15개·바 15개·컵 10개) 냉동고 전면, 14시 보충 알람 세팅' },
         { text: '내일 개학 대비 주중 장보기 수요', action: '즉석밥 15개·라면 10개·냉동식품 10개 중앙 통로, 우유 20개·빵 15개 입구 배치' },
       ],
       events: [
-        { icon: '🍦', title: '가족 산책 시즌', detail: '오후 2~6시 한강 산책 인파', impact: '아이스크림 +280%, 음료 +220%' },
+        { icon: '🍦', title: '가족 산책 시즌', detail: '오후 2~6시 한강 산책 인파', impact: '아이스크림 +150%, 음료 +130%' },
       ],
       checklist: [
         '아이스크림(콘 15개·바 15개·컵 10개) 냉동고 전면 배치',
@@ -398,7 +398,7 @@ export const springScenarios: SeasonScenarios = {
         { text: '비 오는 날 실내 간식 선호도 +40%', action: '과자 15봉·초콜릿 20개·사탕 10봉 계산대 옆 임펄스존 배치' },
       ],
       events: [
-        { icon: '☔', title: '오후 봄비 예보', detail: '14:00 이후 강수확률 80%', impact: '우산 +280%, 따뜻한 음료 +200%' },
+        { icon: '☔', title: '오후 봄비 예보', detail: '14:00 이후 강수확률 80%', impact: '우산 +180%, 따뜻한 음료 +120%' },
       ],
       checklist: [
         ...rainDayChecks.slice(0, 2),
@@ -464,7 +464,7 @@ export const springScenarios: SeasonScenarios = {
         cherryBlossomTips.drinksPeak,
       ],
       events: [
-        { icon: '🎊', title: '대학교 축제 준비', detail: '부스 운영 준비물 대량 구매', impact: '일회용품 +300%, 간식 +250%' },
+        { icon: '🎊', title: '대학교 축제 준비', detail: '부스 운영 준비물 대량 구매', impact: '일회용품 +180%, 간식 +120%' },
       ],
       checklist: [
         '종이컵 500개·접시 200개·물티슈 100개 대량 발주',
@@ -480,12 +480,12 @@ export const springScenarios: SeasonScenarios = {
     day(6, '과제 시즌 - 카페·에너지음료 수요', {
       weather: springMild,
       tips: [
-        { text: '일요일 과제 몰아하기, 커피 수요 +220%', action: '아메리카노 20개·라떼 15개 냉장고 전면, 14시 보충 알람 세팅' },
+        { text: '일요일 과제 몰아하기, 커피 수요 +150%', action: '아메리카노 20개·라떼 15개 냉장고 전면, 14시 보충 알람 세팅' },
         { text: '심야 스터디 에너지음료 수요 지속', action: '핫식스 20개·레드불 15개·몬스터 10개 냉장고 3번 선반 배정' },
         { text: '과제 스트레스 단맛 간식 수요 +60%', action: '초콜릿바 20개·젤리 15봉·사탕 10봉 계산대 옆 임펄스존 배치' },
       ],
       events: [
-        { icon: '📝', title: '과제 시즌 시작', detail: '일요일 카페·도서관 만석', impact: '커피 +220%, 에너지음료 +180%' },
+        { icon: '📝', title: '과제 시즌 시작', detail: '일요일 카페·도서관 만석', impact: '커피 +150%, 에너지음료 +120%' },
       ],
       checklist: [
         '아메리카노 20개·라떼 15개 냉장고 전면 세팅',
@@ -599,7 +599,7 @@ export const springScenarios: SeasonScenarios = {
       ],
       events: [
         { icon: '🍻', title: '불금 피크', detail: '홍대 거리 인파 폭증 (저녁 7시~)', impact: '맥주 +150%, 소주 +120%, 안주 +100%' },
-        { icon: '🎉', title: '클럽 오픈', detail: '클럽 라인업 대기줄 형성 (밤 10시~)', impact: '에너지음료 +250%, 간편 안주 +200%' },
+        { icon: '🎉', title: '클럽 오픈', detail: '클럽 라인업 대기줄 형성 (밤 10시~)', impact: '에너지음료 +180%, 간편 안주 +150%' },
       ],
       checklist: [
         '캔맥주 80개·소주 50병·믹서(토닉·사이다) 30개 냉장고 풀가동',
