@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Link from 'next/link';
 import {
   Newspaper, Snowflake, CloudRain, BarChart3,
@@ -38,7 +39,7 @@ const categoryAccent: Record<string, { border: string; iconBg: string; bar: stri
   tip: { border: 'group-hover:border-amber-200', iconBg: 'bg-amber-50', bar: 'from-amber-400 to-amber-600' },
 };
 
-export function ArticleCard({ article }: { article: Article }) {
+export const ArticleCard = memo(function ArticleCard({ article }: { article: Article }) {
   const meta = categoryMeta[article.category];
   const accent = categoryAccent[article.category];
 
@@ -90,9 +91,9 @@ export function ArticleCard({ article }: { article: Article }) {
       </div>
     </Link>
   );
-}
+});
 
-export function FeaturedArticleCard({ article }: { article: Article }) {
+export const FeaturedArticleCard = memo(function FeaturedArticleCard({ article }: { article: Article }) {
   const meta = categoryMeta[article.category];
   const accent = categoryAccent[article.category];
 
@@ -140,4 +141,4 @@ export function FeaturedArticleCard({ article }: { article: Article }) {
       </div>
     </Link>
   );
-}
+});

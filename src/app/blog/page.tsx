@@ -40,16 +40,14 @@ function BlogContent() {
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Debounce search
+  // Debounce search + reset page
   useEffect(() => {
-    const timer = setTimeout(() => setDebouncedQuery(searchQuery), 300);
+    const timer = setTimeout(() => {
+      setDebouncedQuery(searchQuery);
+      setCurrentPage(1);
+    }, 300);
     return () => clearTimeout(timer);
   }, [searchQuery]);
-
-  // Reset page on filter change
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [activeTab, activeTag, debouncedQuery, sortOrder]);
 
   const allArticles = useMemo(() => getAllArticles(), []);
 
@@ -113,6 +111,17 @@ function BlogContent() {
     setActiveTab(key);
     setActiveTag(null);
     setSearchQuery('');
+    setCurrentPage(1);
+  }, []);
+
+  const handleTagChange = useCallback((tag: string | null) => {
+    setActiveTag(tag);
+    setCurrentPage(1);
+  }, []);
+
+  const handleSortToggle = useCallback(() => {
+    setSortOrder((p) => (p === 'newest' ? 'oldest' : 'newest'));
+    setCurrentPage(1);
   }, []);
 
   return (
@@ -182,7 +191,7 @@ function BlogContent() {
 
             {/* Sort Toggle */}
             <button
-              onClick={() => setSortOrder((p) => (p === 'newest' ? 'oldest' : 'newest'))}
+              onClick={handleSortToggle}
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-gray-500 hover:bg-gray-50 transition-colors shrink-0 ml-2"
               title={sortOrder === 'newest' ? '최신순' : '오래된순'}
             >
@@ -199,7 +208,7 @@ function BlogContent() {
           {popularTags.map((tag) => (
             <button
               key={tag}
-              onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+              onClick={() => handleTagChange(activeTag === tag ? null : tag)}
               className={`text-xs px-3 py-1.5 rounded-full transition-colors ${
                 activeTag === tag
                   ? 'bg-primary text-white shadow-sm'
@@ -220,7 +229,7 @@ function BlogContent() {
           </p>
           {activeTag && (
             <button
-              onClick={() => setActiveTag(null)}
+              onClick={() => handleTagChange(null)}
               className="text-xs text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
             >
               <X className="w-3 h-3" />

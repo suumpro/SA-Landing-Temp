@@ -10,6 +10,7 @@ const contactSchema = z.object({
   name: z.string().min(1).max(50),
   contact: z.string().min(5).max(100),
   storeCount: z.string().min(1).max(10),
+  plan: z.string().max(30).optional(),
 });
 
 export async function POST(request: NextRequest) {
@@ -31,10 +32,10 @@ export async function POST(request: NextRequest) {
       return errorResponse(firstError, 400);
     }
 
-    const { name, contact, storeCount } = result.data;
+    const { name, contact, storeCount, plan } = result.data;
 
     await sendSlackNotification(
-      `🎯 새 상담 신청!\n\n*이름:* ${slackEscape(name)}\n*연락처:* ${slackEscape(contact)}\n*매장 수:* ${slackEscape(storeCount)}\n*시간:* ${koreaTime()}`,
+      `🎯 새 상담 신청!\n\n*이름:* ${slackEscape(name)}\n*연락처:* ${slackEscape(contact)}\n*매장 수:* ${slackEscape(storeCount)}\n*플랜:* ${plan ? slackEscape(plan) : '미선택'}\n*시간:* ${koreaTime()}`,
     );
 
     return successResponse('상담 신청이 완료되었습니다');

@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { TrendingUp, BarChart3, Package, Store } from 'lucide-react';
 import type {
   SalesTrendData,
   SalesForecastData,
@@ -11,7 +12,7 @@ export const SalesTrendCard = memo(function SalesTrendCard({ data }: { data: Sal
     <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <span className="text-xl" aria-hidden="true">📈</span>
+          <TrendingUp className="w-5 h-5 text-primary" aria-hidden="true" />
           <h3 className="font-bold text-gray-900">매출 트렌드</h3>
         </div>
         <span className="text-xs text-gray-400">지난주 기준</span>
@@ -54,7 +55,7 @@ export const SalesForecastCard = memo(function SalesForecastCard({ data }: { dat
     <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <span className="text-xl" aria-hidden="true">🔮</span>
+          <BarChart3 className="w-5 h-5 text-primary" aria-hidden="true" />
           <h3 className="font-bold text-gray-900">매출 예측</h3>
         </div>
         <span className="text-xs text-gray-400">이번 주</span>
@@ -114,7 +115,7 @@ export const OrderRecommendCard = memo(function OrderRecommendCard({ data }: { d
     <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <span className="text-xl" aria-hidden="true">📦</span>
+          <Package className="w-5 h-5 text-primary" aria-hidden="true" />
           <h3 className="font-bold text-gray-900">AI 발주 추천</h3>
         </div>
         <span className="text-xs bg-primary-lighter text-primary px-2 py-0.5 rounded-full font-medium">
@@ -157,7 +158,7 @@ export const CompetitorCard = memo(function CompetitorCard({ data }: { data: Com
     <div className="card-analysis">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <span className="text-xl" aria-hidden="true">🏪</span>
+          <Store className="w-5 h-5 text-primary" aria-hidden="true" />
           <h3 className="font-bold text-gray-900">경쟁점 비교</h3>
         </div>
         <span className="text-xs text-gray-400">반경 {data.radius}</span>
