@@ -7,12 +7,9 @@ export const article: Article = {
   category: 'tip',
   date: '2026-01-28',
   readTime: 4,
-  tags: [
-    "재고관리",
-    "발주법",
-    "ABC분석",
-  ],
+  tags: ['재고관리', '발주', '폐기관리'],
   icon: 'Package',
+  relatedSlugs: ['pos-data-waste-reduction', 'seasonal-waste-pattern'],
   content: [
     {
       type: 'paragraph',

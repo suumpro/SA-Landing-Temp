@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-03-06',
   readTime: 4,
-  tags: ['즉석조리', '핫바', '메뉴기획'],
+  tags: ['간편식', '시즌', '매출'],
   icon: 'ChefHat',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 즉석조리 코너 운영 노하우를 정리한 가이드입니다.' },

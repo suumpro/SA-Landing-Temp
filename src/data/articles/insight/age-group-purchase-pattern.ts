@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'insight',
   date: '2026-01-08',
   readTime: 4,
-  tags: [
-    "연령대",
-    "구매패턴",
-    "고객분석",
-  ],
+  tags: ['고객분석', '데이터분석', '매출'],
   icon: 'Users',
   content: [
     {
@@ -86,7 +82,7 @@ export const article: Article = {
     {
       type: 'stat',
       label: '50대 평균 객단가',
-      value: '7,800원',
+      value: '6,200원',
       change: '연령대 최고',
     },
     {

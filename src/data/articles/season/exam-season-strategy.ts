@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-03-10',
   readTime: 5,
-  tags: ['시험', '수능', '에너지드링크'],
+  tags: ['시험', '음료', '매출'],
   icon: 'GraduationCap',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 시험 시즌 매출 패턴을 기반으로 작성되었습니다.' },
@@ -21,7 +21,7 @@ export const article: Article = {
     { type: 'paragraph', text: '대학가·도서관 상권이 핵심입니다. 시험 2주 전부터 심야 매출이 급증하고, 에너지 드링크·커피·초콜릿이 세트로 팔립니다. \"시험 화이팅\" 코너를 만들면 동반구매율이 올라갑니다.' },
     { type: 'divider' },
     { type: 'heading', text: '수능 시즌 (11월)' },
-    { type: 'stat', label: '수능 응원 선물 세트', value: '+400%', change: '11월 1~2주' },
+    { type: 'stat', label: '수능 응원 선물 세트', value: '+200%', change: '11월 1~2주' },
     { type: 'stat', label: '찰떡·엿·초콜릿', value: '+200%', change: '수능 전주' },
     { type: 'paragraph', text: '수능은 응시자보다 \"응원자\" 시장이 더 큽니다. 찰떡·엿·포크(포기하지 말라는 의미) 등 응원 선물 세트가 폭발적으로 팔립니다. 수능 당일 아침에는 학교 앞 매장에서 따뜻한 음료 수요가 급증합니다.' },
     { type: 'tip', title: '시험 시즌 공통 팁', text: '에너지 드링크·커피·초콜릿을 한 곳에 모아 \"시험 응원\" 코너를 만드세요. 시험 기간 한정 운영으로 효과적입니다. 시험 종료 후 즉시 철거하고 다음 시즌으로 전환합니다.' },

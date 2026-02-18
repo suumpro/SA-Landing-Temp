@@ -8,18 +8,22 @@ import {
   ShoppingCart, PiggyBank, Users, UserCheck, Eye, Bike,
   ChefHat, Building2, Handshake, Share2, Umbrella,
   ShieldCheck, Rocket,
+  Leaf, BookOpen, Calendar, CalendarDays, MapPin,
+  PartyPopper, Sparkle, Tag, Package, MessageCircle,
 } from 'lucide-react';
 import type { Article } from '@/data/articles/types';
 import { categoryMeta } from '@/data/articles/types';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Newspaper, Snowflake, CloudRain, BarChart3,
-  TrendingDown, LayoutGrid, Flower2, Lightbulb,
+  TrendingDown, LayoutGrid, Flower2, Lightbulb, Clock,
   Gift, GraduationCap, Trophy, Heart, Sun, Sparkles,
   Thermometer, Zap, CreditCard, Coffee, Moon, Trash2,
   ShoppingCart, PiggyBank, Users, UserCheck, Eye, Bike,
   ChefHat, Building2, Handshake, Share2, Umbrella,
   ShieldCheck, Rocket,
+  Leaf, BookOpen, Calendar, CalendarDays, MapPin,
+  PartyPopper, Sparkle, Tag, Package, MessageCircle,
 };
 
 function ArticleIcon({ name, className }: { name: string; className?: string }) {
@@ -41,7 +45,7 @@ export function ArticleCard({ article }: { article: Article }) {
   return (
     <Link
       href={`/blog/${article.slug}`}
-      className={`group block bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer ${accent.border}`}
+      className={`group block bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-[box-shadow,border-color,transform] cursor-pointer ${accent.border}`}
     >
       {/* Category color bar */}
       <div className={`h-1 bg-gradient-to-r ${accent.bar}`} />
@@ -81,7 +85,7 @@ export function ArticleCard({ article }: { article: Article }) {
               {article.readTime}분
             </span>
           </div>
-          <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+          <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary group-hover:translate-x-0.5 transition-[color,transform]" />
         </div>
       </div>
     </Link>
@@ -95,7 +99,7 @@ export function FeaturedArticleCard({ article }: { article: Article }) {
   return (
     <Link
       href={`/blog/${article.slug}`}
-      className={`group block bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all cursor-pointer ${accent.border}`}
+      className={`group block bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-[box-shadow,border-color] cursor-pointer ${accent.border}`}
     >
       <div className={`h-1 bg-gradient-to-r ${accent.bar}`} />
 
@@ -128,7 +132,7 @@ export function FeaturedArticleCard({ article }: { article: Article }) {
                 </span>
               ))}
             </div>
-            <span className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
+            <span className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-[gap]">
               읽기 <ArrowRight className="w-4 h-4" />
             </span>
           </div>

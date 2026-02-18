@@ -65,7 +65,7 @@ export default function POSAnalysisSection() {
               onClick={() => setActiveIndex(index)}
               aria-label={`${area.label} 상권 선택`}
               aria-pressed={activeIndex === index}
-              className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                 activeIndex === index
                   ? 'bg-primary text-white shadow-md'
                   : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-100'

@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-03-14',
   readTime: 5,
-  tags: ['다점포', '확장', '관리'],
+  tags: ['매출', '인력관리', '데이터분석'],
   icon: 'Building2',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 다점포 운영 경험이 있는 점주 인터뷰를 기반으로 작성되었습니다.' },

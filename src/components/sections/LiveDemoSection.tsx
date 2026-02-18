@@ -100,7 +100,7 @@ export default function LiveDemoSection() {
                   (e.currentTarget.parentElement?.children[prev] as HTMLElement)?.focus();
                 }
               }}
-              className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                 activeIndex === index
                   ? 'bg-primary text-white shadow-md'
                   : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-100'

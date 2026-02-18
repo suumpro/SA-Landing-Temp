@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-01-01',
   readTime: 4,
-  tags: ['새해', '다이어트', '건강'],
+  tags: ['시즌', '매출', '건강'],
   icon: 'Sparkles',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 1월 매출 트렌드를 기반으로 작성되었습니다.' },

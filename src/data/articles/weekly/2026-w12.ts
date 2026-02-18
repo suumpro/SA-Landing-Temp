@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'weekly',
   date: '2026-03-16',
   readTime: 3,
-  tags: ['벚꽃', '나들이', '봄시즌'],
+  tags: ['벚꽃', '시즌', '상권'],
   icon: 'Newspaper',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 매주 발행하는 주간 브리핑 하이라이트입니다.' },

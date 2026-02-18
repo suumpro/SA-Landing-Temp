@@ -7,12 +7,9 @@ export const article: Article = {
   category: 'insight',
   date: '2026-01-27',
   readTime: 4,
-  tags: [
-    "데이터",
-    "요일",
-    "발주패턴",
-  ],
+  tags: ['데이터분석', '발주', '매출'],
   icon: 'BarChart3',
+  relatedSlugs: ['weekend-vs-weekday', 'location-type-analysis'],
   content: [
     {
       type: 'paragraph',

@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-02-10',
   readTime: 4,
-  tags: [
-    "봄",
-    "시즌전환",
-    "체크리스트",
-  ],
+  tags: ['시즌', '발주', '진열'],
   icon: 'Flower2',
   content: [
     {

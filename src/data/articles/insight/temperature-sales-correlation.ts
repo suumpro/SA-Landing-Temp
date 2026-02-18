@@ -7,12 +7,9 @@ export const article: Article = {
   category: 'insight',
   date: '2026-01-22',
   readTime: 4,
-  tags: [
-    "기온",
-    "데이터분석",
-    "카테고리전략",
-  ],
+  tags: ['기온', '데이터분석', '매출'],
   icon: 'Thermometer',
+  relatedSlugs: ['rainy-day-sales-secret', 'summer-peak-operation', 'winter-sales-strategy'],
   content: [
     {
       type: 'paragraph',

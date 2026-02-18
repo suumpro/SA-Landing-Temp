@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'weekly',
   date: '2026-04-13',
   readTime: 3,
-  tags: ['중간고사', '에너지드링크', '시험기간'],
+  tags: ['시험', '음료', '매출'],
   icon: 'Newspaper',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 매주 발행하는 주간 브리핑 하이라이트입니다.' },

@@ -118,9 +118,38 @@ export function getArticlesByCategory(category: ArticleCategory): Article[] {
 }
 
 export function getRelatedArticles(article: Article, limit = 3): Article[] {
-  return getAllArticles()
-    .filter((a) => a.slug !== article.slug && a.category === article.category)
-    .slice(0, limit);
+  // 1. 명시적 relatedSlugs 우선
+  const explicit = (article.relatedSlugs ?? [])
+    .map(getArticleBySlug)
+    .filter((a): a is Article => !!a);
+
+  // 2. 태그 겹침 기반 스코어링 (크로스 카테고리)
+  const explicitSlugs = new Set(explicit.map((a) => a.slug));
+  const scored = getAllArticles()
+    .filter((a) => a.slug !== article.slug && !explicitSlugs.has(a.slug))
+    .map((a) => ({
+      article: a,
+      score:
+        a.tags.filter((t) => article.tags.includes(t)).length * 2 +
+        (a.category === article.category ? 1 : 0),
+    }))
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  return [...explicit, ...scored.map(({ article }) => article)].slice(0, limit);
+}
+
+export function getAdjacentArticles(article: Article): {
+  prev: Article | undefined;
+  next: Article | undefined;
+} {
+  const siblings = getArticlesByCategory(article.category)
+    .sort((a, b) => a.date.localeCompare(b.date));
+  const idx = siblings.findIndex((a) => a.slug === article.slug);
+  return {
+    prev: idx > 0 ? siblings[idx - 1] : undefined,
+    next: idx < siblings.length - 1 ? siblings[idx + 1] : undefined,
+  };
 }
 
 export type { Article, ArticleCategory, ArticleBlock } from './types';

@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-03-05',
   readTime: 5,
-  tags: ['어린이날', '선물', '간식'],
+  tags: ['어린이날', '이벤트', '발주'],
   icon: 'Gift',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 어린이날 매출 데이터를 기반으로 작성되었습니다.' },

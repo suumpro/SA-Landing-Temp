@@ -9,8 +9,8 @@ export const article: Article = {
   readTime: 3,
   tags: [
     "화이트데이",
-    "개강",
-    "봄나들이",
+    "시즌",
+    "상권",
   ],
   icon: 'Newspaper',
   content: [

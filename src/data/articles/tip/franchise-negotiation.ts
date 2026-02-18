@@ -5,9 +5,9 @@ export const article: Article = {
   title: '본사 협상 노하우: 점주가 알아야 할 5가지',
   excerpt: '계약 조건, 프로모션 비용 분담, 인테리어 지원까지 본사와의 협상 포인트.',
   category: 'tip',
-  date: '2026-02-20',
+  date: '2026-02-22',
   readTime: 5,
-  tags: ['본사', '협상', '계약'],
+  tags: ['매출', '프로모션', '재고관리'],
   icon: 'Handshake',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 편의점 점주 커뮤니티와 인터뷰를 기반으로 작성되었습니다.' },

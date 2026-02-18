@@ -9,7 +9,7 @@ export const article: Article = {
   readTime: 3,
   tags: [
     "설연휴",
-    "명절발주",
+    "발주",
     "간편식",
   ],
   icon: 'Newspaper',

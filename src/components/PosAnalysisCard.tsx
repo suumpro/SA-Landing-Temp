@@ -38,7 +38,7 @@ export const SalesTrendCard = memo(function SalesTrendCard({ data }: { data: Sal
             </div>
             <div className="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-primary rounded-full transition-all duration-700"
+                className="h-full bg-primary rounded-full transition-[width] duration-700"
                 style={{ width: `${item.barPercent}%` }}
               />
             </div>
@@ -75,7 +75,7 @@ export const SalesForecastCard = memo(function SalesForecastCard({ data }: { dat
           <div key={day.day} className="flex-1 flex flex-col items-center gap-0.5">
             <div className="w-full flex flex-col justify-end" style={{ height: '88px' }}>
               <div
-                className={`w-full rounded-t transition-all duration-700 ${
+                className={`w-full rounded-t transition-[height] duration-700 ${
                   day.isPeak
                     ? 'bg-primary'
                     : day.isToday
@@ -195,7 +195,7 @@ export const CompetitorCard = memo(function CompetitorCard({ data }: { data: Com
                 <span className="text-xs text-gray-600 w-14 shrink-0">내 매장</span>
                 <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-primary rounded-full transition-all duration-700"
+                    className="h-full bg-primary rounded-full transition-[width] duration-700"
                     style={{ width: `${myPercent}%` }}
                   />
                 </div>
@@ -207,7 +207,7 @@ export const CompetitorCard = memo(function CompetitorCard({ data }: { data: Com
                 <span className="text-xs text-gray-400 w-14 shrink-0">경쟁 평균</span>
                 <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gray-300 rounded-full transition-all duration-700"
+                    className="h-full bg-gray-300 rounded-full transition-[width] duration-700"
                     style={{ width: `${avgPercent}%` }}
                   />
                 </div>

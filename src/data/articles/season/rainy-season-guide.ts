@@ -7,13 +7,9 @@ export const article: Article = {
   category: 'season',
   date: '2026-01-05',
   readTime: 5,
-  tags: [
-    "장마",
-    "우산",
-    "간편식",
-    "습기관리",
-  ],
+  tags: ['날씨', '간편식', '발주'],
   icon: 'CloudRain',
+  relatedSlugs: ['rainy-day-sales-secret', 'rainy-day-operation', 'temperature-sales-correlation'],
   content: [
     {
       type: 'paragraph',

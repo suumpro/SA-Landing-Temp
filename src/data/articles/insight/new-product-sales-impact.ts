@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'insight',
   date: '2026-01-30',
   readTime: 4,
-  tags: [
-    "신상품",
-    "매출기여도",
-    "데이터분석",
-  ],
+  tags: ['매출', '데이터분석', '발주'],
   icon: 'Sparkles',
   content: [
     {

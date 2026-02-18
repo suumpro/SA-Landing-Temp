@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-02-08',
   readTime: 4,
-  tags: [
-    "고객대응",
-    "불만처리",
-    "단골관리",
-  ],
+  tags: ['고객분석', '마케팅', '매출'],
   icon: 'MessageCircle',
   content: [
     {

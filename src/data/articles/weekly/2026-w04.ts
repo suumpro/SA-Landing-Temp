@@ -8,9 +8,9 @@ export const article: Article = {
   date: '2026-01-19',
   readTime: 3,
   tags: [
-    "기말고사",
-    "학교앞",
-    "에너지드링크",
+    "시험",
+    "음료",
+    "상권",
   ],
   icon: 'Newspaper',
   content: [

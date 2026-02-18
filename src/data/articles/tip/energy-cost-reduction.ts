@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-01-06',
   readTime: 4,
-  tags: [
-    "전기료",
-    "비용절감",
-    "운영효율",
-  ],
+  tags: ['매출', '데이터분석', '재고관리'],
   icon: 'Zap',
   content: [
     {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { Suspense, useState, useMemo, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -22,6 +22,14 @@ const tabs: { key: ArticleCategory | 'all'; label: string; icon: React.Component
 ];
 
 export default function BlogPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-50" />}>
+      <BlogContent />
+    </Suspense>
+  );
+}
+
+function BlogContent() {
   const searchParams = useSearchParams();
   const initialTag = searchParams.get('tag');
 
@@ -128,7 +136,7 @@ export default function BlogPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="검색어를 입력하세요 (제목, 태그)"
-              className="w-full pl-11 pr-10 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
+              className="w-full pl-11 pr-10 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
             />
             {searchQuery && (
               <button
@@ -154,7 +162,7 @@ export default function BlogPage() {
                   <button
                     key={tab.key}
                     onClick={() => handleTabChange(tab.key)}
-                    className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all snap-center ${
+                    className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-colors snap-center ${
                       isActive
                         ? 'bg-primary text-white shadow-sm'
                         : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
@@ -192,7 +200,7 @@ export default function BlogPage() {
             <button
               key={tag}
               onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-              className={`text-xs px-3 py-1.5 rounded-full transition-all ${
+              className={`text-xs px-3 py-1.5 rounded-full transition-colors ${
                 activeTag === tag
                   ? 'bg-primary text-white shadow-sm'
                   : 'bg-white text-gray-500 border border-gray-200 hover:border-gray-300 hover:text-gray-700'
@@ -260,7 +268,7 @@ export default function BlogPage() {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`w-9 h-9 rounded-lg text-sm font-medium transition-all ${
+                className={`w-9 h-9 rounded-lg text-sm font-medium transition-colors ${
                   currentPage === page
                     ? 'bg-primary text-white shadow-sm'
                     : 'text-gray-500 hover:bg-gray-100'

@@ -49,7 +49,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,box-shadow,border-color] duration-300 ${
         isScrolled
           ? 'bg-white/90 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)] border-b border-gray-100/80'
           : 'bg-white/60 backdrop-blur-sm'
@@ -74,7 +74,7 @@ export default function Header() {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.anchor)}
-                  className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all"
+                  className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
                 >
                   {link.label}
                 </button>
@@ -85,7 +85,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all"
+                className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
               >
                 {link.label}
               </Link>
@@ -96,7 +96,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                 pathname === link.href
                   ? 'text-primary bg-primary-lighter'
                   : link.highlight
@@ -114,13 +114,13 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-2">
           <button
             onClick={() => scrollToSection('faq')}
-            className="px-4 py-2 text-sm font-medium text-primary bg-primary/5 hover:bg-primary/10 rounded-lg transition-all"
+            className="px-4 py-2 text-sm font-medium text-primary bg-primary/5 hover:bg-primary/10 rounded-lg transition-colors"
           >
             무료 구독
           </button>
           <button
             onClick={() => scrollToSection('pricing')}
-            className="px-5 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-xl transition-all"
+            className="px-5 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-xl transition-colors"
           >
             플랜 보기
           </button>
@@ -129,7 +129,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2.5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all"
+          className="md:hidden p-2.5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
           aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
           aria-expanded={isMenuOpen}
         >
@@ -160,7 +160,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
           isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
@@ -176,7 +176,7 @@ export default function Header() {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.anchor)}
-                  className="block w-full text-left px-3 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all"
+                  className="block w-full text-left px-3 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
                 >
                   {link.label}
                 </button>
@@ -187,7 +187,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block px-3 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all"
+                className="block px-3 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
               >
                 {link.label}
               </Link>
@@ -198,7 +198,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`block px-3 py-3 rounded-lg transition-all ${
+              className={`block px-3 py-3 rounded-lg transition-colors ${
                 pathname === link.href
                   ? 'text-primary bg-primary-lighter font-medium'
                   : link.highlight
@@ -214,13 +214,13 @@ export default function Header() {
           <div className="flex gap-2 pt-1 pb-2">
             <button
               onClick={() => scrollToSection('faq')}
-              className="flex-1 py-3 text-sm font-medium text-primary border border-gray-200 rounded-xl hover:bg-gray-50 transition-all"
+              className="flex-1 py-3 text-sm font-medium text-primary border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
             >
               무료 구독
             </button>
             <button
               onClick={() => scrollToSection('pricing')}
-              className="flex-1 py-3 text-sm font-semibold text-white bg-primary rounded-xl hover:bg-primary-dark transition-all"
+              className="flex-1 py-3 text-sm font-semibold text-white bg-primary rounded-xl hover:bg-primary-dark transition-colors"
             >
               플랜 보기
             </button>

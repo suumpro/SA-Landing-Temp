@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-02-25',
   readTime: 4,
-  tags: ['스포츠', '치맥', '야구'],
+  tags: ['이벤트', '음료', '매출'],
   icon: 'Trophy',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 스포츠 경기일 매출 패턴을 기반으로 작성되었습니다.' },

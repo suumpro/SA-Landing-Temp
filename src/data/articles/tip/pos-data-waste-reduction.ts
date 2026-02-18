@@ -7,12 +7,9 @@ export const article: Article = {
   category: 'tip',
   date: '2026-01-15',
   readTime: 4,
-  tags: [
-    "POS",
-    "폐기",
-    "데이터활용",
-  ],
+  tags: ['폐기관리', '데이터분석', '발주'],
   icon: 'TrendingDown',
+  relatedSlugs: ['seasonal-waste-pattern', 'inventory-management-basics'],
   content: [
     {
       type: 'quote',

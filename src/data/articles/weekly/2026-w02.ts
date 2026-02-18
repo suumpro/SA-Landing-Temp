@@ -8,9 +8,9 @@ export const article: Article = {
   date: '2026-01-05',
   readTime: 3,
   tags: [
-    "신정",
     "한파",
-    "보온음료",
+    "음료",
+    "날씨",
   ],
   icon: 'Newspaper',
   content: [

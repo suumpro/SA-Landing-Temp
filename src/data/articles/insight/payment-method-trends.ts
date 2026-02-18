@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'insight',
   date: '2026-02-22',
   readTime: 4,
-  tags: ['결제', '간편결제', '트렌드'],
+  tags: ['고객분석', '데이터분석', '매출'],
   icon: 'CreditCard',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 편의점 결제 데이터를 기반으로 작성되었습니다.' },

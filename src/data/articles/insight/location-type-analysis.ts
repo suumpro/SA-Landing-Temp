@@ -7,13 +7,9 @@ export const article: Article = {
   category: 'insight',
   date: '2026-01-03',
   readTime: 5,
-  tags: [
-    "상권분석",
-    "오피스",
-    "주거지",
-    "학교",
-  ],
+  tags: ['상권', '고객분석', '데이터분석'],
   icon: 'Building2',
+  relatedSlugs: ['foot-traffic-pattern', 'weekday-sales-pattern'],
   content: [
     {
       type: 'paragraph',

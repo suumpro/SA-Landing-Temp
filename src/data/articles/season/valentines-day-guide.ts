@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-01-30',
   readTime: 5,
-  tags: ['밸런타인데이', '초콜릿', '선물'],
+  tags: ['밸런타인', '이벤트', '프로모션'],
   icon: 'Heart',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 밸런타인데이 매출 데이터를 기반으로 작성되었습니다.' },

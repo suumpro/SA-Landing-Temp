@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-01-02',
   readTime: 5,
-  tags: [
-    "연말",
-    "크리스마스",
-    "주류특수",
-  ],
+  tags: ['이벤트', '음료', '매출'],
   icon: 'PartyPopper',
   content: [
     {

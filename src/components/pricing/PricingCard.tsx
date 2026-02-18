@@ -15,7 +15,7 @@ export default function PricingCard({ plan }: PricingCardProps) {
 
   return (
     <div
-      className={`relative rounded-2xl p-6 transition-all duration-300 ${
+      className={`relative rounded-2xl p-6 transition-[border-color,box-shadow] duration-300 ${
         isPopular
           ? 'bg-primary text-white border-2 border-primary shadow-xl scale-105 hover:shadow-2xl'
           : 'bg-white border border-gray-200 hover:border-primary/30 hover:shadow-lg'
@@ -114,7 +114,7 @@ export default function PricingCard({ plan }: PricingCardProps) {
       {/* CTA Button */}
       <Link
         href={plan.ctaLink}
-        className={`block w-full text-center py-3 rounded-lg font-medium transition-all ${
+        className={`block w-full text-center py-3 rounded-lg font-medium transition-[background-color,box-shadow] ${
           isPopular
             ? 'bg-white text-primary hover:bg-gray-100 hover:shadow-md'
             : 'bg-primary text-white hover:bg-primary-dark hover:shadow-md'

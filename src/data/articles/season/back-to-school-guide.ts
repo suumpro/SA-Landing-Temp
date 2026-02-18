@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-02-12',
   readTime: 4,
-  tags: [
-    "개학",
-    "학생",
-    "발주가이드",
-  ],
+  tags: ['시즌', '발주', '상권'],
   icon: 'BookOpen',
   content: [
     {

@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-01-08',
   readTime: 3,
-  tags: [
-    "진열",
-    "매출",
-    "운영노하우",
-  ],
+  tags: ['진열', '매출', '프로모션'],
   icon: 'LayoutGrid',
   content: [
     {

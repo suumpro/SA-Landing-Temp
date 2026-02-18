@@ -34,7 +34,7 @@ export default function PricingSection() {
             return (
               <div
                 key={plan.id}
-                className={`relative rounded-2xl p-6 transition-all duration-300 ${
+                className={`relative rounded-2xl p-6 transition-[border-color,box-shadow] duration-300 ${
                   isPopular
                     ? 'bg-gray-900 text-white shadow-xl shadow-gray-900/20 ring-1 ring-gray-900 scale-[1.02] lg:scale-105'
                     : 'bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg'
@@ -102,7 +102,7 @@ export default function PricingSection() {
 
                 <Link
                   href={plan.ctaLink}
-                  className={`block w-full text-center py-3.5 rounded-xl font-semibold transition-all duration-200 text-sm ${
+                  className={`block w-full text-center py-3.5 rounded-xl font-semibold transition-[background-color,box-shadow,transform] duration-200 text-sm ${
                     isPopular
                       ? 'bg-white text-gray-900 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/20 hover:scale-[1.02]'
                       : 'bg-gray-900 text-white hover:bg-gray-800 hover:shadow-lg hover:scale-[1.02]'

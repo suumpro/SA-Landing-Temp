@@ -89,21 +89,21 @@ export default function FAQPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Link
             href="/pricing"
-            className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-all"
+            className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-[border-color,box-shadow]"
           >
             <span className="text-2xl mb-2 block" aria-hidden="true">💰</span>
             <span className="font-medium text-gray-900">플랜 비교하기</span>
           </Link>
           <Link
             href="/how-it-works"
-            className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-all"
+            className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-[border-color,box-shadow]"
           >
             <span className="text-2xl mb-2 block" aria-hidden="true">❓</span>
             <span className="font-medium text-gray-900">서비스 소개</span>
           </Link>
           <Link
             href="/#faq"
-            className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-all"
+            className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary hover:shadow-md transition-[border-color,box-shadow]"
           >
             <span className="text-2xl mb-2 block" aria-hidden="true">🚀</span>
             <span className="font-medium text-gray-900">무료 시작하기</span>

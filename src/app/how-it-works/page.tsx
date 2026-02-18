@@ -305,7 +305,7 @@ export default function HowItWorksPage() {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-[box-shadow,transform] duration-300 hover:-translate-y-1"
               >
                 <span className="text-4xl mb-4 block" role="img" aria-hidden="true">{feature.icon}</span>
                 <h3 className="font-bold text-gray-900 mb-2">{feature.title}</h3>

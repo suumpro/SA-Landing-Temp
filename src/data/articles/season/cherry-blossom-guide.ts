@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-02-28',
   readTime: 5,
-  tags: ['벚꽃', '나들이', '공원상권'],
+  tags: ['벚꽃', '시즌', '상권'],
   icon: 'Flower2',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 벚꽃 시즌 매출 데이터를 기반으로 작성되었습니다.' },

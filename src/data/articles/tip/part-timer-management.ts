@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-02-20',
   readTime: 4,
-  tags: [
-    "아르바이트",
-    "인력관리",
-    "이직률",
-  ],
+  tags: ['인력관리', '매출', '야간'],
   icon: 'UserCheck',
   content: [
     {

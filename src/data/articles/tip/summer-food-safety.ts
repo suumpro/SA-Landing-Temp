@@ -7,8 +7,9 @@ export const article: Article = {
   category: 'tip',
   date: '2026-03-28',
   readTime: 5,
-  tags: ['식품안전', '식중독', '위생'],
+  tags: ['위생', '기온', '재고관리'],
   icon: 'ShieldCheck',
+  relatedSlugs: ['summer-peak-operation', 'summer-prep-guide'],
   content: [
     { type: 'callout', variant: 'warning', text: '여름 식중독 사고는 점주에게 영업정지와 법적 책임을 초래할 수 있습니다. 예방이 최선입니다.' },
     { type: 'heading', text: '여름 = 식품 안전의 위기' },

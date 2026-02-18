@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'insight',
   date: '2026-02-28',
   readTime: 5,
-  tags: ['심야', '고객분석', '세그먼트'],
+  tags: ['야간', '고객분석', '매출'],
   icon: 'Moon',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 심야 시간대 POS 데이터를 기반으로 작성되었습니다.' },

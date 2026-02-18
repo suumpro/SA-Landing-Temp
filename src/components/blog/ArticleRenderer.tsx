@@ -61,7 +61,7 @@ export default function ArticleRenderer({ blocks }: { blocks: ArticleBlock[] }) 
           case 'heading': {
             const id = toSlug(block.text);
             return (
-              <h2 key={idx} id={id} className="group/heading text-xl font-bold text-gray-900 pt-2 scroll-mt-24">
+              <h2 key={idx} id={id} className="group/heading text-xl font-bold text-gray-900 pt-2 scroll-mt-20">
                 <Link href={`#${id}`} className="inline-flex items-center gap-2 hover:text-primary transition-colors">
                   {block.text}
                   <Hash className="w-4 h-4 text-gray-300 opacity-0 group-hover/heading:opacity-100 transition-opacity" />

@@ -9,8 +9,8 @@ export const article: Article = {
   readTime: 3,
   tags: [
     "설연휴",
-    "복귀수요",
     "한파",
+    "매출",
   ],
   icon: 'Newspaper',
   content: [

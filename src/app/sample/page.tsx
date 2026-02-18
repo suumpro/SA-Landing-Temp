@@ -118,7 +118,7 @@ export default function SamplePage() {
       </section>
 
       {/* Controls — sticky on md+, scrollable on mobile */}
-      <div className="md:sticky md:top-16 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+      <div className="md:sticky md:top-16 z-30 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-2 space-y-2">
           {/* Area Tabs */}
           <div className="flex justify-center gap-2 sm:gap-3">
@@ -128,7 +128,7 @@ export default function SamplePage() {
                 onClick={() => handleAreaChange(index)}
                 aria-label={`${area.label} 상권 선택`}
                 aria-pressed={areaIndex === index}
-                className={`flex items-center gap-1.5 px-3 sm:px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`flex items-center gap-1.5 px-3 sm:px-5 py-2 rounded-full text-sm font-medium transition-colors ${
                   areaIndex === index
                     ? 'bg-primary text-white shadow-md scale-105'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -150,7 +150,7 @@ export default function SamplePage() {
                   onClick={() => setDayIndex(index)}
                   aria-label={`${day}요일 ${daily.date} 선택`}
                   aria-pressed={dayIndex === index}
-                  className={`min-w-[2.5rem] px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all snap-center ${
+                  className={`min-w-[2.5rem] px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors snap-center ${
                     dayIndex === index
                       ? 'bg-primary text-white shadow-md'
                       : 'bg-gray-50 text-gray-600 hover:bg-gray-100'

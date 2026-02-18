@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-01-18',
   readTime: 4,
-  tags: [
-    "야간",
-    "심야운영",
-    "매출최적화",
-  ],
+  tags: ['야간', '매출', '인력관리'],
   icon: 'Moon',
   content: [
     {

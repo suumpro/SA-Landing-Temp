@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'insight',
   date: '2026-02-07',
   readTime: 4,
-  tags: [
-    "이벤트",
-    "상권분석",
-    "매출데이터",
-  ],
+  tags: ['이벤트', '상권', '데이터분석'],
   icon: 'MapPin',
   content: [
     {

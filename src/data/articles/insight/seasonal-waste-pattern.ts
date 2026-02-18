@@ -7,8 +7,9 @@ export const article: Article = {
   category: 'insight',
   date: '2026-03-12',
   readTime: 4,
-  tags: ['폐기', '시즌', '발주'],
+  tags: ['폐기관리', '시즌', '발주'],
   icon: 'Trash2',
+  relatedSlugs: ['pos-data-waste-reduction', 'inventory-management-basics'],
   content: [
     { type: 'callout', variant: 'warning', text: '폐기는 곧 손실입니다. 폐기율 1%를 낮추면 연간 수백만 원을 절약할 수 있습니다.' },
     { type: 'heading', text: '폐기에도 계절이 있다' },

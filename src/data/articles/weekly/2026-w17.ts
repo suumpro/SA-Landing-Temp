@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'weekly',
   date: '2026-04-20',
   readTime: 3,
-  tags: ['어린이날', '선물', '간식'],
+  tags: ['어린이날', '이벤트', '간편식'],
   icon: 'Newspaper',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 매주 발행하는 주간 브리핑 하이라이트입니다.' },

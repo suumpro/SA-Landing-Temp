@@ -7,8 +7,9 @@ export const article: Article = {
   category: 'season',
   date: '2025-12-28',
   readTime: 5,
-  tags: ['겨울', '보온음료', '진열대'],
+  tags: ['기온', '음료', '진열'],
   icon: 'Thermometer',
+  relatedSlugs: ['winter-sales-strategy', 'temperature-sales-correlation'],
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 겨울 보온 진열대 운영 데이터를 기반으로 작성되었습니다.' },
     { type: 'heading', text: '보온 진열대 = 겨울 매출의 핵심' },

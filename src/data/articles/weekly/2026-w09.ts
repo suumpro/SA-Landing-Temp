@@ -8,9 +8,9 @@ export const article: Article = {
   date: '2026-02-23',
   readTime: 3,
   tags: [
-    "봄전환",
     "화이트데이",
-    "졸업시즌",
+    "시즌",
+    "프로모션",
   ],
   icon: 'Newspaper',
   content: [

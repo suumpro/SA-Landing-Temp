@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-01-12',
   readTime: 4,
-  tags: [
-    "공휴일",
-    "시즌캘린더",
-    "발주계획",
-  ],
+  tags: ['이벤트', '시즌', '발주'],
   icon: 'Calendar',
   content: [
     {

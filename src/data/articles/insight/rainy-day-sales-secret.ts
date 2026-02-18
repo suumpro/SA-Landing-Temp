@@ -7,12 +7,9 @@ export const article: Article = {
   category: 'insight',
   date: '2026-02-03',
   readTime: 4,
-  tags: [
-    "데이터",
-    "날씨",
-    "매출분석",
-  ],
+  tags: ['날씨', '데이터분석', '매출'],
   icon: 'CloudRain',
+  relatedSlugs: ['rainy-season-guide', 'rainy-day-operation', 'temperature-sales-correlation'],
   content: [
     {
       type: 'paragraph',

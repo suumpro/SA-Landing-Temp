@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowLeft, Clock } from 'lucide-react';
-import { getAllArticles, getArticleBySlug, getRelatedArticles } from '@/data/articles';
+import { ArrowLeft, ArrowRight, Clock } from 'lucide-react';
+import { getAllArticles, getArticleBySlug, getRelatedArticles, getAdjacentArticles } from '@/data/articles';
 import { categoryMeta } from '@/data/articles/types';
 import ArticleRenderer, { getHeadings } from '@/components/blog/ArticleRenderer';
 import { ArticleCard } from '@/components/blog/ArticleCard';
@@ -51,6 +51,7 @@ export default async function ArticlePage({
 
   const meta = categoryMeta[article.category];
   const related = getRelatedArticles(article, 3);
+  const { prev, next } = getAdjacentArticles(article);
   const headings = getHeadings(article.content);
 
   return (
@@ -116,10 +117,42 @@ export default async function ArticlePage({
         </div>
       </div>
 
+      {/* Prev / Next Navigation */}
+      {(prev || next) && (
+        <div className="max-w-5xl mx-auto px-4 pb-6">
+          <div className="flex items-stretch gap-4">
+            {prev ? (
+              <Link
+                href={`/blog/${prev.slug}`}
+                className="flex-1 group flex items-center gap-3 p-4 rounded-xl border border-gray-100 bg-white hover:border-primary/30 transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4 text-gray-300 group-hover:text-primary shrink-0" />
+                <div className="min-w-0">
+                  <p className="text-xs text-gray-400 mb-0.5">이전 글</p>
+                  <p className="text-sm font-medium text-gray-700 group-hover:text-primary truncate">{prev.title}</p>
+                </div>
+              </Link>
+            ) : <div className="flex-1" />}
+            {next ? (
+              <Link
+                href={`/blog/${next.slug}`}
+                className="flex-1 group flex items-center justify-end gap-3 p-4 rounded-xl border border-gray-100 bg-white hover:border-primary/30 transition-colors text-right"
+              >
+                <div className="min-w-0">
+                  <p className="text-xs text-gray-400 mb-0.5">다음 글</p>
+                  <p className="text-sm font-medium text-gray-700 group-hover:text-primary truncate">{next.title}</p>
+                </div>
+                <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary shrink-0" />
+              </Link>
+            ) : <div className="flex-1" />}
+          </div>
+        </div>
+      )}
+
       {/* Related Articles */}
       {related.length > 0 && (
         <section className="max-w-5xl mx-auto px-4 pb-8">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">관련 글</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">함께 읽으면 좋은 글</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {related.map((a) => (
               <ArticleCard key={a.slug} article={a} />

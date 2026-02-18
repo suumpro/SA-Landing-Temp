@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-02-26',
   readTime: 5,
-  tags: ['배달', '플랫폼', '매출확대'],
+  tags: ['배달', '매출', '마케팅'],
   icon: 'Bike',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 편의점 배달 서비스 운영 경험을 기반으로 작성되었습니다.' },

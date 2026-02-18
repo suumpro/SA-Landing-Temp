@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-03-20',
   readTime: 4,
-  tags: ['장마', '가을', '시즌전환'],
+  tags: ['날씨', '시즌', '발주'],
   icon: 'CloudRain',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 장마~가을 전환기 매출 데이터를 기반으로 작성되었습니다.' },

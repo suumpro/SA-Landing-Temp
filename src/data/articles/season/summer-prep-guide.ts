@@ -7,13 +7,9 @@ export const article: Article = {
   category: 'season',
   date: '2026-02-14',
   readTime: 5,
-  tags: [
-    "여름",
-    "냉장",
-    "발주전략",
-    "시즌전환",
-  ],
+  tags: ['시즌', '발주', '기온'],
   icon: 'Sun',
+  relatedSlugs: ['summer-peak-operation', 'summer-food-safety'],
   content: [
     {
       type: 'paragraph',

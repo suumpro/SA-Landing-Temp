@@ -7,8 +7,9 @@ export const article: Article = {
   category: 'insight',
   date: '2026-01-20',
   readTime: 4,
-  tags: ['유동인구', '전환율', '상권'],
+  tags: ['상권', '고객분석', '데이터분석'],
   icon: 'Users',
+  relatedSlugs: ['location-type-analysis', 'weekend-vs-weekday'],
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 유동인구-매출 상관 데이터를 기반으로 작성되었습니다.' },
     { type: 'heading', text: '유동인구 ≠ 매출' },

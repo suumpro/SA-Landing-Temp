@@ -20,7 +20,7 @@ function AccordionItem({
     <div className="border-b border-gray-200 last:border-b-0">
       <button
         onClick={onToggle}
-        className={`w-full py-5 flex items-center justify-between text-left group transition-all duration-200 ${
+        className={`w-full py-5 flex items-center justify-between text-left group transition-[padding,border-color] duration-200 ${
           isOpen ? 'pl-3 border-l-2 border-primary' : 'pl-0 border-l-2 border-transparent hover:pl-3 hover:border-primary/30'
         }`}
         aria-expanded={isOpen}
@@ -47,7 +47,7 @@ function AccordionItem({
         id={`accordion-panel-${index}`}
         role="region"
         aria-labelledby={`accordion-btn-${index}`}
-        className="grid transition-all duration-300 ease-in-out"
+        className="grid transition-[grid-template-rows] duration-300 ease-in-out"
         style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
       >
         <div className="overflow-hidden">

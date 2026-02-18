@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'weekly',
   date: '2026-03-23',
   readTime: 3,
-  tags: ['봄비', '꽃샘추위', '기온변동'],
+  tags: ['날씨', '기온', '발주'],
   icon: 'Newspaper',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 매주 발행하는 주간 브리핑 하이라이트입니다.' },

@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-03-03',
   readTime: 4,
-  tags: ['도난방지', 'CCTV', '손실관리'],
+  tags: ['재고관리', '매출', '데이터분석'],
   icon: 'Eye',
   content: [
     { type: 'callout', variant: 'warning', text: '편의점 도난 손실은 연평균 120~200만 원. 사전 예방이 핵심입니다.' },

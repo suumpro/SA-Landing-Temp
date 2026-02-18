@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'insight',
   date: '2026-03-25',
   readTime: 4,
-  tags: ['단골', '재방문', '고객관리'],
+  tags: ['고객분석', '매출', '마케팅'],
   icon: 'UserCheck',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 고객 재방문 데이터를 기반으로 작성되었습니다.' },
@@ -29,7 +29,7 @@ export const article: Article = {
       '매장 청결 유지 — 단골 이탈 1위 원인',
       '포인트·멤버십 적극 안내',
     ]},
-    { type: 'paragraph', text: '단골 1명의 연간 매출 기여는 약 210만 원입니다. 단골 10명을 잃으면 연간 2,100만 원의 매출이 사라집니다. 단골 관리는 편의점 운영의 핵심입니다.' },
+    { type: 'paragraph', text: '단골 1명의 연간 매출 기여는 약 90만 원(주 3회 × 5,800원 × 52주)입니다. 단골 10명을 잃으면 연간 900만 원의 매출이 사라집니다. 단골 관리는 편의점 운영의 핵심입니다.' },
     { type: 'callout', variant: 'success', text: 'STOREAGENT는 단골 고객의 구매 패턴을 추적하고, 결품 위험 시 사전 경고를 제공합니다.' },
   ],
 };

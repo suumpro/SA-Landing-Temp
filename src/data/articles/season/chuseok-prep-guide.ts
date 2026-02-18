@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-01-15',
   readTime: 4,
-  tags: [
-    "추석",
-    "명절",
-    "선물세트",
-  ],
+  tags: ['추석', '이벤트', '발주'],
   icon: 'Gift',
   content: [
     {

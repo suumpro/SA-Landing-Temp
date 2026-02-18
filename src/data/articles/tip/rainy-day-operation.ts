@@ -7,8 +7,9 @@ export const article: Article = {
   category: 'tip',
   date: '2026-01-25',
   readTime: 4,
-  tags: ['우천', '안전', '매장관리'],
+  tags: ['날씨', '위생', '매출'],
   icon: 'Umbrella',
+  relatedSlugs: ['rainy-day-sales-secret', 'rainy-season-guide', 'temperature-sales-correlation'],
   content: [
     { type: 'callout', variant: 'warning', text: '비 오는 날 매장 바닥 미끄러움에 주의하세요. 고객 낙상 사고는 점주 책임이 될 수 있습니다.' },
     { type: 'heading', text: '비 오는 날, 위기이자 기회' },

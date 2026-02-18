@@ -20,6 +20,7 @@ export interface Article {
   tags: string[];
   icon: string; // Lucide icon name
   content: ArticleBlock[];
+  relatedSlugs?: string[];
 }
 
 export const categoryMeta: Record<ArticleCategory, { label: string; color: string; bgColor: string }> = {

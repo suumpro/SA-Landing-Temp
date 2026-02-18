@@ -50,7 +50,7 @@ export default function SocialProofSection() {
             return (
               <div
                 key={testimonial.author}
-                className={`relative bg-white rounded-2xl p-6 border border-gray-100 ${tagStyle.hoverBorder} hover:shadow-md transition-all duration-200 ${
+                className={`relative bg-white rounded-2xl p-6 border border-gray-100 ${tagStyle.hoverBorder} hover:shadow-md transition-[border-color,box-shadow] duration-200 ${
                   isVisible ? 'animate-fade-in-up' : 'opacity-0'
                 }`}
                 style={{ animationDelay: isVisible ? `${(index + 1) * 80}ms` : '0ms' }}

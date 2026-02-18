@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'insight',
   date: '2026-02-05',
   readTime: 4,
-  tags: [
-    "점심시간",
-    "골든타임",
-    "시간대분석",
-  ],
+  tags: ['매출', '고객분석', '시즌'],
   icon: 'Clock',
   content: [
     {

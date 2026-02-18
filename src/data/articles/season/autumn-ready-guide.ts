@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'season',
   date: '2026-01-25',
   readTime: 4,
-  tags: [
-    "가을",
-    "시즌전환",
-    "발주체크리스트",
-  ],
+  tags: ['시즌', '발주', '기온'],
   icon: 'Leaf',
   content: [
     {

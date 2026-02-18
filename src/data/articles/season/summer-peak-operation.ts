@@ -7,8 +7,9 @@ export const article: Article = {
   category: 'season',
   date: '2026-03-15',
   readTime: 5,
-  tags: ['폭염', '냉장관리', '여름'],
+  tags: ['기온', '위생', '시즌'],
   icon: 'Sun',
+  relatedSlugs: ['summer-prep-guide', 'summer-food-safety', 'temperature-sales-correlation'],
   content: [
     { type: 'callout', variant: 'warning', text: '폭염 특보 시 냉장 설비 과부하에 주의하세요. 냉장고 문 개폐 빈도가 증가하면 온도가 올라갑니다.' },
     { type: 'heading', text: '폭염이 편의점에 미치는 영향' },

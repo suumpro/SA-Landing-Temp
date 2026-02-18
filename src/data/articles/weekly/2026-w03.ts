@@ -8,9 +8,9 @@ export const article: Article = {
   date: '2026-01-12',
   readTime: 3,
   tags: [
-    "건강트렌드",
-    "다이어트",
-    "신년",
+    "건강",
+    "시즌",
+    "매출",
   ],
   icon: 'Newspaper',
   content: [

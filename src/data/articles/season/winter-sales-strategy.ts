@@ -7,13 +7,9 @@ export const article: Article = {
   category: 'season',
   date: '2026-01-20',
   readTime: 5,
-  tags: [
-    "겨울",
-    "발주",
-    "전략",
-    "매출",
-  ],
+  tags: ['기온', '발주', '매출'],
   icon: 'Snowflake',
+  relatedSlugs: ['winter-peak-heating', 'temperature-sales-correlation'],
   content: [
     {
       type: 'paragraph',

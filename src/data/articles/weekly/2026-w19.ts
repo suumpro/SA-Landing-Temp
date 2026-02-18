@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'weekly',
   date: '2026-05-04',
   readTime: 3,
-  tags: ['초여름', '냉장전환', '시즌전환'],
+  tags: ['시즌', '기온', '음료'],
   icon: 'Newspaper',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 매주 발행하는 주간 브리핑 하이라이트입니다.' },

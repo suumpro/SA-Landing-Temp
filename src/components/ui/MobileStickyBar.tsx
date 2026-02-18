@@ -23,10 +23,10 @@ export default function MobileStickyBar() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden transition-all duration-300 ${
+      className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden transition-transform duration-300 ${
         isVisible
-          ? 'translate-y-0 opacity-100'
-          : 'translate-y-full opacity-0'
+          ? 'translate-y-0'
+          : 'translate-y-full'
       }`}
     >
       <div className="bg-white/95 backdrop-blur-xl border-t border-gray-100 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-4 py-3 safe-area-pb">
@@ -43,7 +43,7 @@ export default function MobileStickyBar() {
             </button>
             <button
               onClick={() => scrollToSection('faq')}
-              className="flex-1 py-3.5 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-xl transition-all text-center"
+              className="flex-1 py-3.5 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-xl transition-colors text-center"
             >
               무료 뉴스레터 받기
             </button>

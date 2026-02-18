@@ -7,8 +7,9 @@ export const article: Article = {
   category: 'insight',
   date: '2026-03-18',
   readTime: 5,
-  tags: ['프로모션', 'ROI', '수익성'],
+  tags: ['프로모션', '매출', '데이터분석'],
   icon: 'PiggyBank',
+  relatedSlugs: ['promo-strategy-basics', 'impulse-buying-data'],
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 프로모션 매출·마진 데이터를 기반으로 작성되었습니다.' },
     { type: 'heading', text: '프로모션, 매출은 오르지만 이익은?' },

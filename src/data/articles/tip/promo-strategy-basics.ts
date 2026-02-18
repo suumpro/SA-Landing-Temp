@@ -7,12 +7,9 @@ export const article: Article = {
   category: 'tip',
   date: '2026-01-10',
   readTime: 4,
-  tags: [
-    "프로모션",
-    "할인",
-    "매출전략",
-  ],
+  tags: ['프로모션', '매출', '진열'],
   icon: 'Tag',
+  relatedSlugs: ['promotion-roi-analysis', 'impulse-buying-data'],
   content: [
     {
       type: 'paragraph',

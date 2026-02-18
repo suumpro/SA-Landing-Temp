@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-03-22',
   readTime: 4,
-  tags: ['SNS', '인스타그램', '마케팅'],
+  tags: ['마케팅', '고객분석', '매출'],
   icon: 'Share2',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 SNS 마케팅으로 매출을 올린 점주 사례를 기반으로 작성되었습니다.' },

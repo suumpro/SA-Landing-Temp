@@ -7,8 +7,9 @@ export const article: Article = {
   category: 'insight',
   date: '2026-03-01',
   readTime: 5,
-  tags: ['충동구매', '심리학', '데이터'],
+  tags: ['고객분석', '진열', '프로모션'],
   icon: 'Zap',
+  relatedSlugs: ['promotion-roi-analysis', 'promo-strategy-basics'],
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 편의점 충동구매 데이터를 기반으로 작성되었습니다.' },
     { type: 'heading', text: '편의점 매출의 38%는 충동구매' },

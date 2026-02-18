@@ -7,7 +7,7 @@ export const article: Article = {
   category: 'insight',
   date: '2026-03-08',
   readTime: 5,
-  tags: ['음료', '커피', '탄산'],
+  tags: ['음료', '데이터분석', '매출'],
   icon: 'Coffee',
   content: [
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 음료 카테고리 매출 데이터를 기반으로 작성되었습니다.' },

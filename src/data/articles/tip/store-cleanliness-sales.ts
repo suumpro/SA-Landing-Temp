@@ -7,11 +7,7 @@ export const article: Article = {
   category: 'tip',
   date: '2026-02-15',
   readTime: 4,
-  tags: [
-    "청결",
-    "매출상관",
-    "매장관리",
-  ],
+  tags: ['위생', '매출', '고객분석'],
   icon: 'Sparkle',
   content: [
     {

@@ -101,7 +101,7 @@ export default function NewsletterForm() {
       <button
         type="submit"
         disabled={isSubmitting || isSuccess}
-        className={`w-full py-3 disabled:cursor-not-allowed transition-all duration-300 ${
+        className={`w-full py-3 disabled:cursor-not-allowed transition-colors duration-300 ${
           isSuccess
             ? 'bg-success text-white rounded-xl font-semibold'
             : 'btn-primary disabled:opacity-50'
