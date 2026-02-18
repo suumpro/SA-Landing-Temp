@@ -26,7 +26,7 @@ const stats = [
   },
   {
     icon: Target,
-    value: 94,
+    value: 87,
     suffix: '%',
     label: '발주 적중률',
     subtext: 'Premium 플랜 기준',

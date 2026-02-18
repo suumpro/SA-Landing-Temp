@@ -47,7 +47,7 @@ export const elementaryFieldTrip: EventBlock = {
 };
 export const hangangCherryBlossom: EventBlock = {
   icon: '🌸', title: '한강 벚꽃축제 피크',
-  detail: '잠실 한강공원 · 예상 50,000명', impact: '도시락 +450%, 음료 +400%',
+  detail: '잠실 한강공원 · 예상 50,000명', impact: '도시락 +250%, 음료 +200%',
 };
 export const hangangAutumnFestival: EventBlock = {
   icon: '🍂', title: '잠실 한강공원 단풍축제',
@@ -112,7 +112,7 @@ export const hongdaeLadiesNight: EventBlock = {
 };
 export const hongdaeBeerFest: EventBlock = {
   icon: '🍺', title: '홍대 맥주축제',
-  detail: '금~일 · 거리 축제', impact: '주말 맥주 +300%, 안주 +200%',
+  detail: '금~일 · 거리 축제', impact: '주말 맥주 +200%, 안주 +150%',
 };
 export const hongdaeBusking: EventBlock = {
   icon: '🎸', title: '홍대 거리공연 시즌',

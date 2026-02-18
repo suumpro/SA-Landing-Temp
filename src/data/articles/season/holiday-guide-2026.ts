@@ -60,7 +60,7 @@ export const article: Article = {
     {
       type: 'stat',
       label: '화이트데이 사탕 매출',
-      value: '+320%',
+      value: '+200%',
     },
     {
       type: 'divider',

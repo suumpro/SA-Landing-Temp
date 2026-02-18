@@ -43,13 +43,13 @@ export default function POSAnalysisSection() {
         {/* Performance Metrics */}
         <div className={`flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
           <div className="flex items-center gap-2 bg-success/10 text-success px-4 py-2.5 rounded-xl text-sm font-semibold">
-            <TrendingUp className="w-4 h-4" /> 평균 매출 +8.5%
+            <TrendingUp className="w-4 h-4" /> 평균 매출 +7.2%
           </div>
           <div className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2.5 rounded-xl text-sm font-semibold">
             <TrendingDown className="w-4 h-4" /> 주간 폐기 비용 18만원 절감
           </div>
           <div className="flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2.5 rounded-xl text-sm font-semibold">
-            <Target className="w-4 h-4" /> 발주 적중률 94%
+            <Target className="w-4 h-4" /> 발주 적중률 87%
           </div>
         </div>
 

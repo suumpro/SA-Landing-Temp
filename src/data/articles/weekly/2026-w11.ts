@@ -13,7 +13,7 @@ export const article: Article = {
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 매주 발행하는 주간 브리핑 하이라이트입니다. 구독하시면 매주 월요일 아침에 받아보실 수 있습니다.' },
     { type: 'heading', text: '화이트데이 D-5 — 최종 점검' },
     { type: 'paragraph', text: '이번 주 토요일이 화이트데이(3/14)입니다. 사탕·캔디 기프트 세트가 계산대 근처에 잘 진열되어 있는지 최종 점검하세요. D-3부터 매출이 급증하므로 수요일까지 재고를 충분히 확보해야 합니다.' },
-    { type: 'stat', label: '화이트데이 사탕 매출', value: '+320%', change: '평소 대비' },
+    { type: 'stat', label: '화이트데이 사탕 매출', value: '+260%', change: '평소 대비' },
     { type: 'stat', label: 'D-3~D-1 매출 집중도', value: '65%', change: '전체 화이트데이 매출 중' },
     { type: 'tip', title: '진열 포인트', text: '계산대 옆 + 입구 2곳에 이중 진열하세요. "깜빡한 선물은 여기서!" POP가 가장 효과적입니다.' },
     { type: 'divider' },

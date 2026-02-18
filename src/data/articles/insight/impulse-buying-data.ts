@@ -26,7 +26,7 @@ export const article: Article = {
     { type: 'stat', label: '음료', value: '35%', change: '충동구매 비율' },
     { type: 'stat', label: '아이스크림', value: '61%', change: '충동구매 비율' },
     { type: 'stat', label: '간편식(도시락·삼각김밥)', value: '18%', change: '충동구매 비율' },
-    { type: 'tip', title: '충동구매 설계 팁', text: '계산대 앞 1m를 \"충동구매 존\"으로 설정하세요. 2,000~3,000원대 과자, 껌, 초콜릿, 소용량 음료를 배치하면 객단가가 평균 800원 상승합니다.' },
+    { type: 'tip', title: '충동구매 설계 팁', text: '계산대 앞 1m를 \"충동구매 존\"으로 설정하세요. 2,000~3,000원대 과자, 껌, 초콜릿, 소용량 음료를 배치하면 객단가가 평균 450원 상승합니다.' },
     { type: 'callout', variant: 'success', text: 'STOREAGENT는 POS 데이터를 분석하여 충동구매 패턴을 자동 탐지하고 진열 추천을 제공합니다.' },
   ],
 };

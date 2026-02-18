@@ -13,7 +13,7 @@ export const article: Article = {
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 매주 발행하는 주간 브리핑 하이라이트입니다.' },
     { type: 'heading', text: '봄비 + 꽃샘추위 — 이중 대응' },
     { type: 'paragraph', text: '이번 주 수~목요일에 봄비가 예상되고, 금요일에는 기온이 5도까지 급락하는 꽃샘추위가 옵니다. 봄이라고 보온 음료를 완전히 치우면 안 되는 이유입니다.' },
-    { type: 'stat', label: '봄비 시 우산 매출', value: '+380%' },
+    { type: 'stat', label: '봄비 시 우산 매출', value: '+280%' },
     { type: 'stat', label: '꽃샘추위 시 보온 음료', value: '+45%', change: '전일 대비' },
     { type: 'tip', title: '유연한 진열', text: '보온 음료 1칸은 4월까지 유지하세요. 꽃샘추위가 올 때마다 수요가 반등합니다. 완전 철수는 4월 중순 이후.' },
     { type: 'divider' },

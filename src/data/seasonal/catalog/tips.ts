@@ -113,7 +113,7 @@ export const cherryBlossomTips = {
     action: '삼각김밥 50개·샌드위치 30개·도시락 20개, 오전 10시까지 냉장고 풀세팅',
   },
   drinksPeak: {
-    text: '야외 활동으로 음료 수요 +400%',
+    text: '야외 활동으로 음료 수요 +200%',
     action: '생수 80개·이온음료 40개·캔커피 30개 입구 아이스박스 세팅',
   },
   disposables: {

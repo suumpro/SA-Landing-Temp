@@ -35,7 +35,7 @@ export const article: Article = {
     {
       type: 'stat',
       label: '우산·우비',
-      value: '+450%',
+      value: '+280%',
     },
     {
       type: 'stat',

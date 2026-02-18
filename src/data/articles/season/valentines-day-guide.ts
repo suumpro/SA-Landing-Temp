@@ -13,7 +13,7 @@ export const article: Article = {
     { type: 'callout', variant: 'info', text: '이 글은 STOREAGENT가 분석한 밸런타인데이 매출 데이터를 기반으로 작성되었습니다.' },
     { type: 'heading', text: '밸런타인데이 — 편의점 초콜릿의 날' },
     { type: 'paragraph', text: '밸런타인데이(2/14)는 편의점 초콜릿 매출이 연중 최고치를 찍는 날입니다. 대형마트·백화점과 달리 편의점은 \"당일 급한 선물\" \"학교·사무실 의리 초콜릿\" 수요를 독점합니다. D-14부터 체계적으로 준비하면 매출을 극대화할 수 있습니다.' },
-    { type: 'stat', label: '밸런타인데이 초콜릿', value: '+500%', change: '평소 대비' },
+    { type: 'stat', label: '밸런타인데이 초콜릿', value: '+380%', change: '평소 대비' },
     { type: 'stat', label: '2/13~2/14 이틀 집중도', value: '72%', change: '주간 매출 중' },
     { type: 'stat', label: '의리 초콜릿(소포장)', value: '+350%', change: '평소 대비' },
     { type: 'divider' },

@@ -14,7 +14,7 @@ export const article: Article = {
     { type: 'callout', variant: 'warning', text: '비 오는 날 매장 바닥 미끄러움에 주의하세요. 고객 낙상 사고는 점주 책임이 될 수 있습니다.' },
     { type: 'heading', text: '비 오는 날, 위기이자 기회' },
     { type: 'paragraph', text: '비 오는 날은 외출을 줄이므로 유동인구가 감소하지만, 편의점은 예외입니다. \"가까운 편의점\"의 장점이 극대화되어 오히려 특정 카테고리 매출이 상승합니다. 동시에 안전 관리를 소홀히 하면 사고로 이어질 수 있습니다.' },
-    { type: 'stat', label: '우산 매출', value: '+450%', change: '갑작스러운 비' },
+    { type: 'stat', label: '우산 매출', value: '+280%', change: '갑작스러운 비' },
     { type: 'stat', label: '배달 주문', value: '+180%', change: '우천일' },
     { type: 'stat', label: '간편식 매출', value: '+25%', change: '외식 대체 수요' },
     { type: 'divider' },

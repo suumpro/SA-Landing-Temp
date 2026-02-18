@@ -179,7 +179,7 @@ export const posAnalysisData: POSAnalysisMap = {
       totalSales: '1,280만원',
       totalChange: 18.5,
       items: [
-        { category: '에너지드링크', amount: 350, change: 85, barPercent: 100 },
+        { category: '에너지드링크', amount: 350, change: 40, barPercent: 100 },
         { category: '커피/음료', amount: 300, change: 30, barPercent: 86 },
         { category: '라면/즉석식품', amount: 280, change: 22, barPercent: 80 },
         { category: '과자/초콜릿', amount: 200, change: 35, barPercent: 57 },
@@ -205,7 +205,7 @@ export const posAnalysisData: POSAnalysisMap = {
       totalItems: 15,
       estimatedSaving: '20만원',
       items: [
-        { product: '레드불 250ml', currentStock: 8, recommended: 45, reason: '기말고사 D-3, 에너지드링크 +85%', urgency: 'high' },
+        { product: '레드불 250ml', currentStock: 8, recommended: 25, reason: '기말고사 D-3, 에너지드링크 +40%', urgency: 'high' },
         { product: '핫초코 (스위스미스)', currentStock: 5, recommended: 25, reason: '한파 주의보, 체감 -10°C', urgency: 'high' },
         { product: '컵라면 (진라면)', currentStock: 20, recommended: 40, reason: '야식 타임 수요 +80%', urgency: 'medium' },
         { product: '초콜릿 (가나)', currentStock: 12, recommended: 25, reason: '시험 스트레스 단맛 수요', urgency: 'low' },
@@ -257,8 +257,8 @@ export const posAnalysisData: POSAnalysisMap = {
       totalItems: 18,
       estimatedSaving: '28만원',
       items: [
-        { product: '카스 500ml (6캔)', currentStock: 10, recommended: 42, reason: '금요 콘서트 + 불금 주류 +150%', urgency: 'high' },
-        { product: '마른안주 (오징어)', currentStock: 8, recommended: 25, reason: '2차 수요 안주 +120%', urgency: 'high' },
+        { product: '카스 500ml (6캔)', currentStock: 10, recommended: 28, reason: '금요 콘서트 + 불금 주류 +100%', urgency: 'high' },
+        { product: '마른안주 (오징어)', currentStock: 8, recommended: 18, reason: '2차 수요 안주 +80%', urgency: 'high' },
         { product: '얼음 (2kg)', currentStock: 5, recommended: 18, reason: '금요일 얼음 수요 2배', urgency: 'medium' },
         { product: '에너지드링크', currentStock: 15, recommended: 30, reason: '클럽 입장 전 사전 수요', urgency: 'low' },
       ],

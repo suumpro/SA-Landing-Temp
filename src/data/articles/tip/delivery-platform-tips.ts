@@ -14,7 +14,7 @@ export const article: Article = {
     { type: 'heading', text: '편의점 배달, 새로운 매출 채널' },
     { type: 'paragraph', text: '배달 플랫폼을 통한 편의점 배달은 오프라인 매장 매출과 별도로 추가 매출을 만들어냅니다. 특히 심야·우천·폭염일에 배달 주문이 급증하며, 이미 가지고 있는 상품을 그대로 팔 수 있어 추가 투자가 적습니다.' },
     { type: 'stat', label: '배달 매출 비중', value: '8~12%', change: '입점 매장 평균' },
-    { type: 'stat', label: '배달 객단가', value: '12,500원', change: '오프라인 4,200원' },
+    { type: 'stat', label: '배달 객단가', value: '8,500원', change: '오프라인 4,200원' },
     { type: 'stat', label: '우천일 배달 주문', value: '+180%', change: '맑은 날 대비' },
     { type: 'divider' },
     { type: 'heading', text: '배달 메뉴 구성 전략' },

@@ -16,7 +16,7 @@ export const article: Article = {
     { type: 'paragraph', text: '편의점 폐기율은 연평균 3~5%이지만, 계절 전환기에는 8~10%까지 치솟습니다. 여름→가을, 겨울→봄 전환기에 \"시즌 상품\"이 남기 때문입니다. 데이터로 폐기 패턴을 분석하면 발주 조정 타이밍을 잡을 수 있습니다.' },
     { type: 'stat', label: '연평균 폐기율', value: '3.8%', change: '매출 대비' },
     { type: 'stat', label: '전환기 폐기율', value: '8.2%', change: '시즌 전환 2주' },
-    { type: 'stat', label: '폐기로 인한 연간 손실', value: '480만원', change: '평균 매장' },
+    { type: 'stat', label: '폐기로 인한 연간 손실', value: '2,200만원', change: '평균 매장' },
     { type: 'divider' },
     { type: 'heading', text: '계절별 폐기 카테고리 TOP 3' },
     { type: 'tip', title: '봄 (3~5월)', text: '1. 겨울 간식(호빵·만두) — 시즌 종료 후 재고. 2. 보온 음료 — 기온 상승 후 수요 급감. 3. 밸런타인/화이트데이 잔여 — 이벤트 후 남은 초콜릿·사탕.' },

@@ -15,7 +15,7 @@ export const article: Article = {
     { type: 'paragraph', text: '매년 3월 말~4월 중순, 벚꽃 명소 반경 500m 내 편의점 매출은 평소 대비 40~60% 상승합니다. 특히 공원·한강·호수 근처 매장은 \"피크닉 수요\"가 폭발합니다. 이 시기를 놓치면 연간 매출 최대 피크 중 하나를 놓치는 셈입니다.' },
     { type: 'stat', label: '벚꽃 시즌 매출 상승', value: '+52%', change: '명소 근처 매장 평균' },
     { type: 'stat', label: '피크닉 간식·음료', value: '+85%', change: '일반 주 대비' },
-    { type: 'stat', label: '돗자리·물티슈', value: '+320%', change: '비시즌 대비' },
+    { type: 'stat', label: '돗자리·물티슈', value: '+220%', change: '비시즌 대비' },
     { type: 'divider' },
     { type: 'heading', text: '시기별 준비 타임라인' },
     { type: 'paragraph', text: '벚꽃 시즌은 \"개화 예보\" 발표 시점부터 시작됩니다. 보통 개화 2주 전부터 준비하면 적시에 대응할 수 있습니다.' },
