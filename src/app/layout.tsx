@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MobileStickyBar from "@/components/ui/MobileStickyBar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://storeagent.kr"),
@@ -78,6 +79,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <MobileStickyBar />
       </body>
     </html>
   );

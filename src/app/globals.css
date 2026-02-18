@@ -29,6 +29,10 @@
   --gray-700: #616161;
   --gray-800: #424242;
   --gray-900: #212121;
+
+  /* Section Backgrounds */
+  --bg-warm: #FAFBFE;
+  --bg-cool: #F7F9FC;
 }
 
 @theme inline {
@@ -62,12 +66,17 @@
   --color-gray-800: var(--gray-800);
   --color-gray-900: var(--gray-900);
 
+  /* Section Backgrounds */
+  --color-bg-warm: var(--bg-warm);
+  --color-bg-cool: var(--bg-cool);
+
   /* Border Radius */
   --radius-sm: 4px;
   --radius-DEFAULT: 8px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
+  --radius-2xl: 20px;
 }
 
 body {
@@ -79,7 +88,7 @@ body {
 }
 
 /* ========================================
-   BUTTON STYLES (디자인 스펙 정합)
+   BUTTON STYLES (토스 스타일)
    ======================================== */
 
 .btn-primary {
@@ -88,8 +97,8 @@ body {
   justify-content: center;
   background-color: var(--primary);
   color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
+  padding: 14px 28px;
+  border-radius: 12px;
   font-weight: 600;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -97,13 +106,12 @@ body {
 
 .btn-primary:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+  box-shadow: 0 4px 16px rgba(30, 136, 229, 0.3);
 }
 
 .btn-primary:active {
   background-color: color-mix(in srgb, var(--primary) 80%, black);
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 
 .btn-primary:disabled {
@@ -120,24 +128,24 @@ body {
   justify-content: center;
   background-color: white;
   color: var(--primary);
-  padding: 12px 24px;
-  border-radius: 8px;
+  padding: 14px 28px;
+  border-radius: 12px;
   font-weight: 600;
-  border: 2px solid var(--primary);
+  border: 1.5px solid var(--gray-200);
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .btn-secondary:hover {
-  background-color: var(--primary-lighter);
+  background-color: var(--gray-50);
+  border-color: var(--primary-light);
   color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.15);
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.1);
 }
 
 .btn-secondary:active {
   background-color: var(--primary-lighter);
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 
 .btn-secondary:disabled {
@@ -149,24 +157,25 @@ body {
 }
 
 /* Button Size Variants */
-.btn-sm { padding: 8px 16px; font-size: 14px; }
-.btn-lg { padding: 16px 32px; font-size: 16px; }
+.btn-sm { padding: 8px 18px; font-size: 14px; border-radius: 10px; }
+.btn-lg { padding: 16px 36px; font-size: 16px; border-radius: 14px; }
 
 /* ========================================
-   CARD STYLE
+   CARD STYLE (토스 스타일)
    ======================================== */
 
 .card {
   background: white;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: all 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .card-analysis {
@@ -190,12 +199,12 @@ body {
    ======================================== */
 
 .section {
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 48px 0;
+    padding: 64px 0;
   }
 }
 
@@ -284,6 +293,37 @@ select[aria-invalid="true"]:focus {
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(30, 136, 229, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(30, 136, 229, 0);
+  }
+}
+
 /* Animation Classes */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
@@ -304,6 +344,18 @@ select[aria-invalid="true"]:focus {
 
 .animate-checkmark {
   animation: checkmark 0.5s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 2s ease-in-out infinite;
 }
 
 /* Stagger delay classes */
@@ -352,6 +404,14 @@ select[aria-invalid="true"]:focus {
 /* Initial state for animated elements */
 .animate-on-scroll {
   opacity: 0;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ========================================

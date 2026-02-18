@@ -12,7 +12,7 @@ const anchorLinks = [
 
 const contentLinks = [
   { href: '/sample', label: '브리핑 샘플', highlight: true },
-  { href: '/blog', label: '뉴스레터 예시' },
+  { href: '/blog', label: '인사이트' },
 ];
 
 export default function Header() {
@@ -52,18 +52,21 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100'
-          : 'bg-white/80 backdrop-blur-sm'
+          ? 'bg-white/90 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)] border-b border-gray-100/80'
+          : 'bg-white/60 backdrop-blur-sm'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-primary">STOREAGENT</span>
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+            <span className="text-white text-sm font-bold">SA</span>
+          </div>
+          <span className="text-lg font-bold text-gray-900">STOREAGENT</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6" aria-label="메인 내비게이션">
+        <nav className="hidden md:flex items-center gap-1" aria-label="메인 내비게이션">
           {anchorLinks.map((link) => {
             const isHome = pathname === '/';
 
@@ -72,7 +75,7 @@ export default function Header() {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.anchor)}
-                  className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+                  className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all"
                 >
                   {link.label}
                 </button>
@@ -83,23 +86,23 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+                className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all"
               >
                 {link.label}
               </Link>
             );
           })}
-          <span className="text-gray-300" aria-hidden="true">|</span>
+          <span className="w-px h-4 bg-gray-200 mx-1" aria-hidden="true" />
           {contentLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors ${
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${
                 pathname === link.href
-                  ? 'text-primary'
+                  ? 'text-primary bg-primary-lighter'
                   : link.highlight
-                  ? 'text-primary font-semibold'
-                  : 'text-gray-600 hover:text-primary'
+                  ? 'text-primary hover:bg-primary-lighter/50'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               }`}
               aria-current={pathname === link.href ? 'page' : undefined}
             >
@@ -109,16 +112,16 @@ export default function Header() {
         </nav>
 
         {/* CTA Buttons */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2">
           <button
             onClick={() => scrollToSection('faq')}
-            className="px-5 py-2.5 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
+            className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary transition-colors"
           >
             무료 구독
           </button>
           <button
             onClick={() => scrollToSection('pricing')}
-            className="btn-primary btn-sm rounded-lg"
+            className="px-5 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-xl transition-all"
           >
             플랜 보기
           </button>
@@ -127,12 +130,12 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-3 text-gray-600 hover:text-gray-900 transition-colors"
+          className="md:hidden p-2.5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all"
           aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
           aria-expanded={isMenuOpen}
         >
           <svg
-            className="w-6 h-6"
+            className="w-5 h-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -159,11 +162,11 @@ export default function Header() {
       {/* Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <nav
-          className="bg-white border-t border-gray-100 max-w-6xl mx-auto px-4 py-4 space-y-4"
+          className="bg-white/95 backdrop-blur-xl border-t border-gray-100 max-w-6xl mx-auto px-4 py-3 space-y-1"
           aria-label="모바일 내비게이션"
         >
           {anchorLinks.map((link) => {
@@ -174,7 +177,7 @@ export default function Header() {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.anchor)}
-                  className="block w-full text-left py-3 text-gray-600 hover:text-primary transition-colors"
+                  className="block w-full text-left px-3 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all"
                 >
                   {link.label}
                 </button>
@@ -185,42 +188,44 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-3 text-gray-600 hover:text-primary transition-colors"
+                className="block px-3 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all"
               >
                 {link.label}
               </Link>
             );
           })}
-          <hr className="border-gray-100" />
+          <hr className="border-gray-100 my-1" />
           {contentLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`block py-3 transition-colors ${
+              className={`block px-3 py-3 rounded-lg transition-all ${
                 pathname === link.href
-                  ? 'text-primary font-medium'
+                  ? 'text-primary bg-primary-lighter font-medium'
                   : link.highlight
                   ? 'text-primary font-semibold'
-                  : 'text-gray-600 hover:text-primary'
+                  : 'text-gray-600 hover:text-primary hover:bg-gray-50'
               }`}
               aria-current={pathname === link.href ? 'page' : undefined}
             >
               {link.label}
             </Link>
           ))}
-          <hr className="border-gray-100" />
-          <button
-            onClick={() => scrollToSection('faq')}
-            className="block w-full text-left py-3 text-primary font-medium"
-          >
-            무료 구독
-          </button>
-          <button
-            onClick={() => scrollToSection('pricing')}
-            className="block w-full btn-primary text-center py-3"
-          >
-            플랜 보기
-          </button>
+          <hr className="border-gray-100 my-1" />
+          <div className="flex gap-2 pt-1 pb-2">
+            <button
+              onClick={() => scrollToSection('faq')}
+              className="flex-1 py-3 text-sm font-medium text-primary border border-gray-200 rounded-xl hover:bg-gray-50 transition-all"
+            >
+              무료 구독
+            </button>
+            <button
+              onClick={() => scrollToSection('pricing')}
+              className="flex-1 py-3 text-sm font-semibold text-white bg-primary rounded-xl hover:bg-primary-dark transition-all"
+            >
+              플랜 보기
+            </button>
+          </div>
         </nav>
       </div>
     </header>

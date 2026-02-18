@@ -24,17 +24,16 @@ function ValuePanel({ area }: { area: AreaType }) {
 
       <div className="space-y-4">
         {area.valueProps.map((prop) => (
-          <div key={prop.metric} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+          <div key={prop.metric} className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
             <div className="flex items-start gap-3 mb-2">
-              <span className="text-red-400 text-sm font-bold mt-0.5 shrink-0">Before</span>
-              <p className="text-gray-500 text-sm line-through">{prop.before}</p>
+              <span className="text-xs font-bold text-gray-400 mt-0.5 shrink-0 uppercase tracking-wider">Before</span>
+              <p className="text-gray-400 text-sm line-through">{prop.before}</p>
             </div>
             <div className="flex items-start gap-3 mb-3">
-              <span className="text-primary text-sm font-bold mt-0.5 shrink-0">After</span>
+              <span className="text-xs font-bold text-primary mt-0.5 shrink-0 uppercase tracking-wider">After</span>
               <p className="text-gray-800 text-sm font-medium">{prop.after}</p>
             </div>
-            <div className="flex items-center gap-2 bg-primary-lighter text-primary px-3 py-1.5 rounded-lg w-fit">
-              <span className="text-xs font-bold">&#128200;</span>
+            <div className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-lg w-fit">
               <span className="text-sm font-semibold">{prop.metric}</span>
             </div>
           </div>
@@ -59,14 +58,15 @@ export default function LiveDemoSection() {
   const timeLabels = { morning: '오전', afternoon: '오후', evening: '저녁' };
 
   return (
-    <section id="demo" ref={ref} className="section bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="demo" ref={ref} className="section bg-bg-cool">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className={`text-center mb-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+          <p className="text-sm font-semibold text-primary mb-3 tracking-wide uppercase">Live Demo</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
             우리 매장에선 이런 브리핑을 받습니다
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-500">
             상권을 선택하고, 실제 브리핑을 확인해 보세요
           </p>
         </div>
@@ -83,10 +83,10 @@ export default function LiveDemoSection() {
               onClick={() => setActiveIndex(index)}
               aria-label={`${area.label} 상권 선택`}
               aria-pressed={activeIndex === index}
-              className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                 activeIndex === index
-                  ? 'bg-primary text-white shadow-md ring-2 ring-primary/30 ring-offset-2'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-200'
+                  ? 'bg-primary text-white shadow-md'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-100'
               }`}
             >
               <span aria-hidden="true">{area.icon}</span>
@@ -115,8 +115,7 @@ export default function LiveDemoSection() {
 
         {/* Time Indicator + Sample Link */}
         <div className={`text-center mt-8 ${isVisible ? 'animate-fade-in-up delay-300' : 'opacity-0'}`}>
-          <p className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 text-gray-500 rounded-full text-xs border border-gray-100" suppressHydrationWarning>
-            <span aria-hidden="true">&#9200;</span>
+          <p className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-500 rounded-full text-xs border border-gray-100" suppressHydrationWarning>
             지금 {timeLabels[timeSlot]} 시각 기준 브리핑입니다 &middot; 시간대마다 내용이 달라져요
           </p>
           <div className="mt-3">
@@ -124,7 +123,7 @@ export default function LiveDemoSection() {
               href="/sample"
               className="inline-flex items-center gap-1 text-primary text-sm font-medium hover:underline"
             >
-              7일간의 브리핑을 미리 확인해 보세요 →
+              7일간의 브리핑을 미리 확인해 보세요 &rarr;
             </Link>
           </div>
         </div>
