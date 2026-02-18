@@ -10,6 +10,15 @@ import { article as w07 } from './weekly/2026-w07';
 import { article as w08 } from './weekly/2026-w08';
 import { article as w09 } from './weekly/2026-w09';
 import { article as w10 } from './weekly/2026-w10';
+import { article as w11 } from './weekly/2026-w11';
+import { article as w12 } from './weekly/2026-w12';
+import { article as w13 } from './weekly/2026-w13';
+import { article as w14 } from './weekly/2026-w14';
+import { article as w15 } from './weekly/2026-w15';
+import { article as w16 } from './weekly/2026-w16';
+import { article as w17 } from './weekly/2026-w17';
+import { article as w18 } from './weekly/2026-w18';
+import { article as w19 } from './weekly/2026-w19';
 
 // ── Season ────────────────────────────────────
 import { article as winterSales } from './season/winter-sales-strategy';
@@ -21,6 +30,15 @@ import { article as backToSchool } from './season/back-to-school-guide';
 import { article as rainySeason } from './season/rainy-season-guide';
 import { article as yearEndParty } from './season/year-end-party-guide';
 import { article as chuseokPrep } from './season/chuseok-prep-guide';
+import { article as cherryBlossom } from './season/cherry-blossom-guide';
+import { article as childrensDay } from './season/childrens-day-prep';
+import { article as examSeason } from './season/exam-season-strategy';
+import { article as sportsEvent } from './season/sports-event-guide';
+import { article as valentinesDay } from './season/valentines-day-guide';
+import { article as summerPeak } from './season/summer-peak-operation';
+import { article as newYearRes } from './season/new-year-resolution-sales';
+import { article as monsoonAutumn } from './season/monsoon-to-autumn';
+import { article as winterHeating } from './season/winter-peak-heating';
 
 // ── Insight ───────────────────────────────────
 import { article as rainyDay } from './insight/rainy-day-sales-secret';
@@ -32,6 +50,15 @@ import { article as newProduct } from './insight/new-product-sales-impact';
 import { article as ageGroup } from './insight/age-group-purchase-pattern';
 import { article as weekendWeekday } from './insight/weekend-vs-weekday';
 import { article as locationType } from './insight/location-type-analysis';
+import { article as impulseBuying } from './insight/impulse-buying-data';
+import { article as paymentTrends } from './insight/payment-method-trends';
+import { article as beverageDeep } from './insight/beverage-sales-deep-dive';
+import { article as lateNight } from './insight/late-night-customer-profile';
+import { article as seasonalWaste } from './insight/seasonal-waste-pattern';
+import { article as basketSize } from './insight/basket-size-analysis';
+import { article as promoRoi } from './insight/promotion-roi-analysis';
+import { article as footTraffic } from './insight/foot-traffic-pattern';
+import { article as repeatCustomer } from './insight/repeat-customer-value';
 
 // ── Tip ───────────────────────────────────────
 import { article as posWaste } from './tip/pos-data-waste-reduction';
@@ -43,21 +70,37 @@ import { article as cleanliness } from './tip/store-cleanliness-sales';
 import { article as partTimer } from './tip/part-timer-management';
 import { article as promo } from './tip/promo-strategy-basics';
 import { article as energyCost } from './tip/energy-cost-reduction';
+import { article as cctvLoss } from './tip/cctv-loss-prevention';
+import { article as deliveryPlatform } from './tip/delivery-platform-tips';
+import { article as seasonalMenu } from './tip/seasonal-menu-planning';
+import { article as multiStore } from './tip/multi-store-management';
+import { article as franchiseNego } from './tip/franchise-negotiation';
+import { article as snsMarketing } from './tip/sns-marketing-basics';
+import { article as rainyDayOp } from './tip/rainy-day-operation';
+import { article as summerSafety } from './tip/summer-food-safety';
+import { article as openingMonth } from './tip/opening-first-month';
 
 // ── Articles ──────────────────────────────────
 
 export const articles: Article[] = [
   // Weekly
   w02, w03, w04, w05, w06, w07, w08, w09, w10,
+  w11, w12, w13, w14, w15, w16, w17, w18, w19,
   // Season
   winterSales, springPrep, summerPrep, holidayGuide, autumnReady, backToSchool,
   rainySeason, yearEndParty, chuseokPrep,
+  cherryBlossom, childrensDay, examSeason, sportsEvent, valentinesDay, summerPeak,
+  newYearRes, monsoonAutumn, winterHeating,
   // Insight
   rainyDay, weekdayPattern, eventImpact, tempCorrelation, lunchRush, newProduct,
   ageGroup, weekendWeekday, locationType,
+  impulseBuying, paymentTrends, beverageDeep, lateNight, seasonalWaste, basketSize,
+  promoRoi, footTraffic, repeatCustomer,
   // Tip
   posWaste, nightShift, displayBasics, complaint, inventory, cleanliness,
   partTimer, promo, energyCost,
+  cctvLoss, deliveryPlatform, seasonalMenu, multiStore, franchiseNego, snsMarketing,
+  rainyDayOp, summerSafety, openingMonth,
 ];
 
 // ── 유틸리티 함수 ──────────────────────────────

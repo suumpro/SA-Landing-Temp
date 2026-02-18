@@ -1,0 +1,35 @@
+import type { Article } from '../types';
+
+export const article: Article = {
+  slug: 'cctv-loss-prevention',
+  title: 'CCTV 활용 도난 방지: 손실률 줄이는 방법',
+  excerpt: '도난 패턴 분석과 CCTV·진열 배치를 활용한 실전 손실 방지 가이드.',
+  category: 'tip',
+  date: '2026-03-03',
+  readTime: 4,
+  tags: ['도난방지', 'CCTV', '손실관리'],
+  icon: 'Eye',
+  content: [
+    { type: 'callout', variant: 'warning', text: '편의점 도난 손실은 연평균 120~200만 원. 사전 예방이 핵심입니다.' },
+    { type: 'heading', text: '도난, 예방이 최선이다' },
+    { type: 'paragraph', text: '편의점 도난 손실은 눈에 보이지 않지만 연간 120~200만 원에 달합니다. 대부분의 도난은 \"기회\"가 만들어질 때 발생합니다. CCTV 배치와 진열 방어 전략으로 도난 기회를 줄이면 손실률을 크게 낮출 수 있습니다.' },
+    { type: 'stat', label: '연간 도난 손실', value: '160만원', change: '평균 매장' },
+    { type: 'stat', label: '도난 피크 시간', value: '14~18시', change: '하교·퇴근 시간' },
+    { type: 'stat', label: '도난 TOP 품목', value: '소형 간식', change: '초콜릿·껌·과자' },
+    { type: 'divider' },
+    { type: 'heading', text: 'CCTV 최적 배치' },
+    { type: 'tip', title: '사각지대 제거', text: '계산대에서 보이지 않는 구역이 도난 핫스팟입니다. 진열대 높이를 150cm 이하로 낮추면 시야가 확보됩니다. CCTV는 입구, 주류 코너, 소형 간식 코너에 우선 배치하세요.' },
+    { type: 'tip', title: '모니터 위치', text: 'CCTV 모니터를 입구에서 보이는 곳에 설치하면 \"촬영 중\"이라는 심리적 억제 효과가 있습니다. 이것만으로도 도난율이 30% 감소합니다.' },
+    { type: 'divider' },
+    { type: 'heading', text: '진열 방어 전략' },
+    { type: 'checklist', items: [
+      '고가 소형 상품(화장품·배터리)은 계산대 뒤에 배치',
+      '진열대 높이 150cm 이하로 시야 확보',
+      'CCTV 모니터를 입구에서 보이는 곳에 설치',
+      '거울을 사각지대에 설치하여 시야 보완',
+      '인사 습관화 — \"어서오세요\" 한마디가 도난 억제',
+      '재고 점검 주 1회 → 도난 품목 조기 발견',
+    ]},
+    { type: 'callout', variant: 'info', text: 'STOREAGENT는 재고 차이 분석으로 도난 의심 품목을 자동 탐지합니다.' },
+  ],
+};
