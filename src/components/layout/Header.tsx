@@ -16,16 +16,20 @@ const contentLinks = [
 ];
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Store the pathname when menu was opened; menu is "open" only while pathname matches
+  const [menuOpenPathname, setMenuOpenPathname] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  const isMenuOpen = menuOpenPathname !== null && menuOpenPathname === pathname;
+  const setIsMenuOpen = (open: boolean) => setMenuOpenPathname(open ? pathname : null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsMenuOpen(false);
+      if (e.key === 'Escape') setMenuOpenPathname(null);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('keydown', handleKeyDown);
@@ -34,11 +38,6 @@ export default function Header() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

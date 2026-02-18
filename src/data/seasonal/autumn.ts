@@ -1,7 +1,7 @@
 import type { SeasonScenarios } from './types';
 import { day } from './compose';
 import { autumnCrisp, autumnRain, autumnClear, autumnCool, halloweenClear } from './catalog/weather';
-import { elementarySportsDay, hangangAutumnFestival, hongdaeHalloween, hongdaeHalloweenParty, hongdaeBusking, hongdaeLadiesNight, snuExam, studyGroupPeak, schoolReturn, hangoverSunday, gangnamStartupEvent } from './catalog/events';
+import { elementarySportsDay, hangangAutumnFestival, hongdaeHalloween, hongdaeHalloweenParty, hongdaeBusking, hongdaeLadiesNight, snuExam, studyGroupPeak, schoolReturn, hangoverSunday } from './catalog/events';
 import { examSeasonTips, mondayRecoveryTips, fridayNightTips, sundayRecoveryTips, weekendBrunchTips, residentialTips, entertainmentTips, officeTips, rainDayTips } from './catalog/tips';
 import { examSeasonChecks, fridayNightChecks, weeklyResetChecks, lunchPeakChecks, residentialMorningChecks, weekendOutingChecks } from './catalog/checklists';
 

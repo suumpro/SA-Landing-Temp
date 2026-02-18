@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Newspaper, Sun, BarChart3, Lightbulb } from 'lucide-react';
 import { getAllArticles } from '@/data/articles';
 import type { ArticleCategory } from '@/data/articles/types';
-import { categoryMeta } from '@/data/articles/types';
 import { ArticleCard, FeaturedArticleCard } from '@/components/blog/ArticleCard';
 
 const tabs: { key: ArticleCategory | 'all'; label: string; icon: React.ComponentType<{ className?: string }> }[] = [

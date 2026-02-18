@@ -81,7 +81,7 @@ export default function PricingCard({ plan }: PricingCardProps) {
 
       {/* Features */}
       <ul className="space-y-3 mb-6">
-        {plan.features.map((feature, index) => (
+        {plan.features.map((feature) => (
           <li
             key={feature.text}
             className={`flex items-center gap-2 text-sm ${

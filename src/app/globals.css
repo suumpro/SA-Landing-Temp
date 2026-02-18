@@ -268,17 +268,6 @@ select[aria-invalid="true"]:focus {
   }
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 @keyframes checkmark {
   0% {
     transform: scale(0);
@@ -290,28 +279,6 @@ select[aria-invalid="true"]:focus {
   100% {
     transform: scale(1);
     opacity: 1;
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-32px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(32px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 
@@ -338,20 +305,8 @@ select[aria-invalid="true"]:focus {
   will-change: transform;
 }
 
-.animate-scale-in {
-  animation: scaleIn 0.4s ease-out forwards;
-}
-
 .animate-checkmark {
   animation: checkmark 0.5s ease-out forwards;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.6s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out forwards;
 }
 
 .animate-pulse-soft {

@@ -1,9 +1,10 @@
 'use client';
 
-import { memo, useState, useEffect } from 'react';
+import { memo } from 'react';
 import { getTimeSlot, getBriefingTitle, getBriefingTime, getToday } from '@/lib/timeUtils';
 import type { TimeSlot } from '@/lib/timeUtils';
 import type { AreaType, BriefingScenario } from '@/data/briefingData';
+import { useIsMounted } from '@/hooks/useIsMounted';
 
 interface BriefingMockupProps {
   area: AreaType;
@@ -13,22 +14,17 @@ interface BriefingMockupProps {
 }
 
 export const BriefingMockup = memo(function BriefingMockup({ area, scenario, dateOverride, timeOverride }: BriefingMockupProps) {
-  const [timeSlot, setTimeSlot] = useState<TimeSlot>('morning');
-  const [today, setToday] = useState(dateOverride ?? '');
-  const [time, setTime] = useState(timeOverride ?? '오전 6:00');
+  const mounted = useIsMounted();
 
-  useEffect(() => {
-    const ts = getTimeSlot();
-    setTimeSlot(ts);
-    if (!dateOverride) setToday(getToday());
-    if (!timeOverride) setTime(getBriefingTime(ts));
-  }, [dateOverride, timeOverride]);
+  const timeSlot: TimeSlot = mounted ? getTimeSlot() : 'morning';
+  const today = dateOverride ?? (mounted ? getToday() : '');
+  const time = timeOverride ?? (mounted ? getBriefingTime(timeSlot) : '오전 6:00');
 
   return (
     <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-gray-200 w-full max-w-sm mx-auto">
       {/* Status Bar */}
       <div className="bg-gray-900 px-6 pt-3 pb-2 flex items-center justify-between">
-        <span className="text-white text-xs font-medium" suppressHydrationWarning>{time}</span>
+        <span className="text-white text-xs font-medium">{time}</span>
         <div className="w-20 h-5 bg-gray-800 rounded-full" aria-hidden="true" />
         <div className="flex items-center gap-1">
           <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -44,8 +40,8 @@ export const BriefingMockup = memo(function BriefingMockup({ area, scenario, dat
       <div className="bg-primary px-5 py-4">
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="text-white font-bold text-lg" suppressHydrationWarning>{dateOverride ? 'SA 오늘의 브리핑' : getBriefingTitle(timeSlot)}</h4>
-            <p className="text-white/80 text-sm" suppressHydrationWarning>{today} {time}</p>
+            <h4 className="text-white font-bold text-lg">{dateOverride ? 'SA 오늘의 브리핑' : getBriefingTitle(timeSlot)}</h4>
+            <p className="text-white/80 text-sm">{today} {time}</p>
             <p className="text-white/60 text-xs mt-0.5">{area.location}</p>
           </div>
           <span className="text-3xl" role="img" aria-label="날씨">{scenario.weather.icon}</span>
