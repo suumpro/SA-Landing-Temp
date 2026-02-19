@@ -12,7 +12,7 @@ import {
   Leaf, BookOpen, Calendar, CalendarDays, MapPin,
   PartyPopper, Sparkle, Tag, Package, MessageCircle,
 } from 'lucide-react';
-import type { Article } from '@/data/articles/types';
+import type { ArticleMeta } from '@/data/articles/types';
 import { categoryMeta } from '@/data/articles/types';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -39,7 +39,7 @@ const categoryAccent: Record<string, { border: string; iconBg: string; bar: stri
   tip: { border: 'group-hover:border-amber-200', iconBg: 'bg-amber-50', bar: 'from-amber-400 to-amber-600' },
 };
 
-export const ArticleCard = memo(function ArticleCard({ article }: { article: Article }) {
+export const ArticleCard = memo(function ArticleCard({ article }: { article: ArticleMeta }) {
   const meta = categoryMeta[article.category];
   const accent = categoryAccent[article.category];
 
@@ -93,7 +93,7 @@ export const ArticleCard = memo(function ArticleCard({ article }: { article: Art
   );
 });
 
-export const FeaturedArticleCard = memo(function FeaturedArticleCard({ article }: { article: Article }) {
+export const FeaturedArticleCard = memo(function FeaturedArticleCard({ article }: { article: ArticleMeta }) {
   const meta = categoryMeta[article.category];
   const accent = categoryAccent[article.category];
 

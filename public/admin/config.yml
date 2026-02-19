@@ -1,0 +1,125 @@
+backend:
+  name: github
+  repo: your-org/storeagent-b2c-landing  # TODO: 실제 GitHub 저장소로 변경
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: public/images/blog
+public_folder: /images/blog
+
+locale: ko
+
+collections:
+  - name: weekly
+    label: 주간 브리핑
+    label_singular: 주간 브리핑
+    folder: content/articles/weekly
+    create: true
+    extension: mdx
+    format: frontmatter
+    slug: '{{slug}}'
+    summary: '{{title}} — {{date}}'
+    fields: &article_fields
+      - { label: '슬러그 (URL)', name: slug, widget: string, hint: '영문, 숫자, 하이픈만 사용 (예: 2026-w20-weekly)' }
+      - { label: '제목', name: title, widget: string }
+      - { label: '요약', name: excerpt, widget: text }
+      - label: '카테고리'
+        name: category
+        widget: select
+        options:
+          - { label: '주간 브리핑', value: weekly }
+          - { label: '시즌 가이드', value: season }
+          - { label: '데이터 인사이트', value: insight }
+          - { label: '점주 노하우', value: tip }
+      - { label: '발행일', name: date, widget: string, hint: 'YYYY-MM-DD 형식 (예: 2026-03-01)' }
+      - { label: '읽기 시간 (분)', name: readTime, widget: number, value_type: int, default: 3 }
+      - label: '태그'
+        name: tags
+        widget: list
+        default: []
+        hint: '태그를 쉼표로 구분하여 입력'
+      - label: '아이콘'
+        name: icon
+        widget: select
+        default: Newspaper
+        options:
+          - Newspaper
+          - Snowflake
+          - CloudRain
+          - BarChart3
+          - TrendingDown
+          - Lightbulb
+          - Sun
+          - Gift
+          - GraduationCap
+          - Trophy
+          - Heart
+          - Sparkles
+          - Thermometer
+          - Zap
+          - CreditCard
+          - Coffee
+          - Moon
+          - Trash2
+          - ShoppingCart
+          - PiggyBank
+          - Users
+          - UserCheck
+          - Eye
+          - Bike
+          - ChefHat
+          - Building2
+          - Handshake
+          - Share2
+          - Umbrella
+          - ShieldCheck
+          - Rocket
+          - Leaf
+          - BookOpen
+          - Calendar
+          - CalendarDays
+          - MapPin
+          - PartyPopper
+          - Package
+          - MessageCircle
+      - label: '관련 아티클 슬러그'
+        name: relatedSlugs
+        widget: list
+        required: false
+        default: []
+        hint: '관련 아티클의 슬러그를 입력 (선택사항)'
+      - { label: '본문', name: body, widget: markdown }
+
+  - name: season
+    label: 시즌 가이드
+    label_singular: 시즌 가이드
+    folder: content/articles/season
+    create: true
+    extension: mdx
+    format: frontmatter
+    slug: '{{slug}}'
+    summary: '{{title}} — {{date}}'
+    fields: *article_fields
+
+  - name: insight
+    label: 데이터 인사이트
+    label_singular: 데이터 인사이트
+    folder: content/articles/insight
+    create: true
+    extension: mdx
+    format: frontmatter
+    slug: '{{slug}}'
+    summary: '{{title}} — {{date}}'
+    fields: *article_fields
+
+  - name: tip
+    label: 점주 노하우
+    label_singular: 점주 노하우
+    folder: content/articles/tip
+    create: true
+    extension: mdx
+    format: frontmatter
+    slug: '{{slug}}'
+    summary: '{{title}} — {{date}}'
+    fields: *article_fields

@@ -1,15 +1,5 @@
 export type ArticleCategory = 'weekly' | 'season' | 'insight' | 'tip';
 
-export type ArticleBlock =
-  | { type: 'heading'; text: string }
-  | { type: 'paragraph'; text: string }
-  | { type: 'tip'; title: string; text: string }
-  | { type: 'stat'; label: string; value: string; change?: string }
-  | { type: 'checklist'; items: string[] }
-  | { type: 'quote'; text: string; author: string }
-  | { type: 'callout'; variant: 'info' | 'warning' | 'success'; text: string }
-  | { type: 'divider' };
-
 export interface Article {
   slug: string;
   title: string;
@@ -19,9 +9,11 @@ export interface Article {
   readTime: number;
   tags: string[];
   icon: string; // Lucide icon name
-  content: ArticleBlock[];
+  body: string; // raw MDX content
   relatedSlugs?: string[];
 }
+
+export type ArticleMeta = Omit<Article, 'body'>;
 
 export const categoryMeta: Record<ArticleCategory, { label: string; color: string; bgColor: string }> = {
   weekly: { label: '주간 브리핑', color: 'text-blue-700', bgColor: 'bg-blue-50' },

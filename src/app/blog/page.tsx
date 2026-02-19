@@ -7,7 +7,7 @@ import {
   Newspaper, Sun, BarChart3, Lightbulb,
   Search, ArrowUpDown, ChevronLeft, ChevronRight, X,
 } from 'lucide-react';
-import { getAllArticles } from '@/data/articles';
+import { getAllArticlesMeta } from '@/lib/article-metadata';
 import type { ArticleCategory } from '@/data/articles/types';
 import { ArticleCard, FeaturedArticleCard } from '@/components/blog/ArticleCard';
 
@@ -49,7 +49,7 @@ function BlogContent() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  const allArticles = useMemo(() => getAllArticles(), []);
+  const allArticles = useMemo(() => getAllArticlesMeta(), []);
 
   // Popular tags (top 12)
   const popularTags = useMemo(() => {

@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowLeft, ArrowRight, Clock } from 'lucide-react';
-import { getAllArticles, getArticleBySlug, getRelatedArticles, getAdjacentArticles } from '@/data/articles';
+import { getAllArticles, getArticleBySlug, getRelatedArticles, getAdjacentArticles } from '@/lib/articles';
 import { categoryMeta } from '@/data/articles/types';
 import ArticleRenderer, { getHeadings } from '@/components/blog/ArticleRenderer';
 import { ArticleCard } from '@/components/blog/ArticleCard';
@@ -52,7 +52,7 @@ export default async function ArticlePage({
   const meta = categoryMeta[article.category];
   const related = getRelatedArticles(article, 3);
   const { prev, next } = getAdjacentArticles(article);
-  const headings = getHeadings(article.content);
+  const headings = getHeadings(article.body);
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -96,7 +96,7 @@ export default async function ArticlePage({
         <div className="flex gap-10">
           {/* Article Content */}
           <article id="article-content" className="flex-1 min-w-0 max-w-3xl">
-            <ArticleRenderer blocks={article.content} />
+            <ArticleRenderer body={article.body} />
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mt-10 pt-6 border-t border-gray-100">
