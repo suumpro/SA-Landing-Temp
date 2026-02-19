@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: your-org/storeagent-b2c-landing  # TODO: 실제 GitHub 저장소로 변경
+  repo: suumpro/SA-Landing-Temp
   branch: main
 
 publish_mode: editorial_workflow
